@@ -1,42 +1,42 @@
 
 # Homepage
-![homepage.png]
+![](./pics/homepage.png)
 
 # General UI
 
 ## Confirm Delete Modal
-![confirm delete modal.png]
+![./pics/confirm delete modal.png]
 
 # Users
 
 ## Register
-![register.png]
+![./pics/register.png]
 
 ## Login
-![login.png]
+![./pics/login.png]
 
 ## User Edit
-![user edit.png]
+![./pics/user edit.png]
 
 ## Change Password
-![change password modal.png]
+![./pics/change password modal.png]
 
 # Forms
 
 ## Index
-![form index.png]
+![./pics/form index.png]
 
 ## New
-![new form.png]
+![./pics/new form.png]
 
 ## Edit
-![edit form.png]
+![./pics/edit form.png]
 
 
 # Submissions
 
 ## Index
-![submissions index.png]
+![./pics/submissions index.png]
 
 ## Modal
-![submission model.png]
+![./pics/submission model.png]
