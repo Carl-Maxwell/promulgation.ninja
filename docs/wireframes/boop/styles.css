@@ -1,0 +1,27 @@
+h1 {
+  font-size: 30px; }
+
+h2 {
+  font-size: 25px; }
+
+h3 {
+  font-size: 20px; }
+
+header {
+  background: #dbe2e8;
+  color: #1d95e5; }
+
+body {
+  background: whitesmoke; }
+
+div {
+  background: whitesmoke;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 0 auto;
+  width: 800px; }
+  div input {
+    margin: 10px auto;
+    width: 460px; }
+
+/*# sourceMappingURL=styles.css.map */

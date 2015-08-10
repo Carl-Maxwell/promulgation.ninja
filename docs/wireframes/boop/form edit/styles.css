@@ -1,0 +1,41 @@
+h1 {
+  font-size: 30px; }
+
+h2 {
+  font-size: 25px; }
+
+h3 {
+  font-size: 20px; }
+
+header {
+  background: #dbe2e8;
+  color: #1d95e5; }
+
+body {
+  background: whitesmoke; }
+
+div {
+  margin: 0 auto;
+  width: 800px; }
+  div ul.add-field-index {
+    background: lightgrey;
+    float: left;
+    width: 300px; }
+    div ul.add-field-index li {
+      background: lightblue;
+      margin: 10px auto;
+      padding: 10px;
+      width: 200px; }
+  div .fields {
+    background: lightblue;
+    float: left;
+    padding: 10px;
+    width: 480px; }
+    div .fields li input, div .fields li textarea {
+      display: block;
+      margin: 10px 0;
+      width: 480px; }
+    div .fields li textarea {
+      height: 75px; }
+
+/*# sourceMappingURL=styles.css.map */
