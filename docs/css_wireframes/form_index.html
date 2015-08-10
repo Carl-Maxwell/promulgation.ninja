@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="clearfix.css" media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="reset.css"    media="screen" title="no title" charset="utf-8">
+<link rel="stylesheet" href="styles.css"   media="screen" title="no title" charset="utf-8">
+
+<body onClick="(document.querySelector('.clicked') || {clasList: {remove: function() {}}} ).classList.remove('clicked');">
+
+<header class="clearfix">
+  <div class="">
+    <div class="logo"></div>
+    <ul class="navbar-links">
+      <li>Login</li>
+      <li>Register</li>
+    </ul>
+  </div>
+</header>
+
+<section>
+  <div class="content">
+    <table class="form-index">
+      <thead>
+        <tr><td>Name</td><td colspan="3">Actions</td></tr>
+      </thead>
+      <tbody>
+        <tr><td>My First Form</td><td>Edit</td><td>Delete</td><td>Submissions</td></tr>
+        <tr><td>My Second Form</td><td>Edit</td><td>Delete</td><td>Submissions</td></tr>
+        <tr><td>My Tertiary Form</td><td>Edit</td><td>Delete</td><td>Submissions</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="3"></t><td><button>New Form</button></td></tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
+
+</body>

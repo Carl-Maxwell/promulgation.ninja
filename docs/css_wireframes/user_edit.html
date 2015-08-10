@@ -4,15 +4,21 @@
 
 <body onClick="(document.querySelector('.clicked') || {clasList: {remove: function() {}}} ).classList.remove('clicked');">
 
-<header>
-  <div class="logo"></div>
+<header class="clearfix">
+  <div class="">
+    <div class="logo"></div>
+    <ul class="navbar-links">
+      <li>Login</li>
+      <li>Register</li>
+    </ul>
+  </div>
 </header>
 
 <section>
-  <div>
-    Form Name
-    <input type="text">
-    <input type="submit">
+  <div class="content">
+    <div class="wrapper">
+      <button>change password</button>
+    </div>
   </div>
 </section>
 
