@@ -5,7 +5,6 @@
 [heroku]: http://.herokuapp.com
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Wufoo built on Rails and Backbone. Users can:
 
 - [ ] creating, viewing, editing, and deleting accounts
 - [ ] creating, and deleting sessions (log in, log out)
