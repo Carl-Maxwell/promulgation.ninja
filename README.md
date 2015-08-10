@@ -54,8 +54,16 @@ inputs (text, textarea). This may include a drag and drop interface (provided by
 jQuery UI).
 
 ### Phase 4: Complex Inputs (~1 day)
-I will implement some of the more complicated input types (dropdown, radio,
-checkbox, date, rich text, perhaps WYSIWYG).
+I will implement some the features:
+- users filling out and submitting form
+  - storing user form submissions
+  - reviewing user form submissions
+  - searching through user form submissions
+  - submissions must be paginated
+
+### Phase 5: Submissions (~1 day)
+I will implement the feature that will allow users to submit entries for forms
+have been made.
 
 ### Bonus Features (TBD)
 - [ ] Additional [security measures](http://guides.rubyonrails.org/security.html)
