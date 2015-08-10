@@ -54,7 +54,7 @@ inputs (text, textarea). This may include a drag and drop interface (provided by
 jQuery UI).
 
 ### Phase 4: Complex Inputs (~1 day)
-I will implement some the features:
+I will implement these features:
 - users filling out and submitting form
   - storing user form submissions
   - reviewing user form submissions
