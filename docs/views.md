@@ -5,38 +5,38 @@
 # General UI
 
 ## Confirm Delete Modal
-![./pics/confirm delete modal.png]
+![](./css_wireframes/pics/confirm delete modal.png)
 
 # Users
 
 ## Register
-![./pics/register.png]
+![](./css_wireframes/pics/register.png)
 
 ## Login
-![./pics/login.png]
+![](./css_wireframes/pics/login.png)
 
 ## User Edit
-![./pics/user edit.png]
+![](./css_wireframes/pics/user edit.png)
 
 ## Change Password
-![./pics/change password modal.png]
+![](./css_wireframes/pics/change password modal.png)
 
 # Forms
 
 ## Index
-![./pics/form index.png]
+![](./css_wireframes/pics/form index.png)
 
 ## New
-![./pics/new form.png]
+![](./css_wireframes/pics/new form.png)
 
 ## Edit
-![./pics/edit form.png]
+![](./css_wireframes/pics/edit form.png)
 
 
 # Submissions
 
 ## Index
-![./pics/submissions index.png]
+![](./css_wireframes/pics/submissions index.png)
 
 ## Modal
-![./pics/submission model.png]
+![](./css_wireframes/pics/submission model.png)
