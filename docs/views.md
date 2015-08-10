@@ -1,6 +1,6 @@
 
 # Homepage
-![](./pics/homepage.png)
+![](./css_wireframes/pics/homepage.png)
 
 # General UI
 
