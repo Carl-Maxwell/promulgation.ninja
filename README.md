@@ -51,7 +51,7 @@ Contact Us forms on websites, and email questionnaires.
 I will implement the schema outlined in the schema.md file and setup the
 initial models.
 
-### Phase 1: CSS (~1 day)
+### Phase 1: CSS & static pages (~1 day) 
 I will write CSS & html for all the page views.
 
 ### Phase 2: User Authentication (~1 day)
