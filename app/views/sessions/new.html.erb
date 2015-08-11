@@ -1,0 +1,11 @@
+<form action="<%= session_url %>" method="POST">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>"
+  >
+
+  <input type="text"     name="user[name]"     autofocus />
+  <input type="password" name="user[password]"           />
+  <input type="submit"                                   />
+</form>
