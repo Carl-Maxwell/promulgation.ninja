@@ -11,8 +11,8 @@ can be provided by Promulgation.ninia. Two example use cases are embedded
 Contact Us forms on websites, and email questionnaires.
 
 - [ ] creating, viewing, editing, and deleting accounts
-- [ ] creating, and deleting sessions (log in, log out)
-  - [ ] multiple logins
+- [x] creating, and deleting sessions (log in, log out)
+  - [x] multiple sessions
 - [ ] change password
   - [ ] delete sessions on password change
 - [ ] forgot password feature
