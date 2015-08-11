@@ -31,6 +31,9 @@ form_id     | integer   | not null, foreign key (references forms)
 key         | string    | not null
 value       | text      |
 
+* to clarify, the value here is serialized JSON, the key is the presentable
+name of the field ("First Name", "Subject", etc)
+
 ## submissions
 column name | data type | details
 ------------|-----------|-----------------------
@@ -39,3 +42,8 @@ field_id    | integer   | not null, foreign key (references field)
 key         | string    | not null
 value       | string    |
 state       | string    |
+
+* the value here is a string, the key is the presentable
+name of the field ("First Name", "Subject", etc)
+* the state is either "live" or "dead", used to 'delete' fields in a recoverable
+manner 
