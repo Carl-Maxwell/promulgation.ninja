@@ -36,10 +36,11 @@ form_id     | integer   | not null, foreign key (references forms)
 key         | string    |
 value       | text      |
 
-* to clarify, the value here is serialized JSON (for complex fields like dropdowns and radios that need stuff), the key is the presentable
+* to clarify, the value here is serialized JSON (for complex fields like
+dropdowns and radios and likerts that need stuff), the key is the presentable
 name of the field ("First Name", "Subject", etc)
 
-## submissions
+## submission_fields
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
@@ -52,3 +53,7 @@ state       | string    |
 name of the field ("First Name", "Subject", etc)
 * the state is either "live" or "dead", used to 'delete' submission fields in a
 recoverable manner
+
+### Likerts
+A single likert field on a form will have multiple submission fields mapping to
+it.
