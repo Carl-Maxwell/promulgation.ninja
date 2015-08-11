@@ -47,6 +47,10 @@ Contact Us forms on websites, and email questionnaires.
 
 ## Implementation Timeline
 
+### Phase 0: Database (~0.25 day)
+I will implement the schema outlined in the schema.md file and setup the
+initial models.
+
 ### Phase 1: CSS (~1 day)
 I will write CSS & html for all the page views.
 
