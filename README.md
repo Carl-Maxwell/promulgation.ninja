@@ -47,23 +47,23 @@ Contact Us forms on websites, and email questionnaires.
 
 ## Implementation Timeline
 
-### Phase 0: Database (~0.25 day)
-I will implement the schema outlined in the schema.md file and setup the
-initial models.
-
-### Phase 1: CSS & static pages (~1 day) 
-I will write CSS & html for all the page views.
-
-### Phase 2: User Authentication (~1 day)
+### Phase 1: User Authentication (~1 day)
 I will implement user authentication in Rails based on the practices learned at
 App Academy. I will also setup the Heroku app & final domain name.
 
-### Phase 3: Form Definition (~2 days)
+### Phase 2: Database (~0.25 day)
+I will implement the schema outlined in the schema.md file and setup the
+initial models.
+
+### Phase 3: CSS & static pages (~1 day)
+I will write CSS & html for all the page views.
+
+### Phase 4: Form Definition (~2 days)
 By the end of this phase, users will be able to create forms using simple
 inputs (text, textarea). This may include a drag and drop interface (provided by
 jQuery UI).
 
-### Phase 4: Complex Inputs (~1 day)
+### Phase 5: Complex Inputs (~1 day)
 I will implement these features:
 - users filling out and submitting form
   - storing user form submissions
@@ -71,7 +71,7 @@ I will implement these features:
   - searching through user form submissions
   - submissions must be paginated
 
-### Phase 5: Submissions (~1 day)
+### Phase 6: Submissions (~1 day)
 I will implement the feature that will allow users to submit entries for forms
 have been made.
 
