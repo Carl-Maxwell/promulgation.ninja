@@ -19,6 +19,14 @@ Promulgation.Routers.Router = Backbone.Router.extend({
     Promulgation.formsCollection.fetch();
   },
 
+  formNew: function() {
+    var form = new Promulgation.Models.Form();
+    var view = new Promulgation.Views.FormNew({
+      model: form
+    });
+    this.swap(view);
+  },
+
   formEdit: function(id) {
     var form = Promulgation.formsCollection.getOrFetch(id);
     var view = new Promulgation.Views.FormEdit({

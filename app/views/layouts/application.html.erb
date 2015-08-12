@@ -8,7 +8,10 @@
 </head>
 <body>
 
-<%= button_to "Logout", session_url, method: :delete %>
+<% if logged_in? %>
+  <%= button_to "Logout", session_url, method: :delete %>
+  <a href="#">Index</a>
+<% end %>
 
 <div class="content clearfix">
 <%= yield %>

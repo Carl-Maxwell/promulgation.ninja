@@ -1,4 +1,6 @@
 class Api::FormsController < ApplicationController
+  before_action :require_user
+
   def index
     @forms = current_user.forms
   end
@@ -8,7 +10,9 @@ class Api::FormsController < ApplicationController
   end
 
   def create
-    if @form = Form.create(form_params)
+    @form = Form.new(form_params.merge(user: current_user))
+
+    if @form.save
       render :show
     else
       render json: @form.errors.full_messages, status: :unprocessable_entity
