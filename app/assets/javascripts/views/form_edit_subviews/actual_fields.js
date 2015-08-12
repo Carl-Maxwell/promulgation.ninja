@@ -23,6 +23,26 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
     this.$el.html(this.template({model: this.model}));
     this.attachSubviews();
 
+    this.$('.fields.fields-index').sortable({
+      axis: "y",
+      receive: function(e, ui) {
+        var item = ui.helper;
+        var view = Promulgation.displacedViews[item.data('view-cid')];
+
+        this.addSubview('.fields', view);
+
+        Promulgation.displacedViews[item.data('view-cid')] = undefined;
+
+        // TODO cleanup item.data
+
+      }.bind(this)
+    }).disableSelection();
+    // this.$('.fields.fields-index').droppable({
+    //   drop: function( e, ui ) {
+    //     debugger;
+    //   }
+    // });
+
     return this;
   }
 });

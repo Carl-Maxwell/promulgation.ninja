@@ -40,5 +40,6 @@ Promulgation.Routers.Router = Backbone.Router.extend({
     this._view = view;
     this.$el.html(view.$el);
     view.render();
+    view.onRender();
   }
 });

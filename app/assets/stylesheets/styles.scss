@@ -101,13 +101,36 @@ body{
   float: left;
   width: 390px;
 
-  li{
-    background: lightblue;
-    border-radius: 3px;
-    display: block;
-    margin: 10px 0;
+  .tabs li{
+    float: left;
+    background: #fab;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 10px 5px 5px 5px;
+    margin-right: 10px;
+
+    &.active{
+      background: green;
+    }
+  }
+
+  .tabular-content {
+    background: green;
     padding: 10px;
-    width: 390 - 30px;
+
+    li{
+      background: lightblue;
+      border-radius: 3px;
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 390 - 10px - 30px;
+
+      &:first-child{
+        margin-top: 0;
+
+      }
+    }
   }
 }
 
@@ -115,9 +138,20 @@ body{
   background: whitesmoke;
   float: left;
   width: 390px;
+}
+
+html body div li.form-edit-actual-item{
+  background: whitesmoke !important;
+  padding: 0 10px !important;
+  width: 394px !important;
 
   input, textarea{
-    width: 390px;
+    width: 390px !important;
+  }
+
+  &.dragging{
+    // padding-top: 10px !important;
+    // margin-top: -10px !important;
   }
 }
 

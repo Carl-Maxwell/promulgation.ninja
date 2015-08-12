@@ -3,6 +3,7 @@ window.Promulgation = {
   Collections: {},
   Views: {},
   Routers: {},
+  displacedViews: {},
   initialize: function() {
     Promulgation.formsCollection = new Promulgation.Collections.Forms();
 

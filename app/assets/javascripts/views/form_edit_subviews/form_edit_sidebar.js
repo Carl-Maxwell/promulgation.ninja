@@ -10,7 +10,7 @@ Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
       new Promulgation.Views.FormProperties(stdOpts)
     ];
 
-    this.addSubview('.form-edit-sidebar', this.tabs[0]);
+    this.addSubview('.tabular-content', this.tabs[0]);
   },
 
   events: {
