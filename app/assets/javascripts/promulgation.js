@@ -15,5 +15,6 @@ window.Promulgation = {
 };
 
 $(document).ready(function(){
-  Promulgation.initialize();
+  if ($('.root').length)
+    Promulgation.initialize();
 });

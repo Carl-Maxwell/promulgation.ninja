@@ -1,4 +1,6 @@
 Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
+  template: JST['form_edit/form_edit_sidebar'],
+
   initialize: function () {
     var stdOpts = {model: this.model};
 
@@ -8,7 +10,7 @@ Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
       new Promulgation.Views.FormProperties(stdOpts)
     ];
 
-    // this.tabs.each(this.addSubView.bind(undefined, '.form-edit-sidebar'));
+    this.addSubview('.form-edit-sidebar', this.tabs[0]);
   },
 
   events: {
@@ -17,5 +19,12 @@ Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
 
   clickTab: function(e) {
     var target = $(e.currentTarget);
+  },
+
+  render: function() {
+    this.$el.html(this.template());
+    this.attachSubviews();
+
+    return this;
   }
 });
