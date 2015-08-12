@@ -10,7 +10,8 @@ users to create forms which can either be embedded in a user's site or hosting
 can be provided by Promulgation.ninia. Two example use cases are embedded
 Contact Us forms on websites, and email questionnaires.
 
-- [ ] creating, viewing, editing, and deleting accounts
+- [ ] creating, viewing, editing accounts
+- [ ] deleting user accounts
 - [x] creating, and deleting sessions (log in, log out)
   - [x] multiple sessions
 - [ ] change password
