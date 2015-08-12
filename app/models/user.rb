@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :email, format: {with: /@/, message: "must be a valid email address"}
 
   has_many :sessions
+  has_many :forms
 
   def password=(password)
     @password = password

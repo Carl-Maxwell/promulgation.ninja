@@ -1,7 +1,6 @@
 class Form < ActiveRecord::Base
-  # belongs_to :user
+  belongs_to :user
+  has_many :fields
 
-  # validates :user, presence: true
-
-  validates :title, presence: true
+  validates :user, :title, presence: true
 end

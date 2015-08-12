@@ -20,7 +20,7 @@ Contact Us forms on websites, and email questionnaires.
   - [ ] forms should have a name
 - [ ] creating, viewing, editing, and deleting fields within forms
   - [ ] fields belong to a form
-  - [ ] fields have a type (text, textarea, dropdown, radio, checkbox, date, etc)
+  - [ ] fields have a type (text, textarea, dropdown, radio, checkbox, date, &c)
 - [ ] resorting fields within forms
   - [ ] drag & drop
 - [ ] auto-saving forms as they're being edited
@@ -80,3 +80,23 @@ have been made.
 - [ ] Saving data after its field has been changed
 - [ ] Allow viewing a list of your sessions
 - [ ] Further complex inputs (likert, code editor, markup (commonmark) editor, etc)
+
+### Full list of fields
+
+- [ ] text
+- [ ] textarea
+- [ ] dropdown
+- [ ] radio
+- [ ] checkbox
+- [ ] date
+- [ ] What you see is what you get editor (WYSIWYG)
+- [ ] Section break
+- [ ] page break
+- [ ] rating
+- [ ] address
+- [ ] website
+- [ ] phone
+- [ ] email
+- [ ] likert
+- [ ] code editor
+- [ ] Markup (commonmark) editor
