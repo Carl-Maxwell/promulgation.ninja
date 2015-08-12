@@ -14,6 +14,7 @@ Contact Us forms on websites, and email questionnaires.
 - [ ] deleting user accounts
 - [x] creating, and deleting sessions (log in, log out)
   - [x] multiple sessions
+- [ ] display validation errors when the user fills in a static form wrongly
 - [ ] change password
   - [ ] delete sessions on password change
 - [ ] forgot password feature
