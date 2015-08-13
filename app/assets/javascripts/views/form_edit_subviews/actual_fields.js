@@ -27,6 +27,8 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
     this.listenTo(this.model.fields(), 'remove', this.removeItemView);
 
     this.listenTo(this.model.fields(), 'add', this.addItemView);
+
+    this.listenTo(this, 'subview:render', this.resetScrollTop);
     this.model.fields().each(this.addItemView.bind(this));
     this.resortSubviews();
   },
@@ -40,15 +42,21 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
     this.removeModelSubview('.fields', model);
   },
 
+  resetScrollTop: function() {
+    setTimeout(function() {this.$('.fields').scrollTop(this.scrollTop)}.bind(this), 0 );
+  },
+
   render: function() {
     this.$el.html(this.template({model: this.model}));
     this.attachSubviews();
 
-    this.$('.fields.fields-index').sortable({
+    this.$('.fields').sortable({
       axis: 'y',
       receive: function(e, ui) {
-        var item = ui.helper;
-        var view = Promulgation.displacedViews[item.data('view-cid')];
+        this.scrollTop = this.$('.fields').scrollTop();
+
+        var helper = ui.helper;
+        var view = Promulgation.displacedViews[helper.data('view-cid')];
 
         view.model.set('form_id', this.model.get('id'));
 
@@ -57,9 +65,9 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
         this.addSubview('.fields', view);
         this.saveOrds();
 
-        delete Promulgation.displacedViews[item.data('view-cid')];
+        delete Promulgation.displacedViews[helper.data('view-cid')];
 
-        item.data('view-cid', undefined);
+        helper.data('view-cid', undefined);
       }.bind(this)
     }).disableSelection();
 

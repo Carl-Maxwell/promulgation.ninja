@@ -5,10 +5,14 @@ Promulgation.Views.PotentialFieldItem = Backbone.CompositeView.extend({
   render: function() {
     this.$el.html(this.template({model: this.model}));
 
+    this.trigger('render');
+
     return this;
   },
 
   onRender: function() {
+    this.trigger('onRender');
+
     this.$el.draggable({
       helper: function(e) {
         var model = new Promulgation.Models.Field({

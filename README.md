@@ -23,7 +23,7 @@ Contact Us forms on websites, and email questionnaires.
   - [ ] viewing
   - [ ] editing
     - [x] sorting fields
-    - [ ] adding fields
+    - [x] adding fields
     - [ ] removing fields
     - [ ] setting field properties
     - [ ] setting form properties
@@ -73,7 +73,7 @@ By the end of this phase, users will be able to create forms using simple
 inputs (text, textarea). This may include a drag and drop interface (provided by
 jQuery UI).
 
-### Phase 5: Complex Inputs (~1 day)
+### Phase 5: Submissions (~1 day)
 I will implement these features:
 - users filling out and submitting form
   - storing user form submissions
@@ -81,9 +81,8 @@ I will implement these features:
   - searching through user form submissions
   - submissions must be paginated
 
-### Phase 6: Submissions (~1 day)
-I will implement the feature that will allow users to submit entries for forms
-have been made.
+### Phase 6: Complex Inputs (~1 day)
+Dropdowns, radios, wysiwyg, etc.
 
 ### Bonus Features (TBD)
 - [ ] Additional [security measures](http://guides.rubyonrails.org/security.html)

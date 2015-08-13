@@ -1,5 +1,7 @@
 Backbone.CompositeView = Backbone.View.extend({
   addSubview: function (selector, subview, prepend) {
+    this.listenTo(subview, 'render', this.triggerRender);
+
     if (prepend) {
       this.subviews(selector).unshift(subview);
     } else {
@@ -8,6 +10,10 @@ Backbone.CompositeView = Backbone.View.extend({
     // Try to attach the subview. Render it as a convenience.
     this.attachSubview(selector, subview, prepend);
     subview.render();
+  },
+
+  triggerRender: function() {
+    this.trigger('subview:render');
   },
 
   attachSubview: function (selector, subview, prepend) {

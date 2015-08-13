@@ -1,10 +1,10 @@
 Promulgation.Views.ActualFieldItem = Backbone.View.extend({
   template: JST['form_edit/actual_field_item'],
-  tagName: "li",
+  tagName: 'li',
   className: 'form-edit-actual-item',
 
   events: {
-    "saveOrd": "saveOrd"
+    'saveOrd': 'saveOrd'
   },
 
   initialize: function() {
@@ -20,6 +20,8 @@ Promulgation.Views.ActualFieldItem = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({model: this.model}));
+
+    this.trigger('render');
 
     return this;
   }
