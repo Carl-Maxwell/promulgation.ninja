@@ -1,4 +1,8 @@
-<%= form.escape("title") %>
-<a href="#/forms/<%= form.escape("id") %>/edit">Edit</a>
-<button class="delete">Delete</button> 
-<a href="#/forms/<%= form.escape("id") %>/submissions">Submissions</a>
+<td>
+  <a class="small-button" href="#/forms/<%= form.escape("id") %>/edit"><%= form.escape("title") %></a>
+</td>
+<td>
+<td class="actions">
+  <button class="delete small-button">Delete</button>
+  <a class="small-button" href="#/forms/<%= form.escape("id") %>/submissions">Submissions</a>
+</td>

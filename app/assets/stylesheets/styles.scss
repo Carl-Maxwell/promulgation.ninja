@@ -10,13 +10,25 @@ h3{
   font-size: 20px;
 }
 
+a{
+  text-decoration: none;
+}
+
+$content_width: 960px;
+$modal_width: $content_width*0.75;
+
+//
+//
+//
+
+
 header{
   background: black;
   color: #1d95e5;
 
-  div{
+  .header-content{
     margin: 0 auto;
-    width: 800px;
+    width: $content_width;
 
     .logo{
       background: url('logo2.png') left no-repeat;
@@ -25,7 +37,17 @@ header{
       width: 400px;
     }
 
-    .navbar-links{
+    .navbar-center-links{
+      float: left;
+      // margin-top: 63px;
+
+      li{
+        float: left;
+        padding: 10px;
+      }
+    }
+
+    .navbar-right-links{
       float: right;
       margin-top: 63px;
       li{
@@ -50,9 +72,9 @@ body{
 .content{
   background: whitesmoke;
   border: 1px solid black;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   margin: 0 auto;
-  width: 800px;
+  width: $content_width;
 
   h2{
     margin-bottom: 10px;
@@ -60,17 +82,32 @@ body{
 
   .form-index{
     margin-left: -10px;
-    width: 820px;
+    width: $content_width + 20px;
 
+    .small-button:hover{
+      box-shadow: 0 0 1px blue inset;
+    }
     tr td:first-child{
       padding-left: 10px;
+
+      a{
+        display: block;
+      }
+      a:hover{
+        text-decoration: underline;
+      }
     }
     tr td:last-child{
-      padding-right: 10px;
+      width: 173px;
     }
-
+    tr:nth-child(2n){
+      background: #ECECEC;
+    }
     td{
       padding: 5px;
+    }
+    tr:last-child td{
+      padding-bottom: 10px;
     }
   }
 
@@ -83,13 +120,13 @@ body{
 
   .wrapper{
     margin: 0 auto;
-    width: 500px;
+    width: $content_width/2;
   }
 
   input{
     height: 24px;
     margin: 10px auto;
-    width: 500px;
+    width: $content_width/2;
   }
 
   input[type="submit"], button{
@@ -99,7 +136,7 @@ body{
 
 .form-edit-sidebar{
   float: left;
-  width: 390px;
+  width: $content_width/2 - 10;
 
   .tabs li{
     float: left;
@@ -124,11 +161,10 @@ body{
       display: block;
       margin: 10px 0;
       padding: 10px;
-      width: 390 - 10px - 30px;
+      width: $content_width/2 - 10 - 10px - 30px;
 
       &:first-child{
         margin-top: 0;
-
       }
     }
   }
@@ -137,16 +173,22 @@ body{
 .form-edit-actuals{
   background: whitesmoke;
   float: left;
-  width: 390px;
+  width: $content_width/2 + 9;
+
+  .fields{
+    background: #fab;
+    height: 400px;
+    overflow-y: scroll;
+  }
 }
 
 html body div li.form-edit-actual-item{
   background: whitesmoke !important;
   padding: 0 10px !important;
-  width: 394px !important;
+  width: $content_width/2 - 6 - 20px !important;
 
   input, textarea{
-    width: 390px !important;
+    width: $content_width/2 - 10 - 20px !important;
   }
 
   &.dragging{
@@ -155,11 +197,18 @@ html body div li.form-edit-actual-item{
   }
 }
 
-input[type="submit"], button{
+input[type="submit"], button, .large-button{
   background: #fab;
   border: 0;
+  cursor: pointer;
+  display: inline-block;
   font-size: 24px;
   // height: inherit;
+  padding: 10px;
+}
+
+.small-button{
+  font-size: 16px;
   padding: 10px;
 }
 
@@ -178,7 +227,7 @@ input[type="submit"], button{
     position: absolute;
     margin: -150px 0 0 -250px;
     top: 50%;
-    width: 500px;
+    width: $modal_width;
 
     p{}
 
@@ -191,7 +240,7 @@ input[type="submit"], button{
       bottom: 10px;
       margin-left: 10px;
       position: absolute;
-      width: 480px;
+      width: $modal_width - 20;
     }
 
     table td{
@@ -200,7 +249,7 @@ input[type="submit"], button{
 
     input, button{
       margin-bottom: 10px;
-      width: 480px;
+      width: $modal_width - 20;
     }
 
     input[type="submit"], button{

@@ -5,7 +5,15 @@
     value="<%= form_authenticity_token %>"
   >
 
-  <input type="text"     name="user[name]"     autofocus />
-  <input type="password" name="user[password]"           />
-  <input type="submit"                                   />
+  <label>
+    Name
+    <input type="text"     name="user[name]"     autofocus />
+  </label>
+
+  <label>
+    Password
+    <input type="password" name="user[password]"           />
+  </label>
+
+  <input type="submit" value="Login" />
 </form>

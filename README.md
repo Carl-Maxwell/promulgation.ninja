@@ -18,8 +18,16 @@ Contact Us forms on websites, and email questionnaires.
 - [ ] change password
   - [ ] delete sessions on password change
 - [ ] forgot password feature
-- [ ] creating, viewing, editing, and deleting forms
-  - [ ] forms should have a name
+- [ ] forms
+  - [x] creating
+  - [ ] viewing
+  - [ ] editing
+    - [x] sorting fields
+    - [ ] adding fields
+    - [ ] removing fields
+    - [ ] setting field properties
+    - [ ] setting form properties
+  - [ ] deleting forms
 - [ ] creating, viewing, editing, and deleting fields within forms
   - [ ] fields belong to a form
   - [ ] fields have a type (text, textarea, dropdown, radio, checkbox, date, &c)

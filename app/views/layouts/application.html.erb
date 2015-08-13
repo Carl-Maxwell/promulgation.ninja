@@ -8,10 +8,24 @@
 </head>
 <body>
 
-<% if logged_in? %>
-  <%= button_to "Logout", session_url, method: :delete %>
-  <a href="#">Index</a>
-<% end %>
+  <header class="clearfix">
+    <div class="header-content">
+      <div class="clearfix">
+        <div class="logo"></div>
+        <ul class="navbar-right-links">
+          <li><%= logged_in? ? "Login" : button_to("Logout", session_url, method: :delete) %></li>
+          <li><%= link_to :Register, new_user_url %></li>
+        </ul>
+      </div>
+      <% if logged_in? %>
+        <ul class="navbar-center-links">
+          <li><a href="#">Index</a></li>
+        </ul>
+      <% end %>
+    </div>
+  </header>
+
+
 
 <div class="content clearfix">
 <%= yield %>

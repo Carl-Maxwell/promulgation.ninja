@@ -10,7 +10,7 @@ class Api::FieldsController < ApplicationController
   end
 
   def create
-    @field = Field.new(field_params.merge(user: current_user))
+    @field = Field.new(field_params)
 
     if @field.save
       render :show
@@ -40,6 +40,6 @@ class Api::FieldsController < ApplicationController
   private
 
   def field_params
-    params.require(:field).permit(:title, :ord, :key, :value)
+    params.require(:field).permit(:title, :ord, :key, :form_id, value: [:type, :value])
   end
 end

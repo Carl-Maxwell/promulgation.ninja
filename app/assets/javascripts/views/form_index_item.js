@@ -1,5 +1,6 @@
 Promulgation.Views.FormIndexItem = Backbone.View.extend({
-  tagName: "li",
+  tagName: "tr",
+  className: 'clearfix',
   template: JST['form_index_item'],
 
   render: function() {

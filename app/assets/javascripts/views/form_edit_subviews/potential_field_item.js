@@ -27,9 +27,6 @@ Promulgation.Views.PotentialFieldItem = Backbone.CompositeView.extend({
 
         return view.$el;
       },
-      stop: function() {
-        // $(this).removeClass('dragging');
-      },
       connectToSortable: '.fields.fields-index'
     });
   }
