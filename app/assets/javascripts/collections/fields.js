@@ -2,6 +2,8 @@ Promulgation.Collections.Fields = Backbone.Collection.extend({
   url: "/api/fields",
   model: Promulgation.Models.Field,
 
+  comparator: "ord",
+
   getOrFetch: function (id) {
     var collection = this;
     var model = collection.get(id);

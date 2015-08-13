@@ -12,7 +12,7 @@ Promulgation.Views.PotentialFieldItem = Backbone.CompositeView.extend({
     this.$el.draggable({
       helper: function(e) {
         var model = new Promulgation.Models.Field({
-          key: 'Super Title!',
+          key: 'Super Title! ' + Math.floor(Math.random() * 99),
           value: {type: 'text', value: 'boopboop'}
         });
         var view = new Promulgation.Views.ActualFieldItem({

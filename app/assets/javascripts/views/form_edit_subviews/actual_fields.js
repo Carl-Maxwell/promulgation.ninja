@@ -1,6 +1,26 @@
 Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
   template: JST['form_edit/actual_fields'],
 
+  events: {
+    'sortstop': 'saveOrds'
+  },
+
+  saveOrds: function() {
+    this.$('.fields.fields-index > li').each(function(i, element) {
+      $(element).trigger('saveOrd');
+    }.bind(this));
+
+    this.model.fields().sort();
+    this.resortSubviews();
+  },
+
+  resortSubviews: function() {
+    var subviews = this.subviews('.fields');
+    subviews.sort(function(a, b) {
+      return Math.sign(a.model.get('ord') - b.model.get('ord'));
+    });
+  },
+
   initialize: function () {
     this.listenTo(this.model.fields(), 'sync', this.render);
     this.listenTo(this.model, 'sync', this.render);
@@ -8,6 +28,7 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
 
     this.listenTo(this.model.fields(), 'add', this.addItemView);
     this.model.fields().each(this.addItemView.bind(this));
+    this.resortSubviews();
   },
 
   addItemView: function(model) {
