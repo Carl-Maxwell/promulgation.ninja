@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :forms, except: [:new, :edit]
+    resources :fields, except: [:new, :edit]
   end
 
   root "static_pages#index"
