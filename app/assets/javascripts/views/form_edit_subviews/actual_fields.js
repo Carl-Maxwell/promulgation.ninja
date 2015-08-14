@@ -43,7 +43,17 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
   },
 
   resetScrollTop: function() {
-    setTimeout(function() {this.$('.fields').scrollTop(this.scrollTop)}.bind(this), 0 );
+    _.defer(function() {
+        this.$('.fields').scrollTop(this.scrollTop);
+    }.bind(this) );
+  },
+
+  getModelFor: function(element) {
+    var subview = this.subviews('.fields').find(function(subview) {
+      return subview.el == element;
+    } );
+
+    return subview ? subview.model : undefined;
   },
 
   render: function() {
@@ -52,6 +62,7 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
 
     this.$('.fields').sortable({
       axis: 'y',
+      delay: 110,
       receive: function(e, ui) {
         this.scrollTop = this.$('.fields').scrollTop();
 

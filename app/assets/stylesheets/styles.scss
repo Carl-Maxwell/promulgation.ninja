@@ -50,8 +50,17 @@ header{
     .navbar-right-links{
       float: right;
       margin-top: 63px;
+
       li{
         float: left;
+
+        a, input{
+          background: transparent;
+          display: block;
+          color: blue;
+          font-size: 16px;
+          padding: 10px;
+        }
       }
     }
   }
@@ -197,6 +206,7 @@ body{
 
 html body div li.form-edit-actual-item{
   background: whitesmoke !important;
+  cursor: pointer;
   padding: 0 10px !important;
   width: $content_width/2 - 6 - 20px !important;
 

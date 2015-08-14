@@ -13,10 +13,22 @@ Promulgation.Views.FormEdit = Backbone.CompositeView.extend({
     this.addSubview('.form-edit-actuals', this.actualFields);
   },
 
+  events: {
+    'click .form-edit-actual-item': 'openFieldProperties'
+  },
+
   render: function() {
     this.$el.html(this.template());
     this.attachSubviews();
 
     return this;
+  },
+
+  openFieldProperties: function(e) {
+    var model = this.actualFields.getModelFor(e.currentTarget);
+
+    this.sidebar.tabs[1].model = model;
+
+    this.sidebar.openTab(1);
   }
 });

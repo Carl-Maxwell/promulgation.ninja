@@ -23,6 +23,8 @@ Promulgation.Views.ActualFieldItem = Backbone.View.extend({
 
     this.trigger('render');
 
+    this.$el.data('model-id', this.model.get('id'));
+
     return this;
   }
 });

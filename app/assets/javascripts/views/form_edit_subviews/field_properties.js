@@ -22,7 +22,7 @@ Promulgation.Views.FieldProperties = Backbone.View.extend({
   changeProperty: function(e) {
     var target = $(e.currentTarget);
 
-    debugger
+    // debugger
 
     property = this.model.attributes;
 
@@ -32,7 +32,7 @@ Promulgation.Views.FieldProperties = Backbone.View.extend({
       property = property[parent];
     });
 
-    debugger;
+    // debugger;
 
     property[_(parents).last()] = target.val();
 
@@ -40,5 +40,6 @@ Promulgation.Views.FieldProperties = Backbone.View.extend({
     this.model.save();
 
     // TODO delay the .save() call so it isn't fired for every keypress
+    // TODO this calls change, but not change:name / change:whatever
   }
 });
