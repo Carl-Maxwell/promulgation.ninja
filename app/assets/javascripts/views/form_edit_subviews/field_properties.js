@@ -22,8 +22,6 @@ Promulgation.Views.FieldProperties = Backbone.View.extend({
   changeProperty: function(e) {
     var target = $(e.currentTarget);
 
-    // debugger
-
     property = this.model.attributes;
 
     var parents = target.attr('name').replace(/\]/g, '').split('[');
@@ -31,8 +29,6 @@ Promulgation.Views.FieldProperties = Backbone.View.extend({
     _(parents.slice(0, -1)).each(function(parent) {
       property = property[parent];
     });
-
-    // debugger;
 
     property[_(parents).last()] = target.val();
 
