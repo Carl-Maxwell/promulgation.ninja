@@ -1,8 +1,23 @@
-yarr soul is an empty pile of stuff!
+<label>
+  label:
+  <input type="text" name="key" value="<%= model.escape('key') %>" autofocus />
+</label>
 
-yar!
+<label>
+  type:
+    <input
+      name="value[type]"
+      type="text"
+      value="<%= _.escape(model.get('value').type) %>"
+      readonly
+    />
+</label>
 
-label: <input name="key" value="<%= model.escape('key') %>" autofocus />
-
-type: <input name="value[type]" value="<%= _.escape(model.get('value').type) %>" />
-default value: <input name="value[value]" value="<%= _.escape(model.get('value').value) %>" />
+<label>
+  default value:
+  <input
+    name="value[value]"
+    type="text"
+    value="<%= _.escape(model.get('value').value) %>"
+  />
+</label>

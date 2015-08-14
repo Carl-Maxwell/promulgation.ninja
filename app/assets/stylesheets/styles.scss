@@ -81,6 +81,7 @@ body{
 .content{
   background: whitesmoke;
   border: 1px solid black;
+  border-top: 0;
   padding: 10px 10px 0 10px;
   margin: 0 auto;
   width: $content_width;
@@ -186,7 +187,7 @@ body{
     }
 
     input{
-      width: $tabular_width + 10;
+      width: $tabular_width + 10 - 10;
     }
   }
 }
@@ -211,7 +212,7 @@ html body div li.form-edit-actual-item{
   width: $content_width/2 - 6 - 20px !important;
 
   input, textarea{
-    width: $content_width/2 - 10 - 20px !important;
+    width: $content_width/2 - 10 - 10 - 20px !important;
   }
   .displayfield{
     position: relative;
@@ -239,6 +240,10 @@ input[type="submit"], button, .large-button{
   font-size: 24px;
   // height: inherit;
   padding: 10px;
+}
+
+input[type="text"], input[type="password"]{
+  padding: 5px;
 }
 
 .small-button{
