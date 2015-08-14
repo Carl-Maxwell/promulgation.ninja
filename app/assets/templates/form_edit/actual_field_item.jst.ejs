@@ -1,3 +1,7 @@
 <%= model.escape("key") %>
-
-<input type="<%= _.escape(model.get("value").type) %>"/>
+<div class="displayfield">
+  <input
+    type="<%= _.escape(model.get("value").type) %>"
+    value="<%= _.escape(model.get("value").value) %>"
+  />
+</div>

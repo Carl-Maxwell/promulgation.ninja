@@ -17,6 +17,10 @@ Promulgation.Views.PotentialFields = Backbone.CompositeView.extend({
 
     this.$el.add(this.$el.children).disableSelection();
 
+    this.eachSubview(function(subview) {
+      subview.onRender();
+    });
+
     return this;
   }
 });

@@ -14,11 +14,24 @@ Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click .tabs .tab': "clickTab"
+    'click .tabs .tab': 'clickTab'
   },
 
   clickTab: function(e) {
-    var target = $(e.currentTarget);
+    this.$('.tabs .active').removeClass('active');
+
+    var target = $(e.currentTarget).addClass('active');
+    var tab = this.tabs[ target.index() ];
+
+    var oldTab = this.subviews('.tabular-content').first();
+    oldTab.remove();
+
+    var content = this.subviews('.tabular-content');
+    content.splice(0, 1);
+
+    this.addSubview('.tabular-content', tab);
+
+    this.$('[autofocus]').first().focus();
   },
 
   render: function() {

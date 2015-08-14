@@ -136,24 +136,32 @@ body{
 
 .form-edit-sidebar{
   float: left;
-  width: $content_width/2 - 10;
+  width: $content_width/2 - 10 - 2;
 
-  .tabs li{
+  .tabs .tab{
     float: left;
     background: #fab;
+    border: 1px solid green;
+    border-bottom: 0;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    cursor: pointer;
     padding: 10px 5px 5px 5px;
     margin-right: 10px;
 
     &.active{
-      background: green;
+      background: white;
+      padding-bottom: 6px;
+      margin-bottom: -1px;
     }
   }
 
   .tabular-content {
-    background: green;
+    background: white;
+    border: 1px solid green;
     padding: 10px;
+
+    $tabular_width: $content_width/2 - 10 - 10px - 30 - 2px;
 
     li{
       background: lightblue;
@@ -161,11 +169,15 @@ body{
       display: block;
       margin: 10px 0;
       padding: 10px;
-      width: $content_width/2 - 10 - 10px - 30px;
+      width: $tabular_width;
 
       &:first-child{
         margin-top: 0;
       }
+    }
+
+    input{
+      width: $tabular_width + 10;
     }
   }
 }
@@ -191,7 +203,18 @@ html body div li.form-edit-actual-item{
   input, textarea{
     width: $content_width/2 - 10 - 20px !important;
   }
+  .displayfield{
+    position: relative;
 
+    &:before{
+      border: 1px solid transparent;
+      content: "";
+      height: 30px;
+      position: absolute;
+      top: 10px;
+      width: 100%;
+    }
+  }
   &.dragging{
     // padding-top: 10px !important;
     // margin-top: -10px !important;

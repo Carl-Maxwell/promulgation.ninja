@@ -1,0 +1,73 @@
+
+- [ ] creating, viewing, editing accounts
+- [ ] deleting user accounts
+- [ ] display validation errors when the user fills in a static form
+  wrongly
+- [ ] change password
+  - [ ] delete sessions on password change
+- [ ] forgot password feature
+- [ ] forms
+  - [ ] viewing
+  - [ ] editing
+    - [ ] removing fields
+    - [ ] setting field properties
+    - [ ] setting form properties
+  - [ ] deleting forms
+- [ ] creating, viewing, editing, and deleting fields within forms
+  - [ ] fields belong to a form
+  - [ ] fields have a type (text, textarea, dropdown, radio, checkbox,
+    date, &c)
+- [ ] resorting fields within forms
+  - [ ] drag & drop
+- [ ] auto-saving forms as they're being edited
+- [ ] confirm deletion of field (by typing in password)
+- [ ] rendering the form
+- [ ] outputting embed code for the form
+- [ ] users filling out and submitting form
+  - [ ] storing user form submissions
+  - [ ] reviewing user form submissions
+  - [ ] searching through user form submissions
+  - [ ] submissions must be paginated
+- [ ] notificiations
+  - [ ] email
+  - [ ] text message
+- [ ] commenting on submissions
+
+## edit
+
+- [ ] textarea
+- [ ] dropdown
+- [ ] radio
+- [ ] checkbox
+- [ ] date
+- [ ] What you see is what you get editor (WYSIWYG)
+- [ ] Section break
+- [ ] page break
+- [ ] rating
+- [ ] address
+- [ ] website
+- [ ] phone
+- [ ] email
+- [ ] likert
+- [ ] code editor
+- [ ] Markup (commonmark) editor
+
+## show
+
+ 37 - [ ] text
+ 38 - [ ] textarea
+ 39 - [ ] dropdown
+ 40 - [ ] radio
+ 41 - [ ] checkbox
+ 42 - [ ] date
+ 43 - [ ] What you see is what you get editor (WYSIWYG)
+ 44 - [ ] Section break
+ 45 - [ ] page break
+ 46 - [ ] rating
+ 47 - [ ] address
+ 48 - [ ] website
+ 49 - [ ] phone
+ 50 - [ ] email
+ 51 - [ ] likert
+ 52 - [ ] code editor
+ 53 - [ ] Markup (commonmark) editor
