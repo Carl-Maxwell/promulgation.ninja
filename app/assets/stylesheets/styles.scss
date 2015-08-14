@@ -31,7 +31,7 @@ header{
     width: $content_width;
 
     .logo{
-      background: url('logo2.png') left no-repeat;
+      background: image-url('logo2.png') left no-repeat;
       float: left;
       height: 101px;
       width: 400px;
@@ -62,7 +62,7 @@ header{
 //
 
 body{
-  background: whitesmoke url("stacked_circles.png");
+  background: whitesmoke image-url("stacked_circles.png");
 }
 
 //
