@@ -9,7 +9,6 @@
       name="value[type]"
       type="text"
       value="<%= _.escape(model.get('value').type) %>"
-      readonly
     />
 </label>
 
@@ -21,3 +20,5 @@
     value="<%= _.escape(model.get('value').value) %>"
   />
 </label>
+
+<button class="delete-button red-button">Delete Field</button>

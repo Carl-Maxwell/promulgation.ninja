@@ -14,7 +14,8 @@ Promulgation.Views.FormEdit = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click .form-edit-actual-item': 'openFieldProperties'
+    'click .form-edit-actual-item': 'openFieldProperties',
+    'click .delete-button': 'deleteField'
   },
 
   render: function() {
@@ -25,10 +26,22 @@ Promulgation.Views.FormEdit = Backbone.CompositeView.extend({
   },
 
   openFieldProperties: function(e) {
-    var model = this.actualFields.getModelFor(e.currentTarget);
+    var model = this.actualFields.getModelForElement(e.currentTarget);
 
     this.sidebar.tabs[1].model = model;
 
     this.sidebar.openTab(1);
+  },
+
+  deleteField: function(e) {
+    var target = $(e.currentTarget);
+
+    var model = this.sidebar.tabs[1].model;
+
+    var itemView = this.actualFields.getViewForModel(model);
+
+    itemView.$el.next().click();
+
+    model.destroy();
   }
 });

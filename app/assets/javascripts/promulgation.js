@@ -15,7 +15,7 @@ window.Promulgation = {
   }
 };
 
-$(document).ready(function(){
-  if ($('.root').length)
-    Promulgation.initialize();
-});
+// $(document).ready(function(){
+//   if ($('.root').length)
+//     Promulgation.initialize();
+// });

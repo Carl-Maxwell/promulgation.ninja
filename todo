@@ -1,5 +1,5 @@
 
-- [ ] creating, viewing, editing accounts
+- [ ] editing accounts
 - [ ] deleting user accounts
 - [ ] display validation errors when the user fills in a static form
   wrongly
@@ -10,15 +10,13 @@
   - [ ] viewing
   - [ ] editing
     - [ ] removing fields
-    - [ ] setting field properties
     - [ ] setting form properties
+    - [ ] (having a range of field choices)
   - [ ] deleting forms
-- [ ] creating, viewing, editing, and deleting fields within forms
+- [ ] creating, viewing, and deleting fields within forms
   - [ ] fields belong to a form
   - [ ] fields have a type (text, textarea, dropdown, radio, checkbox,
     date, &c)
-- [ ] resorting fields within forms
-  - [ ] drag & drop
 - [ ] auto-saving forms as they're being edited
 - [ ] confirm deletion of field (by typing in password)
 - [ ] rendering the form

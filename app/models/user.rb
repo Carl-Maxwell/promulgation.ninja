@@ -37,6 +37,9 @@ class User < ActiveRecord::Base
         sessions.created_at    > ?
       SQL
 
+    # TODO the updated_at & created_at part of this query should be in sessions.rb
+    # =>  & should be part of the User.sessions association
+
     if token
       token.touch
       token

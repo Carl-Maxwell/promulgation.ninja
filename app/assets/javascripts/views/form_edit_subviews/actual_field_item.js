@@ -8,7 +8,8 @@ Promulgation.Views.ActualFieldItem = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync'   , this.render);
+    this.listenTo(this.model, 'destroy', this.remove);
   },
 
   saveOrd: function() {
@@ -20,6 +21,8 @@ Promulgation.Views.ActualFieldItem = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({model: this.model}));
+
+    this.$('.displayfield').append(fieldHelper.makeField(this.model));
 
     this.trigger('render');
 

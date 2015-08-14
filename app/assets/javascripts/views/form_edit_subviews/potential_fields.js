@@ -2,8 +2,12 @@ Promulgation.Views.PotentialFields = Backbone.CompositeView.extend({
   template: JST['form_edit/potential_fields'],
 
   initialize: function () {
-    var possibilities = ["Sentence", "Paragraph(s)", "Dropdown", "Radio",
-      "Checkbox"];
+    var possibilities = [
+      { type: "Sentence" },
+      { type: "Paragraph(s)" },
+      { type: "Dropdown" },
+      { type: "Radio" },
+      { type: "Checkbox" }];
 
     possibilities.forEach(function(possibility) {
       var view = new Promulgation.Views.PotentialFieldItem({model: possibility});

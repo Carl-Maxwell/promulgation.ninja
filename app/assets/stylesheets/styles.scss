@@ -21,7 +21,6 @@ $modal_width: $content_width*0.75;
 //
 //
 
-
 header{
   background: black;
   color: #1d95e5;
@@ -201,7 +200,13 @@ body{
     background: #fab;
     height: 400px;
     overflow-y: scroll;
+    overflow-x: hidden;
     position:relative;
+
+    .drop-placeholder{
+      background: whitesmoke image-url('drop_placeholder.png');
+      box-shadow: 0 0 0 1px #66B15C inset;
+    }
   }
 }
 
@@ -222,7 +227,8 @@ html body div li.form-edit-actual-item{
       content: "";
       height: 30px;
       position: absolute;
-      top: 10px;
+      top: 0;
+      height: 100%;
       width: 100%;
     }
   }

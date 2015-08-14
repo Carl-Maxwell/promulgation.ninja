@@ -13,7 +13,13 @@
       <div class="clearfix">
         <div class="logo"></div>
         <ul class="navbar-right-links">
-          <li><%= logged_in? ? "Login" : button_to("Logout", session_url, method: :delete) %></li>
+          <li><%=
+            unless logged_in?
+              link_to :Login, new_session_url
+            else
+              button_to("Logout", session_url, method: :delete)
+            end
+            %></li>
           <li><%= link_to :Register, new_user_url %></li>
         </ul>
       </div>
