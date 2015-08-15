@@ -9,7 +9,7 @@ Promulgation.Views.PotentialFields = Backbone.CompositeView.extend({
       { type: "Radio" },
       { type: "Checkbox" }];
 
-    possibilities.forEach(function(possibility) {
+    fieldHelper.possibilities().forEach(function(possibility) {
       var view = new Promulgation.Views.PotentialFieldItem({model: possibility});
       this.addSubview('.add-field-index', view);
     }.bind(this) );

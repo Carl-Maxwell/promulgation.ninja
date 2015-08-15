@@ -3,9 +3,9 @@
     { type: "text"         , value: ""  },
     { type: "textarea"     , value: ""  },
 
-    { type: "dropdown"     , value: ""  },
-    { type: "radio"        , value: ""  },
-    { type: "checkbox"     , value: ""  },
+    { type: "dropdown"     , fields: [] },
+    { type: "radio"        , fields: [] },
+    { type: "checkbox"     , fields: [] },
 
     { type: "website"      , value: ""  },
     { type: "date"         , value: ""  },
@@ -28,59 +28,99 @@
   var makeField = fieldHelper.makeField = function(field) {
     var h = "";
 
-    if (field.attributes) field = field.attributes;
+    // if (field.attributes) field = field.attributes;
 
-    return (new Field(field)).$el;
+    return (new Field(field.attributes, field.fields())).outerHtml();
   };
 
   var possibilities = fieldHelper.possibilities = function() {
     return types;
   };
 
-  var Field = fieldHelper.Field = function(options) {
-    this.name = options.key;
-    this.type = options.value.type;
-    this.value = options.value.value;
+  var Field = fieldHelper.Field = function(model, children) {
+    this.name  = model.name;
+    this.type  = model.type;
+    this.value = model.value;
 
-    var h = "";
+    var n;
 
-    switch(options.value.type) {
-      case "text"    : h = "<input type=\"text\">"; break;
-      case "textarea": h = "<textarea></textarea>"; break;
+    switch(model.type) {
+      case 'text'    : n = new Node({type: 'text'});              break;
+      case 'textarea': n = new Node({tag: 'textarea', html: ''}); break;
 
-      case "dropdown": h = "<select></select>";     break;
-      case "radio"   : h = "<div></div>";           break;
-      case "checkbox": h = "<select></select>";     break;
+      case 'dropdown': n = new Node({tag: 'select'  , html: ''}); break;
+      case 'radio'   : n = new Node({tag: 'fieldset', html: ''}); break;
+      case 'checkbox': n = new Node({tag: 'fieldset', html: ''}); break;
+
+      default: alert('tried to make unsupported field!'); debugger;
     }
 
-    var $el = this.$el = $(h);
-    $el.attr('name', options.key);
+    this.n = n;
 
-    switch(options.value.type) {
-      case "text":
-      case "textarea":
-      case "dropdown":
-        $el.val(options.value.value);
+    n.name = model.key;
+
+    switch(model.type) {
+      case 'text':
+        n.value = model.value;
         break;
-      case "dropdown":
-      case "radio"   :
-      case "checkbox":
-        options.value.fields.forEach(function(field) {
-          $el.append(this.child());
+      case 'textarea':
+        n.html = model.value;
+        break;
+      case 'dropdown':
+      case 'radio'   :
+      case 'checkbox':
+        children.forEach(function(child) {
+          child = this.child(child);
+          n.html += child.outerHtml();
         }.bind(this));
       break;
     }
   };
 
   Field.prototype.outerHtml = function() {
-    return $('<div>').append(this.$el).html();
+    return this.n.outerHtml();
   };
 
-  Field.prototype.child = function() {
+  Field.prototype.child = function(child) {
+    child = child || {};
+
     switch (this.type) {
-      case 'radio'   : return '<input type="radio" name="" value="" />';
-      case 'dropdown': return '<option value="">Display Value</option>';
-      case 'checkbox': return '<input type="checkbox" name="" value="" />';
+      case 'radio'   : child = {type: 'radio-item'   }; break;
+      case 'dropdown': child = {tag : 'dropdown-item'}; break;
+      case 'checkbox': child = {type: 'checkbox-item'}; break;
     }
+
+    return makeField(child);
+  };
+
+  var Node = fieldHelper.Node = function(options) {
+    options = _.merge(options, {
+      tag: 'input',
+      html: undefined
+    });
+
+    for (var key in options) {
+      if (['tag', 'html'].indexOf(key) < 0) continue;
+      this[key] = options[key];
+    }
+  };
+
+  Node.prototype.outerHtml = function() {
+    var h = '<' + this.tag;
+
+    for (var attr in this) {
+      if (['tag', 'html'].indexOf(attr) < 0) continue;
+      h += ' ' + attr + '="' + this[attr] + '"';
+    }
+
+    if (typeof this.html == 'undefined') {
+      h += '/>';
+    } else {
+      h += '>';
+      h += this.html;
+      h += '</' + this.tag + '>';
+    }
+
+    return h;
   };
 })(window.fieldHelper = window.fieldHelper || {});

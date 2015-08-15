@@ -1,9 +1,10 @@
 class Field < ActiveRecord::Base
+  validates :form, presence: true
+  validates :name, :ord, :fieldType, presence: true
+
+  serialize :options, JSON
+
   belongs_to :form
-
-  validates :form, :key, :value, presence: true
-
-  serialize :value, JSON
-
-  # TODO value is JSON, dunno if JSON validation is available
+  belongs_to :field
+  has_many :fields
 end

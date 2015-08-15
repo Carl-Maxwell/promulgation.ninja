@@ -14,8 +14,3 @@ window.Promulgation = {
     Backbone.history.start();
   }
 };
-
-// $(document).ready(function(){
-//   if ($('.root').length)
-//     Promulgation.initialize();
-// });

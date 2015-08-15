@@ -146,6 +146,3 @@ Multi-line forms of heading 3 are allowable:
 * The additional lines should be indented (using 2 spaces).
 
 ## Schema style
-
-* standarize column names:
-  * title (not username/name/etc)

@@ -33,12 +33,25 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 form_id     | integer   | not null, foreign key (references forms)
-key         | string    |
-value       | text      |
+label       | string    |
+type        | string    |
+name        | string    |
+field_id    | integer   | not null, foreign key (references fields)
+ord         | integer   |
+value       | string    |
+options     | text      | (is json serialized into a string)
 
-* to clarify, the value here is serialized JSON (for complex fields like
-dropdowns and radios and likerts that need stuff), the key is the presentable
-name of the field ("First Name", "Subject", etc)
+
+these are some of the values that `options` might hold:
+
+key name   | details
+----------------------
+classes    | css classes
+min        | minimum value (for numeric fields)
+max        | maximum value (for numeric fields)
+required   | is this value required? (validation)
+duplicates | should we enforce uniqueness? (validation)
+title      | title for the html (accessibility &c)
 
 ## submission_fields
 column name | data type | details
@@ -48,6 +61,8 @@ field_id    | integer   | not null, foreign key (references field)
 key         | string    |
 value       | string    |
 state       | string    |
+
+this submission schema is out of date
 
 * the value here is a string, the key is the presentable
 name of the field ("First Name", "Subject", etc)
