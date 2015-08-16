@@ -39,7 +39,11 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
   },
 
   removeItemView: function(model) {
-    this.removeModelSubview('.fields', model);
+    var subview = this.getViewForModel(model);
+
+    subview.animateRemoval(function() {
+      this.removeModelSubview('.fields', model);
+    }.bind(this));
   },
 
   resetScrollTop: function() {

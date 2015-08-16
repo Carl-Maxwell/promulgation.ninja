@@ -29,10 +29,8 @@ Promulgation.Views.PotentialFieldItem = Backbone.CompositeView.extend({
       opacity: 0.7,
       containment: boundingBox,
       helper: function(e) {
-        var model = new Promulgation.Models.Field({
-          name: 'Super Title! ' + Math.floor(Math.random() * 99),
-          field_type: 'text'
-        });
+        var model = new Promulgation.Models.Field(this.model);
+
         var view = new Promulgation.Views.ActualFieldItem({
           model: model
         });
@@ -44,7 +42,7 @@ Promulgation.Views.PotentialFieldItem = Backbone.CompositeView.extend({
         view.$el.data('view-cid', view.cid);
 
         return view.$el;
-      },
+      }.bind(this),
     });
   }
 });

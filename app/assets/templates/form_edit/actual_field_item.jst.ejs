@@ -1,5 +1,5 @@
 <%= model.escape("name") %>
 <div class="displayfield">
-  <% /* <%= this.model.html() %> */ %>
-  <input name="<%= model.escape('name') %>" type="<%= model.escape('field_type') %>" value="<%= model.escape('value') %>"/>
+  <%= this.model.html() %>
+  <% /* <input name="<%= model.escape('name') %>" type="<%= model.escape('field_type') %>" value="<%= model.escape('value') %>"/> */ %>
 </div>

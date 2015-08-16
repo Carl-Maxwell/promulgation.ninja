@@ -2,7 +2,7 @@ Promulgation.Models.Field = Backbone.Model.extend({
   urlRoot: "/api/fields",
 
   html: function() {
-    
+    return fieldHelper.makeField(this);
   },
 
   // has_many :fields

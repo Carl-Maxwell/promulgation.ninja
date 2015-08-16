@@ -44,7 +44,13 @@ Promulgation.Views.FormEdit = Backbone.CompositeView.extend({
 
     var itemView = this.actualFields.getViewForModel(model);
 
-    itemView.$el.next().click();
+    var $el = itemView.$el;
+
+    if ($el.next().length){
+      $el.next().click();
+    } else {
+      $el.prev().click();
+    }
 
     model.destroy();
   }

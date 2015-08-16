@@ -1,28 +1,28 @@
 (function(fieldHelper){
   var types = [
-    { type: "text"         , value: ""  },
-    { type: "textarea"     , value: ""  },
+    { field_type: "text"         , value: ""  },
+    { field_type: "textarea"     , value : "rawr"  },
 
-    { type: "dropdown"     , fields: [] },
-    { type: "radio"        , fields: [] },
-    { type: "checkbox"     , fields: [] },
+    { field_type: "dropdown"     , fields: [] },
+    { field_type: "radio"        , fields: [] },
+    { field_type: "checkbox"     , fields: [] },
 
-    { type: "website"      , value: ""  },
-    { type: "date"         , value: ""  },
-    { type: "rating"       , value: ""  },
-    { type: "phone"        , value: ""  },
-    { type: "email"        , value: ""  },
+    { field_type: "website"      , value: ""  },
+    { field_type: "date"         , value: ""  },
+    { field_type: "rating"       , value: ""  },
+    { field_type: "phone"        , value: ""  },
+    { field_type: "email"        , value: ""  },
 
-    { type: "visual text"  , value: ""  },
+    { field_type: "visual text"  , value: ""  },
 
-    { type: "section break"             },
-    { type: "page break"                },
+    { field_type: "section break"             },
+    { field_type: "page break"                },
 
-    { type: "address"      , fields: [] },
+    { field_type: "address"      , fields: [] },
 
-    { type: "likert"       , value: ""  },
-    { type: "code editor"  , value: ""  },
-    { type: "markup editor", value: ""  }
+    { field_type: "likert"       , value: ""  },
+    { field_type: "code editor"  , value: ""  },
+    { field_type: "markup editor", value: ""  }
   ];
 
   var makeField = fieldHelper.makeField = function(field) {
@@ -34,17 +34,17 @@
   };
 
   var possibilities = fieldHelper.possibilities = function() {
-    return types;
+    return types.map(function(e) { e.name = "namenamenamen"; return e; });
   };
 
   var Field = fieldHelper.Field = function(model, children) {
     this.name  = model.name;
-    this.type  = model.type;
+    this.field_type  = model.field_type;
     this.value = model.value;
 
     var n;
 
-    switch(model.type) {
+    switch(model.field_type) {
       case 'text'    : n = new Node({type: 'text'});              break;
       case 'textarea': n = new Node({tag: 'textarea', html: ''}); break;
 
@@ -52,14 +52,17 @@
       case 'radio'   : n = new Node({tag: 'fieldset', html: ''}); break;
       case 'checkbox': n = new Node({tag: 'fieldset', html: ''}); break;
 
-      default: alert('tried to make unsupported field!'); debugger;
+      default:
+        alert('tried to make unsupported field!');
+        debugger;
+        return '';
     }
 
     this.n = n;
 
     n.name = model.key;
 
-    switch(model.type) {
+    switch(model.field_type) {
       case 'text':
         n.value = model.value;
         break;
@@ -84,7 +87,7 @@
   Field.prototype.child = function(child) {
     child = child || {};
 
-    switch (this.type) {
+    switch (this.field_type) {
       case 'radio'   : child = {type: 'radio-item'   }; break;
       case 'dropdown': child = {tag : 'dropdown-item'}; break;
       case 'checkbox': child = {type: 'checkbox-item'}; break;
@@ -94,7 +97,7 @@
   };
 
   var Node = fieldHelper.Node = function(options) {
-    options = _.merge(options, {
+    options = _.defaults(options, {
       tag: 'input',
       html: undefined
     });
