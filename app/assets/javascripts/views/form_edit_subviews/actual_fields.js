@@ -65,9 +65,6 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
       placeholder: 'drop-placeholder',
       forcePlaceholderSize: true,
       delay: 110,
-      step: function() {
-        debugger;
-      },
       receive: function(e, ui) {
         this.scrollTop = this.$('.fields').scrollTop();
 
