@@ -1,5 +1,6 @@
 Promulgation.Views.FormEdit = Backbone.CompositeView.extend({
   template: JST['form_edit'],
+  className: 'form-edit clearfix',
 
   initialize: function() {
     this.sidebar = new Promulgation.Views.FormEditSidebar({
@@ -26,6 +27,9 @@ Promulgation.Views.FormEdit = Backbone.CompositeView.extend({
   },
 
   openFieldProperties: function(e) {
+    $('.properties-open').removeClass('properties-open');
+    $(e.currentTarget).addClass('properties-open');
+
     var model = this.actualFields.getModelForElement(e.currentTarget);
 
     this.sidebar.tabs[1].model = model;

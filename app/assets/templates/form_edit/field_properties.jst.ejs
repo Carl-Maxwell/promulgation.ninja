@@ -1,23 +1,23 @@
 <label>
   label:
-  <input type="text" name="key" value="<%= model.escape('key') %>" autofocus />
+  <input type="text" name="name" value="<%= model.escape('name') %>" autofocus />
 </label>
 
 <label>
   type:
     <input
-      name="value[type]"
+      name="field_type"
       type="text"
-      value="<%= _.escape(model.get('value').type) %>"
+      value="<%= model.escape('field_type') %>"
     />
 </label>
 
 <label>
   default value:
   <input
-    name="value[value]"
+    name="value"
     type="text"
-    value="<%= _.escape(model.get('value').value) %>"
+    value="<%= model.escape('value') %>"
   />
 </label>
 

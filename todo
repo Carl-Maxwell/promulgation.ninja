@@ -9,7 +9,7 @@
 - [ ] forms
   - [ ] viewing
   - [ ] editing
-    - [ ] removing fields
+    - [ ] pushing a potential field button without dragging should actualize
     - [ ] setting form properties
     - [ ] (having a range of field choices)
   - [ ] deleting forms

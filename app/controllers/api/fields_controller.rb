@@ -46,10 +46,10 @@ class Api::FieldsController < ApplicationController
       :value    ,
       :ord      ,
       :label    ,
-      :fieldType,
+      :field_type,
       :options  ,
       :form_id  ,
-      :field_id 
+      :field_id
     )
   end
 end

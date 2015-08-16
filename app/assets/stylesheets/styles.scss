@@ -1,3 +1,5 @@
+@import 'clearfix';
+
 h1{
   font-size: 30px;
 }
@@ -18,7 +20,7 @@ $content_width: 960px;
 $modal_width: $content_width*0.75;
 
 //
-//
+// Header
 //
 
 header{
@@ -61,6 +63,27 @@ header{
           padding: 10px;
         }
       }
+    }
+  }
+}
+
+//
+// Footer
+//
+
+.footer{
+  @extend .clearfix;
+  margin: 0 auto;
+  padding: 50px 0 50px 0;
+  width: $content_width;
+
+  li{
+    float: left;
+    font-size: 12px;
+    padding-right: 167px;
+
+    &:last-child{
+      padding-right: 0;
     }
   }
 }
@@ -145,11 +168,13 @@ body{
 
 .form-edit-sidebar{
   float: left;
+  position: relative;
   width: $content_width/2 - 10 - 2;
+  z-index: 1;
 
   .tabs .tab{
     float: left;
-    background: #fab;
+    background: #DFE6EC;
     border: 1px solid green;
     border-bottom: 0;
     border-top-left-radius: 8px;
@@ -169,19 +194,47 @@ body{
     background: white;
     border: 1px solid green;
     padding: 10px;
+    margin-bottom: 10px;
+    min-height: 500px;
 
     $tabular_width: $content_width/2 - 10 - 10px - 30 - 2px;
 
     li{
-      background: lightblue;
-      border-radius: 3px;
+      // background: lightblue;
+      // border-radius: 3px;
       display: block;
-      margin: 10px 0;
-      padding: 10px;
-      width: $tabular_width;
+      float: left;
+      // margin: 10px 0;
+      // padding: 5px 5px;
+      width: floor($tabular_width/2) - 1 - 20;
 
       &:first-child{
         margin-top: 0;
+      }
+
+      &.potential-item-button{
+        background: #E0E7ED;
+        // background: #CBDCE9;
+        border-radius: 3px;
+        color: #323232;
+        display: block;
+        font-size: 16px;
+
+        border: 0;
+        cursor: pointer;
+        padding: 10px;
+        margin: 5px 5px;
+
+        text-align: center;
+
+        text-transform: capitalize;
+
+        &:hover{
+          box-shadow: 1px 1px 1px #d9d9d9;
+        }
+        &:active{
+          box-shadow: 0 0 20px #FFB5B5;
+        }
       }
     }
 
@@ -194,14 +247,19 @@ body{
 .form-edit-actuals{
   background: whitesmoke;
   float: left;
+  position: relative;
   width: $content_width/2 + 9;
+  z-index: 2;
 
+  h1{
+    margin-top: -1px;
+    padding-left: 10px;
+  }
   .fields{
-    background: #fab;
     height: 400px;
+    margin-top: 3px;
     overflow-y: scroll;
-    overflow-x: hidden;
-    position:relative;
+    padding-top: 10px;
 
     .drop-placeholder{
       background: whitesmoke image-url('drop_placeholder.png');
@@ -210,11 +268,66 @@ body{
   }
 }
 
+.form-edit-actual-item{
+  cursor: pointer;
+  position: relative;
+
+  &:before{
+    content: "";
+    margin-left: -20px;
+    position: absolute;
+    transition: margin-left 0.2s;
+
+    border-bottom: 10px solid transparent;
+    border-left  : 10px solid black;
+    border-top   : 10px solid transparent;
+
+    margin-top: -2px;
+  }
+}
+
+@keyframes in-and-out {
+  0%   { outline: 0 solid transparent; }
+  50%  { outline: 100px solid green; }
+  100% { outline: 0 solid transparent; }
+}
+
+.form-edit-actual-item.properties-open{
+  animation-name: in-and-out;
+  animation-duration: 0.5s;
+
+  &:before{
+    // content: "";
+    // position: absolute;
+    margin-left: -11px;
+  }
+
+  // &:after{
+  //   content: "";
+  //   position: absolute;
+  //   margin-left: -11px;
+  //
+  //   border-bottom: 6px solid transparent;
+  //   border-left: 6px solid #FFF;
+  //   border-top: 6px solid transparent;
+  //   // border-left-color: rgb(255, 255, 255);
+  //
+  //   top: 1px;
+  // }
+}
+
+html .ui-draggable-dragging{
+  cursor: move;
+}
+
 html body div li.form-edit-actual-item{
   background: whitesmoke !important;
-  cursor: pointer;
+  // cursor: pointer;
+  margin-bottom: 10px;
   padding: 0 10px !important;
+  // position: absolute;
   width: $content_width/2 - 6 - 20px !important;
+  // z-index: 100;
 
   input, textarea{
     width: $content_width/2 - 10 - 10 - 20px !important;
