@@ -8,13 +8,13 @@ Promulgation.Views.ActualFieldItem = Backbone.View.extend({
   },
 
   initialize: function() {
-    this.listenTo(this.model, 'sync'   , this.render);
+    this.listenTo(this.model, 'sync', this.render);
     // this.listenTo(this.model, 'destroy', this.animateRemoval);
   },
 
   animateRemoval: function(callback) {
     this.$el.effect("drop", {
-        duration: 200,
+        duration: 300,
         complete: function() {
           callback();
           // this.remove();

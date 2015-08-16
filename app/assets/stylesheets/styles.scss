@@ -18,6 +18,7 @@ a{
 
 $content_width: 960px;
 $modal_width: $content_width*0.75;
+$goodgrey: #EBEBEB;
 
 //
 // Header
@@ -36,16 +37,6 @@ header{
       float: left;
       height: 61px;
       width: 400px;
-    }
-
-    .navbar-center-links{
-      float: left;
-      // margin-top: 63px;
-
-      li{
-        float: left;
-        padding: 10px;
-      }
     }
 
     .navbar-right-links{
@@ -67,6 +58,36 @@ header{
   }
 }
 
+//
+// Navbar
+//
+
+.navbar-center-links{
+  background: $goodgrey;
+  border: 1px solid #DFDFDF;
+  border-radius: 3px;
+  @extend .clearfix;
+  margin-bottom: 10px;
+  padding: 0 10px;
+
+  li{
+    float: left;
+
+    &:not(:first-child):before{
+      content: "/";
+    }
+    a{
+      // background: #EBEBEB;
+      display: inline-block;
+      padding: 10px;
+
+      &:hover{
+        // background: linear-gradient(whitesmoke, #EBEBEB);
+        text-decoration: underline;
+      }
+    }
+  }
+}
 //
 // Footer
 //
@@ -111,7 +132,6 @@ body{
   h2{
     margin-bottom: 10px;
   }
-
   .form-index{
     margin-left: -10px;
     width: $content_width + 20px;
@@ -142,25 +162,22 @@ body{
       padding-bottom: 10px;
     }
   }
-
   tfoot, thead{
     background: #E1E1E1;
     button{
       float: right;
     }
   }
-
   .wrapper{
     margin: 0 auto;
     width: $content_width/2;
   }
-
   input{
+    box-sizing: content-box;
     height: 24px;
     margin: 10px auto;
-    width: $content_width/2;
+    width: $content_width/2 - 20px;
   }
-
   input[type="submit"], button{
     height: inherit;
   }
@@ -174,7 +191,7 @@ body{
 
   .tabs .tab{
     float: left;
-    background: #DFE6EC;
+    background: $goodgrey;//#DFE6EC;
     border: 1px solid #808080;
     border-bottom: 0;
     border-top-left-radius: 8px;
@@ -184,7 +201,7 @@ body{
     margin-right: 10px;
 
     &:hover{
-      background: linear-gradient(#DFE6EC, whitesmoke);
+      background: linear-gradient($goodgrey, whitesmoke);
     }
     &.active{
       background: white;
@@ -216,7 +233,7 @@ body{
       }
 
       &.potential-item-button{
-        background: #E0E7ED;
+        background: $goodgrey; //#E0E7ED;
         // background: #CBDCE9;
         border-radius: 3px;
         color: #323232;
@@ -279,14 +296,20 @@ body{
     content: "";
     margin-left: -20px;
     position: absolute;
-    transition: margin-left 0.2s;
+    transition: margin-left 0.2s, opacity 0.2s;
 
     border-bottom: 10px solid transparent;
     border-left  : 10px solid #808080;
     border-top   : 10px solid transparent;
 
     margin-top: -2px;
+
+    opacity: 0;
   }
+}
+
+.form-edit-actual-item.properties-open.ui-sortable-helper:before{
+  visibility: hidden;
 }
 
 .form-edit-actual-item.properties-open{
@@ -295,6 +318,8 @@ body{
 
   &:before{
     margin-left: -11px;
+
+    opacity: 1;
   }
 }
 

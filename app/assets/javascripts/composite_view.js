@@ -109,5 +109,33 @@ Backbone.CompositeView = Backbone.View.extend({
 
   unshiftSubview: function (selector, subview) {
     this.addSubview(selector, subview, true);
-  }
+  },
+
+  getModelForElement: function(element) {
+    var compare = function(subview) {
+      return subview.el == element;
+    };
+
+    for (var selector in this._subviews) {
+      var subview = this.subviews(selector).find(compare);
+
+      if (subview) return subview.model;
+    }
+
+    return undefined;
+  },
+
+  getViewForModel: function(model) {
+    var compare = function(subview) {
+      return subview.model.get("id") == model.get("id");
+    };
+
+    for (var selector in this._subviews) {
+      var subview = this.subviews(selector).find(compare);
+
+      if (subview) return subview;
+    }
+
+    return undefined;
+  },
 });

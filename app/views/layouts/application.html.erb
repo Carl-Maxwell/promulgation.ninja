@@ -23,17 +23,17 @@
           <li><%= link_to :Register, new_user_url %></li>
         </ul>
       </div>
-      <% if logged_in? %>
-        <ul class="navbar-center-links">
-          <li><a href="#">Index</a></li>
-        </ul>
-      <% end %>
     </div>
   </header>
 
 
 
 <div class="content clearfix">
+  <% if logged_in? %>
+    <ul class="navbar-center-links">
+      <li><a href="#">Index</a></li>
+    </ul>
+  <% end %>
 <%= yield %>
 </div>
 

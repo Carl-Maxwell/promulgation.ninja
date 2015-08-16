@@ -34,6 +34,10 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
   },
 
   addItemView: function(model) {
+    if (typeof model.attributes.ord == "undefined") {
+      model.set('ord', this.model.fields().length);
+    }
+
     var subview = new Promulgation.Views.ActualFieldItem({model: model});
     this.addSubview('.fields', subview);
   },
@@ -52,23 +56,6 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
     }.bind(this) );
   },
 
-  getModelForElement: function(element) {
-    var subview = this.subviews('.fields').find(function(subview) {
-      return subview.el == element;
-    } );
-
-    return subview ? subview.model : undefined;
-  },
-
-  getViewForModel: function(model) {
-    var subview = this.subviews('.fields').find(function(subview) {
-      return subview.model.get("id") == model.get("id");
-      console.log(model);
-    } );
-
-    return subview;
-  },
-
   render: function() {
     this.$el.html(this.template({model: this.model}));
     this.attachSubviews();
@@ -78,6 +65,9 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
       placeholder: 'drop-placeholder',
       forcePlaceholderSize: true,
       delay: 110,
+      step: function() {
+        debugger;
+      },
       receive: function(e, ui) {
         this.scrollTop = this.$('.fields').scrollTop();
 
