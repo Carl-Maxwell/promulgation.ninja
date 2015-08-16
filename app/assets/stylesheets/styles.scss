@@ -175,7 +175,7 @@ body{
   .tabs .tab{
     float: left;
     background: #DFE6EC;
-    border: 1px solid green;
+    border: 1px solid #808080;
     border-bottom: 0;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -183,6 +183,9 @@ body{
     padding: 10px 5px 5px 5px;
     margin-right: 10px;
 
+    &:hover{
+      background: linear-gradient(#DFE6EC, whitesmoke);
+    }
     &.active{
       background: white;
       padding-bottom: 6px;
@@ -192,7 +195,7 @@ body{
 
   .tabular-content {
     background: white;
-    border: 1px solid green;
+    border: 1px solid #808080;
     padding: 10px;
     margin-bottom: 10px;
     min-height: 500px;
@@ -256,7 +259,7 @@ body{
     padding-left: 10px;
   }
   .fields{
-    height: 400px;
+    height: 500px;
     margin-top: 3px;
     overflow-y: scroll;
     padding-top: 10px;
@@ -279,41 +282,20 @@ body{
     transition: margin-left 0.2s;
 
     border-bottom: 10px solid transparent;
-    border-left  : 10px solid black;
+    border-left  : 10px solid #808080;
     border-top   : 10px solid transparent;
 
     margin-top: -2px;
   }
 }
 
-@keyframes in-and-out {
-  0%   { outline: 0 solid transparent; }
-  50%  { outline: 100px solid green; }
-  100% { outline: 0 solid transparent; }
-}
-
 .form-edit-actual-item.properties-open{
-  animation-name: in-and-out;
-  animation-duration: 0.5s;
+  transition: 0.8s background-color;
+  background-color: #EFEFEF !important;
 
   &:before{
-    // content: "";
-    // position: absolute;
     margin-left: -11px;
   }
-
-  // &:after{
-  //   content: "";
-  //   position: absolute;
-  //   margin-left: -11px;
-  //
-  //   border-bottom: 6px solid transparent;
-  //   border-left: 6px solid #FFF;
-  //   border-top: 6px solid transparent;
-  //   // border-left-color: rgb(255, 255, 255);
-  //
-  //   top: 1px;
-  // }
 }
 
 html .ui-draggable-dragging{
@@ -322,12 +304,9 @@ html .ui-draggable-dragging{
 
 html body div li.form-edit-actual-item{
   background: whitesmoke !important;
-  // cursor: pointer;
   margin-bottom: 10px;
-  padding: 0 10px !important;
-  // position: absolute;
+  padding: 10px 10px 0 10px !important;
   width: $content_width/2 - 6 - 20px !important;
-  // z-index: 100;
 
   input, textarea{
     width: $content_width/2 - 10 - 10 - 20px !important;
