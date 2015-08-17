@@ -1,12 +1,13 @@
 Promulgation.Views.FieldPropertiesItem = Backbone.View.extend({
-  tagName: 'tr',
+  tagName: 'li',
   template: JST['form_edit/field_properties_item'],
 
   // initialize: function() {},
 
   events: {
     'keyup .child-name': 'change',
-    'change input': 'change'
+    'change input': 'change',
+    'click .delete': 'deleteButton'
   },
 
   render: function() {
@@ -16,7 +17,23 @@ Promulgation.Views.FieldPropertiesItem = Backbone.View.extend({
   },
 
   change: function() {
-    this.model.save(this.$('[name]').serializeJSON());
+    var formData = this.$('[name]').serializeJSON();
+
+    formData.value = formData.value || "";
+
+    this.model.save(formData);
+  },
+
+  deleteButton: function() {
+    var parentView = Promulgation.router._view.sidebar.tabs[1];
+
+    this.$el.effect("drop", {
+        duration: 300,
+        complete: function() {
+          parentView.removeSubview('.children-table', this);
+          this.model.destroy();
+        }.bind(this)
+    });
   }
 
 });

@@ -1,5 +1,6 @@
 Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
   template: JST['form_edit/field_properties'],
+  className: 'field-properties',
 
   events: {
     'change input': 'changeProperty',
@@ -11,6 +12,7 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
     this.listenTo(this.model.fields(), "add", function(newField) {
       this.model = newField;
     }.bind(this));
+
     this.model = this.model.fields().first();
   },
 
@@ -24,7 +26,7 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
   addSubfield: function(model) {
     var subview = new Promulgation.Views.FieldPropertiesItem({model: model});
 
-    this.addSubview('.children-table tbody', subview);
+    this.addSubview('.children-table', subview);
   },
 
   addSubfields: function() {
@@ -64,7 +66,7 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
   addChild: function(e) {
     var model = new Promulgation.Models.Field({
       field_id: this.model.get('id'),
-      field_type: this.model.get('type') + '-item',
+      field_type: this.model.get('field_type') + '-item',
       name: '',
       ord: this.model.fields().length,
     });
@@ -74,5 +76,6 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
     this.addSubfield(model);
 
     model.save();
-  }
+  },
+
 });

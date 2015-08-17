@@ -230,7 +230,7 @@ body{
 
     $tabular_width: $content_width/2 - 10 - 10px - 30 - 2px;
 
-    li{
+    .add-field-index li{
       // background: lightblue;
       // border-radius: 3px;
       display: block;
@@ -297,14 +297,23 @@ body{
         width: 279px;
       }
       .add-child{
+        border: 1px solid #ccc;
         float: right;
         margin: 10px;
       }
       .children-table{
+        overflow: hidden;
         width: 100%;
 
-        td{
+        li{
+          @extend .clearfix;
+        }
+        .column{
+          float: left;
           padding: 10px;
+        }
+        .name-column input{
+          margin: 1px 0 0 0;
         }
       }
     }

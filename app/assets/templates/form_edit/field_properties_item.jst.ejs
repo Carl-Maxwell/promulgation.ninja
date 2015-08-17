@@ -1,4 +1,4 @@
-<td class="radio-wrapper">
+<div class="radio-wrapper column checkbox-column">
   <input
     type="radio"
     name="value"
@@ -6,15 +6,15 @@
     class="radio"
     <% model.get('value') ? 'checked' : '' %>
   />
-</td>
-<td>
+</div>
+<div class="column name-column">
     <input
       type="text"
       name="name"
       value="<%= model.escape('name') %>"
       class="child-name"
     />
-</td>
-<td>
+</div>
+<div class="column action-column">
   <button class="delete small-button danger-button">Delete</button>
-</td>
+</div>
