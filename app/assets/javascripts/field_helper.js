@@ -3,7 +3,7 @@
     { field_type: "text"         , value: ""  },
     { field_type: "textarea"     , value: ""  },
 
-    // { field_type: "dropdown"     , fields: [] },
+    { field_type: "dropdown"     },
     // { field_type: "radio"        , fields: [] },
     // { field_type: "checkbox"     , fields: [] },
     //
@@ -30,11 +30,21 @@
 
     // if (field.attributes) field = field.attributes;
 
+    // debugger
+
     return (new Field(field.attributes, field.fields())).outerHtml();
   };
 
+  var hasChildren = fieldHelper.hasChildren = function(field) {
+    // debugger
+
+    field.fields();
+
+    return !!(new Field(field.attributes, field.fields())).child();
+  };
+
   var possibilities = fieldHelper.possibilities = function() {
-    return types.map(function(e) { e.name = "namenamenamen"; return e; });
+    return types.map(function(e) { e.name = "Untitled"; return e; });
   };
 
   var Field = fieldHelper.Field = function(model, children) {
@@ -52,6 +62,10 @@
       case 'radio'   : n = new Node({tag: 'fieldset', html: ''}); break;
       case 'checkbox': n = new Node({tag: 'fieldset', html: ''}); break;
 
+      case 'radio-item'   : n = new Node({type: 'radio'             }); break;
+      case 'checkbox-item': n = new Node({type: 'checkbox'          }); break;
+      case 'dropdown-item': n = new Node({tag:  'option'  , html: ''}); break;
+
       default:
         alert('tried to make unsupported field!');
         debugger;
@@ -65,10 +79,10 @@
     switch(model.field_type) {
       case 'text':
         n.value = model.value;
-        break;
+      break;
       case 'textarea':
         n.html = model.value;
-        break;
+      break;
       case 'dropdown':
       case 'radio'   :
       case 'checkbox':
@@ -76,6 +90,13 @@
           child = this.child(child);
           n.html += child.outerHtml();
         }.bind(this));
+      break;
+      case 'radio-item'   :
+      case 'checkbox-item':
+        n.value = model.value;
+      break;
+      case 'dropdown-item':
+        n.html = model.value;
       break;
     }
   };
@@ -88,12 +109,14 @@
     child = child || {};
 
     switch (this.field_type) {
-      case 'radio'   : child = {type: 'radio-item'   }; break;
-      case 'dropdown': child = {tag : 'dropdown-item'}; break;
-      case 'checkbox': child = {type: 'checkbox-item'}; break;
+      case 'radio'   : child = {field_type: 'radio-item'   }; break;
+      case 'dropdown': child = {field_type: 'dropdown-item'}; break;
+      case 'checkbox': child = {field_type: 'checkbox-item'}; break;
+
+      default: return null;
     }
 
-    return makeField(child);
+    return (new Field(child, []));
   };
 
   var Node = fieldHelper.Node = function(options) {

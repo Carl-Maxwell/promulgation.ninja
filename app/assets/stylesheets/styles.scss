@@ -272,6 +272,42 @@ body{
     input{
       width: $tabular_width + 10 - 10;
     }
+
+    //
+    // field properties
+    //
+
+    .field-children{
+      background: whitesmoke;
+      border: 1px solid #DFDFDF;
+      border-radius: 3px;
+      margin-bottom: 10px;
+
+      .heading{
+        float: left;
+        padding: 16px 10px 10px 10px;
+      }
+      .radio-wrapper{
+        vertical-align: middle;
+      }
+      .radio{
+        width: auto;
+      }
+      .child-name{
+        width: 279px;
+      }
+      .add-child{
+        float: right;
+        margin: 10px;
+      }
+      .children-table{
+        width: 100%;
+
+        td{
+          padding: 10px;
+        }
+      }
+    }
   }
 }
 

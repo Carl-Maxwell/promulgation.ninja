@@ -1,17 +1,18 @@
 
+- setup figaro
+
+- [ ] fields with children
+
 - [ ] editing accounts
 - [ ] deleting user accounts
-- [ ] display validation errors when the user fills in a static form
-  wrongly
+- [ ] display validation errors when the user fills in a static form wrongly
 - [ ] change password
   - [ ] delete sessions on password change
 - [ ] forgot password feature
 - [ ] forms
   - [ ] viewing
   - [ ] editing
-    - [ ] pushing a potential field button without dragging should actualize
     - [ ] setting form properties
-    - [ ] (having a range of field choices)
   - [ ] deleting forms
 - [ ] creating, viewing, and deleting fields within forms
   - [ ] fields belong to a form
@@ -33,7 +34,6 @@
 
 ## edit
 
-- [ ] textarea
 - [ ] dropdown
 - [ ] radio
 - [ ] checkbox

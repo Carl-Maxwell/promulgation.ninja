@@ -5,6 +5,10 @@ Promulgation.Models.Field = Backbone.Model.extend({
     return fieldHelper.makeField(this);
   },
 
+  hasChildren: function() {
+    return fieldHelper.hasChildren(this);
+  },
+
   // has_many :fields
 
   fields: function() {
