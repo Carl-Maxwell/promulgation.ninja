@@ -380,7 +380,7 @@ html body div li.form-edit-actual-item{
   padding: 10px 10px 0 10px !important;
   width: $content_width/2 - 6 - 20px !important;
 
-  input, textarea{
+  input, textarea, select{
     width: $content_width/2 - 10 - 10 - 20px !important;
   }
   .displayfield{

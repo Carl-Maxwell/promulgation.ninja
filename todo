@@ -1,6 +1,8 @@
 
 - setup figaro
 
+- [ ] a form with no fields generates an error when you open field properties
+
 - [ ] fields with children
 
 - [ ] editing accounts

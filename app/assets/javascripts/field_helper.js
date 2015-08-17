@@ -48,8 +48,10 @@
   };
 
   var Field = fieldHelper.Field = function(model, children) {
-    this.name  = model.name;
-    this.field_type  = model.field_type;
+
+    if (typeof model.name != "undefined") this.name = model.name;
+
+    this.field_type = model.field_type;
     this.value = model.value;
 
     var n;
@@ -69,12 +71,12 @@
       default:
         alert('tried to make unsupported field!');
         debugger;
-        return '';
+        return this;
     }
 
     this.n = n;
 
-    n.name = model.key;
+    n.name = "field_" + model.id;
 
     switch(model.field_type) {
       case 'text':
@@ -87,8 +89,7 @@
       case 'radio'   :
       case 'checkbox':
         children.forEach(function(child) {
-          child = this.child(child);
-          n.html += child.outerHtml();
+          n.html += this.child(child).outerHtml();
         }.bind(this));
       break;
       case 'radio-item'   :
@@ -135,7 +136,7 @@
     var h = '<' + this.tag;
 
     for (var attr in this) {
-      if (['tag', 'html'].indexOf(attr) < 0) continue;
+      if (['tag', 'html'].indexOf(attr) >= 0 || attr in this.constructor.prototype) continue;
       h += ' ' + attr + '="' + this[attr] + '"';
     }
 

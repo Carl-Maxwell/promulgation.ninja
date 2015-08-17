@@ -1,0 +1,20 @@
+<td class="radio-wrapper">
+  <input
+    type="radio"
+    name="value"
+    value="true"
+    class="radio"
+    <% model.get('value') ? 'checked' : '' %>
+  />
+</td>
+<td>
+    <input
+      type="text"
+      name="name"
+      value="<%= model.escape('name') %>"
+      class="child-name"
+    />
+</td>
+<td>
+  <button class="delete small-button danger-button">Delete</button>
+</td>

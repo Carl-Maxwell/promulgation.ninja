@@ -33,7 +33,11 @@ Promulgation.Views.FormEdit = Backbone.CompositeView.extend({
 
     var model = this.actualFields.getModelForElement(e.currentTarget);
 
-    this.sidebar.tabs[1].model = model;
+    var propertiesView = this.sidebar.tabs[1];
+
+    propertiesView.model = model;
+
+    propertiesView.addSubfields();
 
     this.sidebar.openTab(1);
   },
@@ -76,5 +80,6 @@ Promulgation.Views.FormEdit = Backbone.CompositeView.extend({
     // view.render();
 
     this.model.fields().add(model);
+    model.save();
   }
 });

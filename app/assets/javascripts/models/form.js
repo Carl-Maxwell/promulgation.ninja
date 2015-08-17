@@ -11,7 +11,7 @@ Promulgation.Models.Form = Backbone.Model.extend({
 
   parse: function(payload) {
     if (payload.fields) {
-      this.fields().set(payload.fields);
+      this.fields().set(payload.fields, {parse: true});
       delete payload.fields;
     }
 
