@@ -1,28 +1,28 @@
 (function(fieldHelper){
   var types = [
     { field_type: "text"         , value: ""  },
-    { field_type: "textarea"     , value : "rawr"  },
+    { field_type: "textarea"     , value: ""  },
 
-    { field_type: "dropdown"     , fields: [] },
-    { field_type: "radio"        , fields: [] },
-    { field_type: "checkbox"     , fields: [] },
-
-    { field_type: "website"      , value: ""  },
-    { field_type: "date"         , value: ""  },
-    { field_type: "rating"       , value: ""  },
-    { field_type: "phone"        , value: ""  },
-    { field_type: "email"        , value: ""  },
-
-    { field_type: "visual text"  , value: ""  },
-
-    { field_type: "section break"             },
-    { field_type: "page break"                },
-
-    { field_type: "address"      , fields: [] },
-
-    { field_type: "likert"       , value: ""  },
-    { field_type: "code editor"  , value: ""  },
-    { field_type: "markup editor", value: ""  }
+    // { field_type: "dropdown"     , fields: [] },
+    // { field_type: "radio"        , fields: [] },
+    // { field_type: "checkbox"     , fields: [] },
+    //
+    // { field_type: "website"      , value: ""  },
+    // { field_type: "date"         , value: ""  },
+    // { field_type: "rating"       , value: ""  },
+    // { field_type: "phone"        , value: ""  },
+    // { field_type: "email"        , value: ""  },
+    //
+    // { field_type: "visual text"  , value: ""  },
+    //
+    // { field_type: "section break"             },
+    // { field_type: "page break"                },
+    //
+    // { field_type: "address"      , fields: [] },
+    //
+    // { field_type: "likert"       , value: ""  },
+    // { field_type: "code editor"  , value: ""  },
+    // { field_type: "markup editor", value: ""  }
   ];
 
   var makeField = fieldHelper.makeField = function(field) {

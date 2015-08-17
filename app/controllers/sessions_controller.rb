@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
   def create
     if login(user_params[:name], user_params[:password])
-      redirect_to root_url
+      redirect_to root_url + "#"
     else
       flash[:errors] = ["No user matches that name / password combination"]
       redirect_to new_session_url

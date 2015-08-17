@@ -14,3 +14,11 @@ window.Promulgation = {
     Backbone.history.start();
   }
 };
+
+
+
+$(function(){
+  if ($('.root').length) {
+    Promulgation.initialize();
+  }
+});

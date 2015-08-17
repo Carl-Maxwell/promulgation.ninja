@@ -16,12 +16,16 @@ gem 'bcrypt'
 
 gem 'rails_12factor'
 
+gem 'newrelic_rpm'
+
 group :development, :test do
   gem 'byebug'
 
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+
+  gem 'quiet_assets'
 
   gem 'web-console', '~> 2.0'
 

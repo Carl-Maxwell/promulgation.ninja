@@ -50,8 +50,14 @@ header{
           background: transparent;
           display: block;
           color: blue;
+          font-family: 'arial';
           font-size: 16px;
           padding: 10px;
+
+          &:hover{
+            box-shadow: none;
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -106,6 +112,14 @@ header{
     &:last-child{
       padding-right: 0;
     }
+    a{
+      color: grey;
+
+      &:hover{
+        text-decoration: underline;
+      }
+    }
+
   }
 }
 
@@ -136,8 +150,8 @@ body{
     margin-left: -10px;
     width: $content_width + 20px;
 
-    .small-button:hover{
-      box-shadow: 0 0 1px blue inset;
+    a:hover{
+      text-decoration: underline;
     }
     tr td:first-child{
       padding-left: 10px;
@@ -145,12 +159,9 @@ body{
       a{
         display: block;
       }
-      a:hover{
-        text-decoration: underline;
-      }
     }
     tr td:last-child{
-      width: 173px;
+      width: 174px;
     }
     tr:nth-child(2n){
       background: #ECECEC;
@@ -356,13 +367,54 @@ html body div li.form-edit-actual-item{
 }
 
 input[type="submit"], button, .large-button{
-  background: #fab;
   border: 0;
   cursor: pointer;
   display: inline-block;
-  font-size: 24px;
-  // height: inherit;
   padding: 10px;
+
+  //
+  //
+  //
+
+  background: $goodgrey;
+  border-radius: 3px;
+  color: #323232;
+  font-size: 16px;
+
+  border: 0;
+  cursor: pointer;
+  padding: 10px;
+
+  text-align: center;
+
+  text-transform: capitalize;
+
+  &.danger-button{
+    // background: red;
+    color: red;
+    border: 1px solid hsla(0, 0%, 0%, 0.2);
+
+    // &:hover{
+      // background: linear-gradient(#fab, red);
+    // }
+
+    &:hover{
+      background: #E50000;
+      border-color: red;
+      box-shadow: 0 0 10px pink;
+      color: white;
+    }
+    &:active{
+      box-shadow: 0 0 20px #FFB5B5;
+    }
+  }
+
+  &:hover{
+    box-shadow: 1px 1px 1px #d9d9d9;
+  }
+  &:active{
+    box-shadow: 0 0 20px #FFB5B5;
+  }
 }
 
 input[type="text"], input[type="password"]{
