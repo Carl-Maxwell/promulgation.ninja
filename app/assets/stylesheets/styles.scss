@@ -16,9 +16,36 @@ a{
   text-decoration: none;
 }
 
+//
+//
+//
+
+.floatleft{ float: left; }
+
+//
+//
+//
+
+
 $content_width: 960px;
 $modal_width: $content_width*0.75;
 $goodgrey: #EBEBEB;
+
+//
+// common elements
+//
+
+.item-header{
+  .add-item{
+    border: 1px solid #ccc;
+    float: right;
+  }
+
+  .heading{
+    float: left;
+    padding: 10px;
+  }
+}
 
 //
 // Header
@@ -147,6 +174,7 @@ body{
     margin-bottom: 10px;
   }
   .form-index{
+    border-top: 1px solid #BCBCBC;
     margin-left: -10px;
     width: $content_width + 20px;
 
@@ -297,8 +325,6 @@ body{
         width: 279px;
       }
       .add-child{
-        border: 1px solid #ccc;
-        float: right;
         margin: 10px;
       }
       .children-table{
@@ -422,6 +448,7 @@ input[type="submit"], button, .large-button{
   //
 
   background: $goodgrey;
+  border: 1px solid #ccc;
   border-radius: 3px;
   color: #323232;
   font-size: 16px;
