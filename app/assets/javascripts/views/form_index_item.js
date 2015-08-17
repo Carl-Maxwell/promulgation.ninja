@@ -3,9 +3,17 @@ Promulgation.Views.FormIndexItem = Backbone.View.extend({
   className: 'clearfix',
   template: JST['form_index_item'],
 
+  events: {
+    'click .delete': 'deleteItem'
+  },
+
   render: function() {
     this.$el.html(this.template({form: this.model}));
 
     return this;
+  },
+
+  deleteItem: function() {
+    this.model.destroy();
   }
 });

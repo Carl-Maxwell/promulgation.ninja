@@ -3,6 +3,7 @@ class Field < ActiveRecord::Base
   validates :field, presence: { if: -> { form.nil?  } }
   validates :ord, :field_type, presence: true
   validates :name, length: { minimum: 0, allow_nil: false }
+
   validate :field_logic
 
   serialize :options, JSON
