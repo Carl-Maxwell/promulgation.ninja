@@ -2,10 +2,24 @@
 - [ ] setup figaro
 
 - [ ] when you delete a property child, focus() on the next child
+      -> wait, why?
 
-- [ ] a form with no fields generates an error when you open field properties
 
-- [ ] fields with children
+
+- [ ] resorting field children
+- [ ] make the New choice button into a draggable (constrained to .table)
+- [ ] get advanced settings saving
+- [ ] seed data
+- [ ] slow down saving so it doesn't happen often when typing
+- [ ] initialize dropdowns &c with three children
+- [ ] fix checkbox and radio formatting on the form edit page
+
+- [ ] a 'splash page' (homepage, landing page, thing)
+
+- [ ] filling in a radio input quickly using the enter key to make children 
+        creates empty subfields (can see them if you refresh)
+
+- [ ] paginating forms#index, submissions#index
 
 - [ ] editing accounts
 - [ ] deleting user accounts
@@ -18,11 +32,8 @@
   - [ ] editing
     - [ ] setting form properties
   - [ ] deleting forms
-- [ ] creating, viewing, and deleting fields within forms
-  - [ ] fields belong to a form
-  - [ ] fields have a type (text, textarea, dropdown, radio, checkbox,
-    date, &c)
-- [ ] auto-saving forms as they're being edited
+- [ ] viewing fields within forms
+- [ ] publishing forms (separating draft and published versions)
 - [ ] confirm deletion of field (by typing in password)
 - [ ] rendering the form
 - [ ] outputting embed code for the form
@@ -38,9 +49,6 @@
 
 ## edit
 
-- [ ] dropdown
-- [ ] radio
-- [ ] checkbox
 - [ ] date
 - [ ] What you see is what you get editor (WYSIWYG)
 - [ ] Section break

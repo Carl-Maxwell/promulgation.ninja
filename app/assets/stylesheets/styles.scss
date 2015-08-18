@@ -20,6 +20,10 @@ a{
   }
 }
 
+label{
+  display: block;
+}
+
 //
 //
 //
@@ -28,10 +32,11 @@ a{
 
 .none{ display: none !important; }
 
-//
-//
-//
+.margin-bottom{ margin-bottom: 10px; }
 
+//
+//
+//
 
 $content_width: 960px;
 $modal_width: $content_width*0.75;
@@ -53,6 +58,27 @@ $goodgrey: #EBEBEB;
   }
 }
 
+html [class].good-button{
+  background: $goodgrey;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #323232;
+  cursor: pointer;
+  float: right;
+  font-size: 16px;
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+  text-transform: capitalize;
+
+  &:hover{
+    box-shadow: 1px 1px 1px #d9d9d9;
+  }
+  &:active{
+    box-shadow: 0 0 20px #FFB5B5;
+  }
+}
+
 //
 // Header
 //
@@ -67,9 +93,10 @@ header{
 
     .logo{
       background: image-url('logo3.png') left no-repeat;
+      display: block;
       float: left;
       height: 61px;
-      width: 400px;
+      width: 357px;
     }
 
     .navbar-right-links{
@@ -165,7 +192,7 @@ body{
 }
 
 //
-//
+// Messy disorganized stuff
 //
 
 .content{
@@ -214,11 +241,23 @@ body{
     }
   }
   .wrapper{
+    @extend .clearfix;
+
     margin: 0 auto;
     width: $content_width/2;
+
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    input[type="text"], input[type="password"]{
+      width: $content_width/2 - 20px + 6px;
+    }
   }
-  input{
-    box-sizing: content-box;
+  input[type="text"], input[type="password"]{
+    // box-sizing: content-box;
     height: 24px;
     margin: 10px auto;
     width: $content_width/2 - 20px;
@@ -245,6 +284,9 @@ body{
     padding: 10px 5px 5px 5px;
     margin-right: 10px;
 
+    &.grey{
+      color: grey;
+    }
     &:hover{
       background: linear-gradient($goodgrey, whitesmoke);
     }
@@ -265,12 +307,8 @@ body{
     $tabular_width: $content_width/2 - 10 - 10px - 30 - 2px;
 
     .add-field-index li{
-      // background: lightblue;
-      // border-radius: 3px;
       display: block;
       float: left;
-      // margin: 10px 0;
-      // padding: 5px 5px;
       width: floor($tabular_width/2) - 1 - 20;
 
       &:first-child{
@@ -278,8 +316,7 @@ body{
       }
 
       &.potential-item-button{
-        background: $goodgrey; //#E0E7ED;
-        // background: #CBDCE9;
+        background: $goodgrey;
         border-radius: 3px;
         color: #323232;
         display: block;
@@ -311,6 +348,25 @@ body{
     // field properties
     //
 
+    .field-properties{
+      padding-bottom: 50px; // cause .bottom-section is position: absolute
+
+      .bottom-section{
+        background-color: whitesmoke;
+        bottom: 11px;
+        border-top: 1px solid #DFDFDF;
+        margin-left: -10px;
+        padding: 10px;
+        position: absolute;
+        width: 444px;
+
+        .right-button{
+          float: right;
+          border: 1px solid #ccc;
+        }
+      }
+    }
+
     .field_type{
       border: 1px solid $goodgrey;
       margin: 10px 0;
@@ -325,23 +381,28 @@ body{
 
       .heading{
         float: left;
-        padding: 16px 10px 10px 10px;
+        padding: 18px 10px 10px 10px;
       }
       .radio-wrapper{
         vertical-align: middle;
       }
       .radio{
+        height: 38px;
+        margin-top: 1px;
         width: auto;
       }
       .child-name{
-        width: 308px;
+        width: 301px - 10;
       }
       .add-child{
-        margin: 10px;
+        margin: 10px 20px 10px 10px;
       }
       .children-table{
         overflow: hidden;
         width: 100%;
+
+        max-height: 331px;
+        overflow-y: scroll;
 
         li{
           @extend .clearfix;
@@ -368,7 +429,7 @@ body{
         padding-left: 10px;
       }
       input{
-        width: $tabular_width + 10 - 10 + 2 - 10;
+        width: $tabular_width + 10 - 10 + 2 - 10 - 10;
       }
       .toggle-advanced-settings{
         display: block;
@@ -448,9 +509,10 @@ html body div li.form-edit-actual-item{
   padding: 10px 10px 0 10px !important;
   width: $content_width/2 - 6 - 20px !important;
 
-  input, textarea, select{
+  input[type="text"], textarea, select{
     width: $content_width/2 - 10 - 10 - 20px !important;
   }
+
   .displayfield{
     position: relative;
 
@@ -465,8 +527,6 @@ html body div li.form-edit-actual-item{
     }
   }
   &.dragging{
-    // padding-top: 10px !important;
-    // margin-top: -10px !important;
   }
 }
 

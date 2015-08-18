@@ -11,13 +11,13 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
   },
 
   initialize: function() {
-    this.listenTo(this.model.fields(), "add", function(newField) {
-      this.model = newField;
-    }.bind(this));
+    // this.listenTo(this.model.fields(), "add", function(newField) {
+    //   this.model = newField;
+    // }.bind(this));
 
     // here this.model is the _form_
 
-    this.model = this.model.fields().first();
+    // this.model = this.model.fields().first();
 
     // and now it's a field
   },
@@ -38,8 +38,7 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
   },
 
   addSubfields: function() {
-    this.removeSubviews();
-    this._subviews = {};
+    this.removeSubviews(true);
 
     this.model.fields().each(function(subfield) {
       this.addSubfield(subfield);
@@ -108,5 +107,17 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
       return Math.sign(a.model.get('ord') - b.model.get('ord'));
     });
   },
+
+  prepareToBeATab: function(form) {
+    if (!this.model) {
+      if (form.fields().length) {
+        this.model = form.fields().first();
+      } else {
+        return false;
+      }
+    }
+
+    return true;
+  }
 
 });

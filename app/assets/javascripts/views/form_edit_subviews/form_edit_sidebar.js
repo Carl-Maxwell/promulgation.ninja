@@ -6,7 +6,7 @@ Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
 
     this.tabs = [
       new Promulgation.Views.PotentialFields(stdOpts),
-      new Promulgation.Views.FieldProperties(stdOpts),
+      new Promulgation.Views.FieldProperties(),
       new Promulgation.Views.FormProperties(stdOpts)
     ];
 
@@ -18,17 +18,21 @@ Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
   },
 
   openTab: function(newTabIndex) {
-    this.$('.tabs .active').removeClass('active');
-
     var tab = this.tabs[ newTabIndex ];
 
-    this.$('.tabs .tab').eq(newTabIndex).addClass('active');
+    if (tab.prepareToBeATab) {
+      if (!tab.prepareToBeATab(this.model)) {
+        this.$('.tabs .tab').eq(newTabIndex).addClass('grey');
 
-    var oldTab = this.subviews('.tabular-content').first();
-    oldTab.remove();
+        return;
+      }
+    }
 
-    var content = this.subviews('.tabular-content');
-    content.splice(0, 1);
+    this.$('.tabs .active').removeClass('active');
+
+    this.removeSubviews(true);
+
+    this.$('.tabs .tab').eq(newTabIndex).addClass('active').removeClass('grey');
 
     this.addSubview('.tabular-content', tab);
 

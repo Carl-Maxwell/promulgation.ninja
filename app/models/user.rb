@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_reader :password
 
+  # TODO check that confirm password & password are the same
+
   validates_presence_of :email, :name
   validates_uniqueness_of :email, :name
   # validates :password, length: {minimum: 6, allow_nil: true}

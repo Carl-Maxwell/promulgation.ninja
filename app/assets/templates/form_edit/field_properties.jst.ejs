@@ -1,15 +1,15 @@
 <label>
-  label:
+  Label:
   <input type="text" name="name" value="<%= model.escape('name') %>" autofocus />
 </label>
 
 <label>
-  type: <div class="field_type"><%= model.escape('field_type') %></div>
+  Type: <div class="field_type"><%= model.escape('field_type') %></div>
 </label>
 
 <% if (!model.hasChildren()) { %>
   <label>
-    default value:
+    Default Value:
     <input
       name="value"
       type="text"
@@ -27,14 +27,19 @@
   </div>
 <% } %>
 
-<button class="delete-button danger-button">Delete Field</button>
-
 <ul class="advanced-settings">
   <li><a href="javascript:void(0);" class="toggle-advanced-settings">Advanced Settings</a></li>
   <li class="none">
     <a href="javascript:void(0);" class="toggle-advanced-settings">Close Advanced Settings</a>
 
-    <label>Hovertext <input></label>
-    <label>CSS Tags <input></label>
+    <label>Hovertext <input type="text" name="options[title]"></label>
+    <label>Placeholder <input type="text" name="options[placeholder]"></label>
+    <label>CSS Tags <input type="text"></label>
   </li>
 </ul>
+
+<div class="bottom-section">
+  <button class="delete-button danger-button">Delete Field</button>
+
+  <button class="right-button">Publish</button>
+</div>
