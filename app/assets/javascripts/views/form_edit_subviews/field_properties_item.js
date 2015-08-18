@@ -6,6 +6,7 @@ Promulgation.Views.FieldPropertiesItem = Backbone.View.extend({
 
   events: {
     'keyup .child-name': 'change',
+    'keydown .child-name': 'checkForEnterKey',
     'change input': 'change',
     'click .delete': 'deleteButton'
   },
@@ -16,7 +17,14 @@ Promulgation.Views.FieldPropertiesItem = Backbone.View.extend({
     return this;
   },
 
-  change: function() {
+  checkForEnterKey: function(e) {
+    if (e.which == 13) {
+      e.preventDefault();
+      $(e.currentTarget).closest('.field-children').find('.add-item').click();
+    }
+  },
+
+  change: function(e) {
     var formData = this.$('[name]').serializeJSON();
 
     formData.value = formData.value || "";

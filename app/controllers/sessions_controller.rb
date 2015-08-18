@@ -7,7 +7,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if login(user_params[:name], user_params[:password])
+    @user = User.find_by_credentials(user_params[:name], user_params[:password])
+
+    if login(@login)
       redirect_to root_url + "#"
     else
       flash[:errors] = ["No user matches that name / password combination"]

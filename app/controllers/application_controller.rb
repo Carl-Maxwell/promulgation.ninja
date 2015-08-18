@@ -16,8 +16,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  def login(name, password)
-    user = User.find_by_credentials(name, password)
+  def login(user)
     if user
       reset_session
       current_session = user.sessions.build

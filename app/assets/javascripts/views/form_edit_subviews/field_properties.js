@@ -27,6 +27,8 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
     var subview = new Promulgation.Views.FieldPropertiesItem({model: model});
 
     this.addSubview('.children-table', subview);
+
+    return subview;
   },
 
   addSubfields: function() {
@@ -73,7 +75,7 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
 
     this.model.fields().add(model);
 
-    this.addSubfield(model);
+    this.addSubfield(model).$el.find('[autofocus]').focus();
 
     model.save();
   },
