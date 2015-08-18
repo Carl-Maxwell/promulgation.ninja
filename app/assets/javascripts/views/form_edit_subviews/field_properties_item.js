@@ -2,13 +2,12 @@ Promulgation.Views.FieldPropertiesItem = Backbone.View.extend({
   tagName: 'li',
   template: JST['form_edit/field_properties_item'],
 
-  // initialize: function() {},
-
   events: {
     'keyup .child-name': 'change',
     'keydown .child-name': 'checkForEnterKey',
     'change input': 'change',
-    'click .delete': 'deleteButton'
+    'click .delete': 'deleteButton',
+    'saveOrd': 'saveOrd'
   },
 
   render: function() {
@@ -27,7 +26,15 @@ Promulgation.Views.FieldPropertiesItem = Backbone.View.extend({
   change: function(e) {
     var formData = this.$('[name]').serializeJSON();
 
-    formData.value = formData.value || "";
+    if (formData.value && !this.model.get('value')) {
+      formData.value = formData.value || '';
+
+      this.model.collection.each(function(field) {
+        if (field.get('value')) {
+          field.save({value: ''});
+        }
+      });
+    }
 
     this.model.save(formData);
   },
@@ -42,6 +49,13 @@ Promulgation.Views.FieldPropertiesItem = Backbone.View.extend({
           this.model.destroy();
         }.bind(this)
     });
-  }
+  },
+
+  saveOrd: function() {
+    if (this.model.get('ord') === this.$el.index()) {
+      return;
+    }
+    this.model.save({ord: this.$el.index()});
+  },
 
 });

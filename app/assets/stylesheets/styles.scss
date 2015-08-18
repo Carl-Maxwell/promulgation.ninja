@@ -14,6 +14,10 @@ h3{
 
 a{
   text-decoration: none;
+
+  &:active{
+    color: #FF00E3;
+  }
 }
 
 //
@@ -21,6 +25,8 @@ a{
 //
 
 .floatleft{ float: left; }
+
+.none{ display: none !important; }
 
 //
 //
@@ -305,6 +311,12 @@ body{
     // field properties
     //
 
+    .field_type{
+      border: 1px solid $goodgrey;
+      margin: 10px 0;
+      padding: 10px;
+    }
+
     .field-children{
       background: whitesmoke;
       border: 1px solid #DFDFDF;
@@ -322,7 +334,7 @@ body{
         width: auto;
       }
       .child-name{
-        width: 279px;
+        width: 308px;
       }
       .add-child{
         margin: 10px;
@@ -336,11 +348,32 @@ body{
         }
         .column{
           float: left;
-          padding: 10px;
+          padding: 10px 0 10px 10px;
         }
         .name-column input{
           margin: 1px 0 0 0;
         }
+      }
+    }
+
+    .advanced-settings{
+      background: whitesmoke;
+      border: 1px solid #DFDFDF;
+      border-radius: 3px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+
+      label{
+        display: block;
+        padding-left: 10px;
+      }
+      input{
+        width: $tabular_width + 10 - 10 + 2 - 10;
+      }
+      .toggle-advanced-settings{
+        display: block;
+        padding: 10px;
+        text-align: center;
       }
     }
   }

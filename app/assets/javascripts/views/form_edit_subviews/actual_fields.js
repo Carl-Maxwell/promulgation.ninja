@@ -1,21 +1,20 @@
 Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
   template: JST['form_edit/actual_fields'],
+  subviewSelector: '.fields',
 
   events: {
     'sortstop': 'saveOrds'
   },
 
   saveOrds: function() {
-    this.$('.fields.fields-index > li').each(function(i, element) {
-      $(element).trigger('saveOrd');
-    }.bind(this));
+    this.$(this.subviewSelector + ' > li').trigger('saveOrd');
 
     this.model.fields().sort();
     this.resortSubviews();
   },
 
   resortSubviews: function() {
-    var subviews = this.subviews('.fields');
+    var subviews = this.subviews(this.subviewSelector);
     subviews.sort(function(a, b) {
       return Math.sign(a.model.get('ord') - b.model.get('ord'));
     });
@@ -39,20 +38,20 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
     }
 
     var subview = new Promulgation.Views.ActualFieldItem({model: model});
-    this.addSubview('.fields', subview);
+    this.addSubview(this.subviewSelector, subview);
   },
 
   removeItemView: function(model) {
     var subview = this.getViewForModel(model);
 
     subview.animateRemoval(function() {
-      this.removeModelSubview('.fields', model);
+      this.removeModelSubview(this.subviewSelector, model);
     }.bind(this));
   },
 
   resetScrollTop: function() {
     _.defer(function() {
-        this.$('.fields').scrollTop(this.scrollTop);
+        this.$(this.subviewSelector).scrollTop(this.scrollTop);
     }.bind(this) );
   },
 
@@ -60,13 +59,13 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
     this.$el.html(this.template({model: this.model}));
     this.attachSubviews();
 
-    this.$('.fields').sortable({
+    this.$(this.subviewSelector).sortable({
       axis: 'y',
       placeholder: 'drop-placeholder',
       forcePlaceholderSize: true,
       delay: 110,
       receive: function(e, ui) {
-        this.scrollTop = this.$('.fields').scrollTop();
+        this.scrollTop = this.$(this.subviewSelector).scrollTop();
 
         var helper = ui.helper;
         var view = Promulgation.displacedViews[helper.data('view-cid')];
@@ -75,7 +74,7 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
 
         this.model.fields().add(view.model, { silent: true });
 
-        this.addSubview('.fields', view);
+        this.addSubview(this.subviewSelector, view);
         this.saveOrds();
 
         delete Promulgation.displacedViews[helper.data('view-cid')];

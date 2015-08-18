@@ -89,15 +89,18 @@
       case 'radio'   :
       case 'checkbox':
         children.forEach(function(child) {
+          if (child.attributes) child = child.attributes;
           n.html += this.child(child).outerHtml();
         }.bind(this));
       break;
       case 'radio-item'   :
       case 'checkbox-item':
-        n.value = model.value;
+        n.value = model.name;
+        if (model.value) { n.checked = "true" }
       break;
       case 'dropdown-item':
-        n.html = model.value;
+        n.html = model.name;
+        if (model.value) { n.selected = "true" }
       break;
     }
   };
@@ -110,9 +113,9 @@
     child = child || {};
 
     switch (this.field_type) {
-      case 'radio'   : child = {field_type: 'radio-item'   }; break;
-      case 'dropdown': child = {field_type: 'dropdown-item'}; break;
-      case 'checkbox': child = {field_type: 'checkbox-item'}; break;
+      case 'radio'   : child.field_type = 'radio-item'   ; break;
+      case 'dropdown': child.field_type = 'dropdown-item'; break;
+      case 'checkbox': child.field_type = 'checkbox-item'; break;
 
       default: return null;
     }

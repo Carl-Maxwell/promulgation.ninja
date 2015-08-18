@@ -1,5 +1,7 @@
 
-- setup figaro
+- [ ] setup figaro
+
+- [ ] when you delete a property child, focus() on the next child
 
 - [ ] a form with no fields generates an error when you open field properties
 

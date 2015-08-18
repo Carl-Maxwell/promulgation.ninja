@@ -1,11 +1,13 @@
 Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
   template: JST['form_edit/field_properties'],
   className: 'field-properties',
+  subviewSelector: '.children-table',
 
   events: {
     'change input': 'changeProperty',
     'keyup input': 'changeProperty',
-    'click .field-children .add-child': 'addChild'
+    'click .field-children .add-child': 'addChild',
+    'click .toggle-advanced-settings': 'toggleAdvancedSettings'
   },
 
   initialize: function() {
@@ -13,7 +15,11 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
       this.model = newField;
     }.bind(this));
 
+    // here this.model is the _form_
+
     this.model = this.model.fields().first();
+
+    // and now it's a field
   },
 
   render: function() {
@@ -26,7 +32,7 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
   addSubfield: function(model) {
     var subview = new Promulgation.Views.FieldPropertiesItem({model: model});
 
-    this.addSubview('.children-table', subview);
+    this.addSubview(this.subviewSelector, subview);
 
     return subview;
   },
@@ -78,6 +84,29 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
     this.addSubfield(model).$el.find('[autofocus]').focus();
 
     model.save();
+  },
+
+  toggleAdvancedSettings: function(e) {
+    this.$('.advanced-settings li').toggleClass('none');
+
+    var target = $(e.currentTarget);
+    if (target.is(':focus')) {
+      this.$('.advanced-settings .toggle-advanced-settings:visible').focus();
+    }
+  },
+
+  saveOrds: function() {
+    this.$(this.subviewSelector + ' > li').trigger('saveOrd');
+
+    this.model.fields().sort();
+    this.resortSubviews();
+  },
+
+  resortSubviews: function() {
+    var subviews = this.subviews(this.subviewSelector);
+    subviews.sort(function(a, b) {
+      return Math.sign(a.model.get('ord') - b.model.get('ord'));
+    });
   },
 
 });

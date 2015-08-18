@@ -4,13 +4,7 @@
 </label>
 
 <label>
-  type:
-    <input
-      name="field_type"
-      type="text"
-      value="<%= model.escape('field_type') %>"
-      readonly
-    />
+  type: <div class="field_type"><%= model.escape('field_type') %></div>
 </label>
 
 <% if (!model.hasChildren()) { %>
@@ -33,5 +27,14 @@
   </div>
 <% } %>
 
-
 <button class="delete-button danger-button">Delete Field</button>
+
+<ul class="advanced-settings">
+  <li><a href="javascript:void(0);" class="toggle-advanced-settings">Advanced Settings</a></li>
+  <li class="none">
+    <a href="javascript:void(0);" class="toggle-advanced-settings">Close Advanced Settings</a>
+
+    <label>Hovertext <input></label>
+    <label>CSS Tags <input></label>
+  </li>
+</ul>
