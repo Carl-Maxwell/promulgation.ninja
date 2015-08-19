@@ -44,10 +44,10 @@ options     | text      | (is json serialized into a string)
 
 these are some of the values that `options` might hold:
 
-key name   | details
-----------------------
+key name   | uses
+-----------|----------
 classes    | css classes
-min        | minimum value (for numeric fields)s
+min        | minimum value (for numeric fields)
 max        | maximum value (for numeric fields)
 required   | is this value required? (validation)
 duplicates | should we enforce uniqueness? (validation)
