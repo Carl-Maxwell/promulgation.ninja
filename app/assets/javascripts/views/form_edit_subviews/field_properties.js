@@ -20,6 +20,8 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
     // this.model = this.model.fields().first();
 
     // and now it's a field
+
+    this._delayedSave = {};
   },
 
   render: function() {
@@ -47,27 +49,39 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
 
   changeProperty: function(e) {
     var target = $(e.currentTarget);
+    var id = this.model.get('id');
 
     if (target.parents('.field-children').length) {
       return;
     }
 
-    property = this.model.attributes;
+    if (this._delayedSave[id]) {
+      clearTimeout(this._delayedSave[id]);
+      delete this._delayedSave[id];
+    }
 
-    var parents = target.attr('name').replace(/\]/g, '').split('[');
+    var formData = target
+      .closest('.field-properties')
+      .find('[name]')
+      .not('.field-children *')
+      .serializeJSON();
 
-    _(parents.slice(0, -1)).each(function(parent) {
-      property = property[parent];
+    this._delayedSave[id] = setTimeout(this.saveProperty.bind(this, formData, this.model), 200);
+  },
+
+  saveProperty: function(formData, model) {
+    $('.loading-icon').css({opacity: 1});
+
+    model.save(formData, {
+      success: function() {
+        $('.loading-icon').css({opacity: 0});
+      }
     });
 
-    property[_(parents).last()] = target.val();
+    delete this._delayedSave[model.get('id')];
 
-    this.model.set(parents[0], this.model.attributes[parents[0]]);
-
-    this.model.save();
-
-    // TODO delay the .save() call so it isn't fired for every keypress
     // TODO this calls change, but not change:name / change:whatever
+    // TODO force any scheduled saves if the user leaves the page
   },
 
   addChild: function(e) {
