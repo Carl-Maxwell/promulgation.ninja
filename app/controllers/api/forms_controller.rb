@@ -2,11 +2,11 @@ class Api::FormsController < ApplicationController
   before_action :require_user
 
   def index
-    @forms = current_user.forms
+    @forms = current_user.forms.includes(fields: :fields)
   end
 
   def show
-    @form = Form.find(params[:id])
+    @form = Form.includes(fields: :fields).find(params[:id]);
   end
 
   def create
