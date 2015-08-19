@@ -11,9 +11,13 @@
 - [ ] fix checkbox and radio formatting on the form edit page
 - [ ] .properties-open should show/hide when entering/leaving the tab
 
+- [ ] advanced settings toggle needs an animation
+
 - [ ] the input for writing labels is a textarea that respects endlines
       ->  Should probably have it support commonmark
 
+- [ ] remove fields.name
+- [ ] use fields.label in the places where name is being used
 
 - [ ] allow 'other' inputs inside radios / checkboxes
 

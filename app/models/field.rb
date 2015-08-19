@@ -2,7 +2,7 @@ class Field < ActiveRecord::Base
   validates :form , presence: { if: -> { field.nil? } }
   validates :field, presence: { if: -> { form.nil?  } }
   validates :ord, :field_type, presence: true
-  validates :name, length: { minimum: 0, allow_nil: false }
+  validates :label, length: { minimum: 0, allow_nil: false }
 
   validate :field_logic
 

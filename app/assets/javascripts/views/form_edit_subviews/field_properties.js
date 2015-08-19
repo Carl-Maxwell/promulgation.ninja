@@ -80,7 +80,7 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
 
     delete this._delayedSave[model.get('id')];
 
-    // TODO this calls change, but not change:name / change:whatever
+    // TODO this calls change, but not change:label / change:whatever
     // TODO force any scheduled saves if the user leaves the page
   },
 
@@ -88,7 +88,7 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
     var model = new Promulgation.Models.Field({
       field_id: this.model.get('id'),
       field_type: this.model.get('field_type') + '-item',
-      name: '',
+      label: '',
       ord: this.model.fields().length,
     });
 

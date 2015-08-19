@@ -11,19 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819002340) do
+ActiveRecord::Schema.define(version: 20150819210911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "fields", force: :cascade do |t|
     t.integer  "form_id"
-    t.string   "name"
+    t.string   "label"
     t.string   "value"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.integer  "ord"
-    t.string   "label"
     t.string   "field_type"
     t.text     "options",    default: "{}"
     t.integer  "field_id"

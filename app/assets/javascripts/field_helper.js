@@ -45,12 +45,12 @@
   };
 
   var possibilities = fieldHelper.possibilities = function() {
-    return types.map(function(e) { e.name = "Untitled"; return e; });
+    return types.map(function(e) { e.label = "Untitled"; return e; });
   };
 
   var Field = fieldHelper.Field = function(model, children) {
 
-    if (typeof model.name != "undefined") this.name = model.name;
+    if (typeof model.label != "undefined") this.label = model.label;
 
     this.field_type = model.field_type;
     this.value = model.value;
@@ -104,14 +104,13 @@
 
       case 'radio-item'   :
       case 'checkbox-item':
-        n
-        n.value = model.name;
-        n.label = model.name;
+        n.value = model.label;
+        n.label = model.label;
         if (model.value) n.checked  = "true";
       break;
 
       case 'dropdown-item':
-        n.html = model.name;
+        n.html = model.label;
         if (model.value) n.selected = "true";
       break;
     }
