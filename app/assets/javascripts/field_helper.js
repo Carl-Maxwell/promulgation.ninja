@@ -7,10 +7,12 @@
     { field_type: "radio"                        },
     { field_type: "checkbox"                     },
 
-    { field_type: "website"      , value: ""  },
-    { field_type: "date"         , value: ""  },
-    { field_type: "phone"        , value: ""  },
-    { field_type: "email"        , value: ""  },
+    { field_type: "number"       , value: ""     },
+
+    { field_type: "website"      , value: ""     },
+    { field_type: "date"         , value: ""     },
+    { field_type: "phone"        , value: ""     },
+    { field_type: "email"        , value: ""     },
 
     // { field_type: "rating"       , value: ""  },
 
@@ -54,6 +56,7 @@
     var n;
 
     switch(model.field_type) {
+      case 'number'  :
       case 'website' :
       case 'date'    :
       case 'phone'   :

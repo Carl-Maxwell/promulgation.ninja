@@ -4,8 +4,6 @@
 - [ ] when you delete a property child, focus() on the next child
       -> wait, why?
 
-
-
 - [ ] resorting field children
 - [ ] make the New choice button into a draggable (constrained to .table)
 - [ ] get advanced settings saving
@@ -13,6 +11,15 @@
 - [ ] slow down saving so it doesn't happen often when typing
 - [ ] initialize dropdowns &c with three children
 - [ ] fix checkbox and radio formatting on the form edit page
+- [ ] the properties-open indicator should show/hide when entering/leaving the field settings tab
+
+- [ ] the input for writing labels is a textarea that respects endlines
+      ->  Should probably have it support commonmark
+
+
+- [ ] allow 'other' inputs inside radios / checkboxes
+
+- [ ] make textareas larger (so you can tell them and inputs apart)
 
 - [ ] a 'splash page' (homepage, landing page, thing)
 
@@ -49,7 +56,10 @@
 
 ## edit
 
+- [ ] video (like a link to a youtube video?)
+
 - [ ] date
+
 - [ ] What you see is what you get editor (WYSIWYG)
 - [ ] Section break
 - [ ] page break
@@ -61,6 +71,7 @@
 - [ ] likert
 - [ ] code editor
 - [ ] Markup (commonmark) editor
+
 
 ## show
 

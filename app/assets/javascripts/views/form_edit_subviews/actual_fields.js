@@ -70,6 +70,8 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
         var helper = ui.helper;
         var view = Promulgation.displacedViews[helper.data('view-cid')];
 
+        view.$el.css("height", "initial");
+
         view.model.set('form_id', this.model.get('id'));
 
         this.model.fields().add(view.model, { silent: true });

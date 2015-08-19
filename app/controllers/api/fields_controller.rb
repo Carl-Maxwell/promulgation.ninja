@@ -41,15 +41,22 @@ class Api::FieldsController < ApplicationController
 
   def field_params
     params.require(:field).permit(
-      :id       ,
-      :name     ,
-      :value    ,
-      :ord      ,
-      :label    ,
+      :id        ,
+      :name      ,
+      :value     ,
+      :ord       ,
+      :label     ,
       :field_type,
-      :options  ,
-      :form_id  ,
-      :field_id
+      :form_id   ,
+      :field_id  ,
+      options: [
+        :classes,
+        :min,
+        :max,
+        :required,
+        :duplicates,
+        :title
+      ]
     )
   end
 end

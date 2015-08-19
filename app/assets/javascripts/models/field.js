@@ -1,6 +1,12 @@
 Promulgation.Models.Field = Backbone.Model.extend({
   urlRoot: "/api/fields",
 
+  defaults: function() {
+    return {
+      'options': {}
+    };
+  },
+
   html: function() {
     return fieldHelper.makeField(this);
   },

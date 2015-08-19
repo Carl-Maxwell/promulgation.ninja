@@ -34,6 +34,16 @@ label{
 
 .margin-bottom{ margin-bottom: 10px; }
 
+.padding-left-10{
+  padding-left: 10px;
+}
+
+// remove weird box-sizings
+
+select{
+  box-sizing: content-box;
+}
+
 //
 //
 //
@@ -41,6 +51,7 @@ label{
 $content_width: 960px;
 $modal_width: $content_width*0.75;
 $goodgrey: #EBEBEB;
+$darkgrey: #ccc;
 
 //
 // common elements
@@ -48,7 +59,7 @@ $goodgrey: #EBEBEB;
 
 .item-header{
   .add-item{
-    border: 1px solid #ccc;
+    border: 1px solid $darkgrey;
     float: right;
   }
 
@@ -60,7 +71,7 @@ $goodgrey: #EBEBEB;
 
 html [class].good-button{
   background: $goodgrey;
-  border: 1px solid #ccc;
+  border: 1px solid $darkgrey;
   border-radius: 3px;
   color: #323232;
   cursor: pointer;
@@ -79,12 +90,32 @@ html [class].good-button{
   }
 }
 
+input[type="text"], input[type="password"], textarea, select{
+  height: 24px;
+  margin: 10px auto;
+  padding: 5px;
+}
+
+fieldset{
+  margin: 5px 0;
+  padding: 10px;
+
+  label{
+    // margin: 5px 0;
+    padding: 5px 0;
+  }
+
+  input[type="checkbox"]{
+    margin-right: 10px;
+  }
+}
+
 //
 // Header
 //
 
 header{
-  background: black;
+  background: #2A2A2A;
   color: #1d95e5;
 
   .header-content{
@@ -197,7 +228,7 @@ body{
 
 .content{
   background: whitesmoke;
-  border: 1px solid black;
+  border: 1px solid $darkgrey;
   border-top: 0;
   padding: 10px 10px 0 10px;
   margin: 0 auto;
@@ -247,7 +278,7 @@ body{
     width: $content_width/2;
 
     background-color: white;
-    border: 1px solid #ccc;
+    border: 1px solid $darkgrey;
     border-radius: 3px;
     padding: 10px;
     margin-bottom: 10px;
@@ -258,8 +289,6 @@ body{
   }
   input[type="text"], input[type="password"]{
     // box-sizing: content-box;
-    height: 24px;
-    margin: 10px auto;
     width: $content_width/2 - 20px;
   }
   input[type="submit"], button{
@@ -276,7 +305,7 @@ body{
   .tabs .tab{
     float: left;
     background: $goodgrey;//#DFE6EC;
-    border: 1px solid #808080;
+    border: 1px solid $darkgrey;
     border-bottom: 0;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
@@ -299,7 +328,7 @@ body{
 
   .tabular-content {
     background: white;
-    border: 1px solid #808080;
+    border: 1px solid $darkgrey;
     padding: 10px;
     margin-bottom: 10px;
     min-height: 500px;
@@ -340,7 +369,7 @@ body{
       }
     }
 
-    input{
+    input[type="text"]{
       width: $tabular_width + 10 - 10;
     }
 
@@ -362,7 +391,7 @@ body{
 
         .right-button{
           float: right;
-          border: 1px solid #ccc;
+          border: 1px solid $darkgrey;
         }
       }
     }
@@ -424,17 +453,45 @@ body{
       margin-bottom: 10px;
       margin-top: 10px;
 
-      label{
-        display: block;
-        padding-left: 10px;
-      }
-      input{
+      // label{
+        // display: block;
+        // padding-left: 10px;
+      // }
+
+      input[type="text"], textarea, select{
         width: $tabular_width + 10 - 10 + 2 - 10 - 10;
+      }
+      textarea{
+        resize: vertical;
+        transition: min-height 0.3s;
+        min-height: 24px;
+
+        &:focus{
+          // transition: min-height 0.3s;
+          min-height: 60px;
+        }
       }
       .toggle-advanced-settings{
         display: block;
         padding: 10px;
         text-align: center;
+      }
+
+      .minimax{
+
+        label{
+          display: block;
+          float: left;
+
+          &:first-child{
+            margin-right: 10px;
+          }
+        }
+        input{
+          display: inline;
+          // margin-left: 10px;
+          width: 193px;
+        }
       }
     }
   }
@@ -513,6 +570,10 @@ html body div li.form-edit-actual-item{
     width: $content_width/2 - 10 - 10 - 20px !important;
   }
 
+  textarea{
+    height: 110px;
+  }
+
   .displayfield{
     position: relative;
 
@@ -541,7 +602,7 @@ input[type="submit"], button, .large-button{
   //
 
   background: $goodgrey;
-  border: 1px solid #ccc;
+  border: 1px solid $darkgrey;
   border-radius: 3px;
   color: #323232;
   font-size: 16px;
@@ -580,10 +641,6 @@ input[type="submit"], button, .large-button{
   &:active{
     box-shadow: 0 0 20px #FFB5B5;
   }
-}
-
-input[type="text"], input[type="password"]{
-  padding: 5px;
 }
 
 .small-button{

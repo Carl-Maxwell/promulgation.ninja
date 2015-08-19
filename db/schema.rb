@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817182711) do
+ActiveRecord::Schema.define(version: 20150819002340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,12 +20,12 @@ ActiveRecord::Schema.define(version: 20150817182711) do
     t.integer  "form_id"
     t.string   "name"
     t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "ord"
     t.string   "label"
     t.string   "field_type"
-    t.text     "options"
+    t.text     "options",    default: "{}"
     t.integer  "field_id"
   end
 

@@ -46,18 +46,24 @@ Promulgation.Views.FormEdit = Backbone.CompositeView.extend({
     var target = $(e.currentTarget);
 
     var model = this.sidebar.tabs[1].model;
-
     var itemView = this.actualFields.getViewForModel(model);
 
-    var $el = itemView.$el;
+    if (itemView) {
+      var $el = itemView.$el;
 
-    if ($el.next().length){
-      $el.next().click();
-    } else {
-      $el.prev().click();
+      if ($el.next().length){
+        $el.next().click();
+      } else {
+        $el.prev().click();
+      }
+
+      model.destroy();
     }
 
-    model.destroy();
+    if (!this.model.fields().length) {
+      this.sidebar.openTab(1);
+      this.sidebar.openTab(0);
+    }
   },
 
   appendField: function(e) {
