@@ -6,6 +6,7 @@ Promulgation.Routers.Router = Backbone.Router.extend({
   routes:{
     "": "formIndex",
     "forms/new": "formNew",
+    "forms/:id": "formShow",
     "forms/:id/edit": "formEdit",
     "forms/:form_id/submissions": ""
   },
@@ -31,6 +32,15 @@ Promulgation.Routers.Router = Backbone.Router.extend({
     var form = Promulgation.formsCollection.getOrFetch(id);
     var view = new Promulgation.Views.FormEdit({
       model: form
+    });
+    this.swap(view);
+  },
+
+  formShow: function(id) {
+    var form = Promulgation.formsCollection.getOrFetch(id);
+    var view = new Promulgation.Views.FormShow({
+      model: form,
+      collection: Promulgation.formsCollection
     });
     this.swap(view);
   },

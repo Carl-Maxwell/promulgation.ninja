@@ -6,12 +6,10 @@
 
 - [ ] resorting field children
 - [ ] make the New choice button into a draggable (constrained to .table)
-- [ ] get advanced settings saving
 - [ ] seed data
-- [ ] slow down saving so it doesn't happen often when typing
 - [ ] initialize dropdowns &c with three children
 - [ ] fix checkbox and radio formatting on the form edit page
-- [ ] the properties-open indicator should show/hide when entering/leaving the field settings tab
+- [ ] .properties-open should show/hide when entering/leaving the tab
 
 - [ ] the input for writing labels is a textarea that respects endlines
       ->  Should probably have it support commonmark
@@ -24,7 +22,8 @@
 - [ ] a 'splash page' (homepage, landing page, thing)
 
 - [ ] filling in a radio input quickly using the enter key to make children 
-        creates empty subfields (can see them if you refresh)
+      => creates empty subfields (can see them if you refresh)
+      => can also fail to save stuff
 
 - [ ] paginating forms#index, submissions#index
 
@@ -58,20 +57,25 @@
 
 - [ ] video (like a link to a youtube video?)
 
-- [ ] date
-
-- [ ] What you see is what you get editor (WYSIWYG)
-- [ ] Section break
-- [ ] page break
-- [ ] rating
-- [ ] address
+- [ ] number
 - [ ] website
+- [ ] date
 - [ ] phone
 - [ ] email
-- [ ] likert
-- [ ] code editor
-- [ ] Markup (commonmark) editor
 
+- [ ] rating
+
+- [ ] visual text  
+
+- [ ] section break
+- [ ] page break   
+
+- [ ] address      
+
+- [ ] likert       
+
+- [ ] code editor  
+- [ ] markup editor
 
 ## show
 

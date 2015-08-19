@@ -26,6 +26,8 @@
     // { field_type: "likert"       , value: ""  },
     // { field_type: "code editor"  , value: ""  },
     // { field_type: "markup editor", value: ""  }
+
+    // { field_type: "video"        , value: ""  }
   ];
 
   var makeField = fieldHelper.makeField = function(field) {

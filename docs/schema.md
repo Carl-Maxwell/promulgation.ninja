@@ -47,22 +47,29 @@ these are some of the values that `options` might hold:
 key name   | details
 ----------------------
 classes    | css classes
-min        | minimum value (for numeric fields)
+min        | minimum value (for numeric fields)s
 max        | maximum value (for numeric fields)
 required   | is this value required? (validation)
 duplicates | should we enforce uniqueness? (validation)
 title      | title for the html (accessibility &c)
 
+## submission
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+form_id     | integer   | not null, foreign key (references form)
+useragent   | string    |
+ip          | string    |
+
+
 ## submission_fields
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-field_id    | integer   | not null, foreign key (references field)
-key         | string    |
+field_id    | integer   | not null, foreign key (references fields)
+label       | string    |
 value       | string    |
 state       | string    |
-
-this submission schema is out of date
 
 * the value here is a string, the key is the presentable
 name of the field ("First Name", "Subject", etc)
