@@ -35,7 +35,6 @@ id          | integer   | not null, primary key
 form_id     | integer   | not null, foreign key (references forms)
 label       | string    |
 type        | string    |
-name        | string    |
 field_id    | integer   | not null, foreign key (references fields)
 ord         | integer   |
 value       | string    |
