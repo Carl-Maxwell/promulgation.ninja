@@ -123,15 +123,15 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
   },
 
   prepareToBeATab: function(form) {
-    if (!this.model) {
-      if (form.fields().length) {
+    if (form.fields().length) {
+      if (!this.model) {
         this.model = form.fields().first();
-      } else {
-        return false;
       }
+
+      return true;
     }
 
-    return true;
+    return false;
   }
 
 });
