@@ -13,6 +13,7 @@
     { field_type: "date"         , value: ""     },
     { field_type: "phone"        , value: ""     },
     { field_type: "email"        , value: ""     },
+    { field_type: "price"        , value: ""     },
 
     // { field_type: "rating"       , value: ""  },
 
@@ -63,6 +64,7 @@
       case 'date'    :
       case 'phone'   :
       case 'email'   :
+      case 'price'   :
       case 'text'    : n = new Node({type: 'text'});              break;
       case 'textarea': n = new Node({tag: 'textarea', html: ''}); break;
 
