@@ -1,11 +1,13 @@
 class User < ActiveRecord::Base
   attr_reader :password
 
-  # TODO check that confirm password & password are the same
-
   validates_presence_of :email, :name
   validates_uniqueness_of :email, :name
+
+  # TODO check that confirm password & password are the same
   # validates :password, length: {minimum: 6, allow_nil: true}
+  # validates :password, confirmation: true, if: :password
+
   validates :name, format: {with: /\A[^@]+\z/, message: ""}
   validates :email, format: {with: /@/, message: "must be a valid email address"}
 
@@ -41,6 +43,8 @@ class User < ActiveRecord::Base
 
     # TODO the updated_at & created_at part of this query should be in sessions.rb
     # =>  & should be part of the User.sessions association
+
+    # TODO there should also be a rake task to destroy invalid sessions
 
     if token
       token.touch

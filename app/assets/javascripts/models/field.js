@@ -33,4 +33,5 @@ Promulgation.Models.Field = Backbone.Model.extend({
 
     return payload;
   }
+  
 });

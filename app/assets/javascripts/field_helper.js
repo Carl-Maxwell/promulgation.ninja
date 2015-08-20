@@ -15,7 +15,7 @@
     { field_type: "email"        , value: ""     },
     { field_type: "price"        , value: ""     },
 
-    // { field_type: "rating"       , value: ""  },
+    // { field_type: "rating"       , value: "", options: {min: 1, max: 5}  },
 
     // { field_type: "visual text"  , value: ""  },
 
@@ -46,7 +46,10 @@
   };
 
   var possibilities = fieldHelper.possibilities = function() {
-    return types.map(function(e) { e.label = "Untitled"; return e; });
+    return types.map(function(e) {
+      e.label = e.field_type[0].toUpperCase() + e.field_type.slice(1);
+      return e;
+    });
   };
 
   var Field = fieldHelper.Field = function(model, children) {

@@ -22,6 +22,7 @@
   * acronyms should be camelcase (Rng not RNG)
 * user camelCase for methods and variables
   * acronyms should match (somethingRng not somethingRNG)
+* use .slice, do not use .substr or .substring
 
 ### CSS
 

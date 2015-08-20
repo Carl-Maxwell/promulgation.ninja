@@ -11,6 +11,12 @@
 - [ ] fix checkbox and radio formatting on the form edit page
 - [ ] .properties-open should show/hide when entering/leaving the tab
 
+- [ ] handle going to like #forms/:id for a form that doesn't exist
+
+- [ ] prevent the delete button from being clicked multiple times on the same field
+
+- [ ] validate the confirm password control on users#new
+
 - [ ] advanced settings toggle needs an animation
 
 - [ ] the input for writing labels is a textarea that respects endlines
@@ -56,6 +62,13 @@
   - [ ] email
   - [ ] text message
 - [ ] commenting on submissions
+
+- [ ] 
+
+on publishing a new live version of a form
+  you have to run through all the previous submissions and update their field_id
+  to match the new live field_id
+  and mark those which were for a field which is no longer live as state: 'dead'
 
 ## edit
 

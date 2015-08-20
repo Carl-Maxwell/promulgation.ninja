@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  field_id: 1
+  value: MyText
+  state: MyString
+
+two:
+  field_id: 1
+  value: MyText
+  state: MyString

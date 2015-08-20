@@ -14,6 +14,9 @@ gem 'backbone-on-rails'
 
 gem 'bcrypt'
 
+# validation gems
+gem 'valid_url'
+gem 'phony_rails'
 
 gem 'newrelic_rpm'
 

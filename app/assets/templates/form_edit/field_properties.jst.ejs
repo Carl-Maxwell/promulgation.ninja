@@ -85,7 +85,7 @@
       </label>
     </div>
 
-    <% if (model.get('field_type') == 'number') { %>
+    <% if (model.get("hasMinMax")) { %>
       <fieldset class="minimax">
         <label><div>Min</div><input type="text" name="options[min]"></label>
         <label><div>Max</div><input type="text" name="options[max]"></label>
@@ -97,5 +97,5 @@
 <div class="bottom-section">
   <button class="delete-button danger-button">Delete Field</button>
 
-  <button class="right-button">Publish</button>
+  <button class="right-button">Promulgate!</button>
 </div>
