@@ -29,17 +29,17 @@ When the user publishes a new version of the form the form and all the fields
 associated with it will be copied and a non-null versioned copy will be made
 
 ## fields
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-form_id     | integer   | not null, foreign key (references forms)
-label       | string    |
-type        | string    |
-field_id    | integer   | not null, foreign key (references fields)
-ord         | integer   |
-value       | string    |
-options     | text      | (is json serialized into a string)
-
+column name | data type | details                                   | uses
+------------|-----------|-------------------------------------------|-----
+id          | integer   | not null, primary key                     |
+form_id     | integer   | not null, foreign key (references forms)  |
+label       | string    |                                           |
+type        | string    |                                           |
+field_id    | integer   | foreign key (references fields)           | id of parent field
+draft_id    | integer   | foreign key (references fields)           | id of draft version of this field
+ord         | integer   |                                           |
+value       | string    |                                           |
+options     | text      | (is json serialized into a string)        |
 
 these are some of the values that `options` might hold:
 
@@ -60,15 +60,13 @@ form_id     | integer   | not null, foreign key (references form)
 useragent   | string    |
 ip          | string    |
 
-
 ## submission_fields
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 field_id    | integer   | not null, foreign key (references fields)
-label       | string    |
 value       | string    |
-state       | string    |
+state       | string    | default "live"
 
 * the value here is a string, the key is the presentable
 name of the field ("First Name", "Subject", etc)
