@@ -29,68 +29,69 @@
 
 <ul class="advanced-settings">
   <li><a href="javascript:void(0);" class="toggle-advanced-settings">Advanced Settings</a></li>
-  <li class="none">
-    <a href="javascript:void(0);" class="toggle-advanced-settings">Close Advanced Settings</a>
+  <li>
+    <a href="javascript:void(0);" class="toggle-advanced-settings none">Close Advanced Settings</a>
+    <div class="advanced-settings-controls" style="display: none;">
+      <% var options = this.model.get('options') %>
 
-    <% var options = this.model.get('options') %>
-
-    <fieldset>
-      <label>
-        <input
-          type="checkbox"
-          name="options[required]"
-          <%= options.required ? 'checked' : '' %>
-        />
-        Required?
-      </label>
-      <label>
-        <input
-          type="checkbox"
-          name="options[duplicates]"
-          <%= options.duplicates ? 'checked' : '' %>
-        />
-        Duplicates?
-      </label>
-    </fieldset>
-
-    <div class="padding-left-10">
-      <label>
-        Additional Instructions
-        <textarea
-          type="text"
-          name="options[sublabel]"
-        ><%=
-          _.escape(options.sublabel)
-        %></textarea>
-      </label>
-      <label>
-        Hovertext
-        <input
-          type="text"
-          name="options[title]"
-          value="<%= _.escape(options.title) %>"
-        />
-      </label>
-      <label>
-        Placeholder
-        <input
-          type="text"
-          name="options[placeholder]"
-          value="<%= _.escape(options.placeholder) %>"
-        />
-      </label>
-      <label>
-        CSS Tags
-        <input type="text" name="options[classes]" value="<%= _.escape(options.classes) %>" />
-      </label>
-    </div>
-
-    <% if (model.get("hasMinMax")) { %>
-      <fieldset class="minimax">
-        <label><div>Min</div><input type="text" name="options[min]"></label>
-        <label><div>Max</div><input type="text" name="options[max]"></label>
+      <fieldset>
+        <label>
+          <input
+            type="checkbox"
+            name="options[required]"
+            <%= options.required ? 'checked' : '' %>
+          />
+          Required?
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="options[duplicates]"
+            <%= options.duplicates ? 'checked' : '' %>
+          />
+          Duplicates?
+        </label>
       </fieldset>
-    <% } %>
+
+      <div class="padding-left-10">
+        <label>
+          Additional Instructions
+          <textarea
+            type="text"
+            name="options[sublabel]"
+          ><%=
+            _.escape(options.sublabel)
+          %></textarea>
+        </label>
+        <label>
+          Hovertext
+          <input
+            type="text"
+            name="options[title]"
+            value="<%= _.escape(options.title) %>"
+          />
+        </label>
+        <label>
+          Placeholder
+          <input
+            type="text"
+            name="options[placeholder]"
+            value="<%= _.escape(options.placeholder) %>"
+          />
+        </label>
+        <label>
+          CSS Tags
+          <input type="text" name="options[classes]" value="<%= _.escape(options.classes) %>" />
+        </label>
+      </div>
+
+      <% if (model.get("hasMinMax")) { %>
+        <fieldset class="minimax">
+          <label><div>Min</div><input type="text" name="options[min]"></label>
+          <label><div>Max</div><input type="text" name="options[max]"></label>
+        </fieldset>
+      <% } %>
+    </div>
   </li>
 </ul>
 

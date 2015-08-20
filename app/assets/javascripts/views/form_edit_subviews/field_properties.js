@@ -100,7 +100,8 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
   },
 
   toggleAdvancedSettings: function(e) {
-    this.$('.advanced-settings li').toggleClass('none');
+    this.$('.advanced-settings .toggle-advanced-settings').toggleClass('none');
+    this.$('.advanced-settings .advanced-settings-controls').slideToggle();
 
     var target = $(e.currentTarget);
     if (target.is(':focus')) {
