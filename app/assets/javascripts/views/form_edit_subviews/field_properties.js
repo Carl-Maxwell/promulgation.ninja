@@ -7,6 +7,7 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
     'change input': 'changeProperty',
     'keyup input': 'changeProperty',
     'click .field-children .add-child': 'addChild',
+    'keydown .field-children .child-name': 'checkForEnterKey',
     'click .toggle-advanced-settings': 'toggleAdvancedSettings'
   },
 
@@ -66,6 +67,8 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
       .not('.field-children *')
       .serializeJSON();
 
+    this.model.set(formData);
+
     this._delayedSave[id] = setTimeout(this.saveProperty.bind(this, formData, this.model), 200);
   },
 
@@ -97,6 +100,13 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
     this.addSubfield(model).$el.find('[autofocus]').focus();
 
     model.save();
+  },
+
+  checkForEnterKey: function(e) {
+    if (e.which == 13) {
+      e.preventDefault();
+      this.addChild();
+    }
   },
 
   toggleAdvancedSettings: function(e) {

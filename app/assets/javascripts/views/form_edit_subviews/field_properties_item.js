@@ -3,11 +3,10 @@ Promulgation.Views.FieldPropertiesItem = Backbone.View.extend({
   template: JST['form_edit/field_properties_item'],
 
   events: {
-    'keyup .child-name': 'change',
-    'keydown .child-name': 'checkForEnterKey',
-    'change input': 'change',
-    'click .delete': 'deleteButton',
-    'saveOrd': 'saveOrd'
+    'keyup .child-name': 'setModel',
+    'change input'     : 'saveModel',
+    'click .delete'    : 'deleteButton',
+    'saveOrd'          : 'saveOrd'
   },
 
   render: function() {
@@ -16,27 +15,32 @@ Promulgation.Views.FieldPropertiesItem = Backbone.View.extend({
     return this;
   },
 
-  checkForEnterKey: function(e) {
-    if (e.which == 13) {
-      e.preventDefault();
-      $(e.currentTarget).closest('.field-children').find('.add-item').click();
-    }
+  setModel: function(e) {
+    var formData = this.$('[name]').serializeJSON();
+
+    this.saveProperty(formData);
   },
 
-  change: function(e) {
+  saveModel: function() {
     var formData = this.$('[name]').serializeJSON();
 
     if (formData.value && !this.model.get('value')) {
-      formData.value = formData.value || '';
-
       this.model.collection.each(function(field) {
         if (field.get('value')) {
-          field.save({value: ''});
+          field.set({value: ''});
         }
       });
     }
 
-    this.model.save(formData);
+    this.saveProperty(formData);
+  },
+
+  saveProperty: function(formData) {
+    if (this.model.get("id")) {
+      this.model.save(formData);
+    } else {
+      this.model.set(formData);
+    }
   },
 
   deleteButton: function() {

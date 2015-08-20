@@ -55,20 +55,18 @@ class Field < ActiveRecord::Base
 
     self.value = value_arg
 
-    v(:Presence) if options[:required]
+    v(:Presence) if options["required"]
 
-    if options[:duplicates]
+    if options["duplicates"]
       if SubmissionField.find_by(field_id: id, value: value)
         self.errors[:value] << "must be unique"
       end
     end
 
     if min_max?
-      value >= options.min
-      value <= options.max
+      value >= options["min"]
+      value <= options["max"]
     end
-
-    debugger
 
     case field_type
     when "dropdown",
@@ -76,22 +74,22 @@ class Field < ActiveRecord::Base
          "checkbox"      then v(:Inclusion, in: fields.pluck(:label))
     when "number"        then v(:Numericality)
     when "website"       then v(:Url)
-    # when "date"          then is date
+    # when "date"          then timeliness gem
     when "phone"         then v(:Phony)
     when "email"         then v(:Format, with: /@/)
-    # when "price"         then is price? is within min max?
-    # when "rating"        then is within min max?
+    when "price"         then v(:Numericality) # is within min max?
+    when "rating"        then v(:Numericality) # is within min max?
+
     # when "address"       then nothing?
     # when "likert"        then subfield stuff
     # when "code editor"   then nothing
     # when "markup editor" then nothing (javascript should validate markup to be helpful)
     # when "video"         then url is recognizable video url
 
-     else ["invalid field_type"]
-     end
+    else return ["invalid field_type"]
+    end
 
-     # return an array
-     self.errors.full_messages
+    self.errors.messages[:value]
   end
 
   def min_max?

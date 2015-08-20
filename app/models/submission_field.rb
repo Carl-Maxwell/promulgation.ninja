@@ -2,7 +2,7 @@ class SubmissionField < ActiveRecord::Base
   belongs_to :field
 
   validates :field, presence: true
-  validates :state, inclusion: ["live", "dead"]
+  validates :state, inclusion: ["alive", "dead"]
 
   validate :field_logic
 
@@ -11,6 +11,7 @@ class SubmissionField < ActiveRecord::Base
 
     errors = field.validate_submission_value(value)
 
-    # add errors to the active record magic validation errors stuff
+    debugger
+    self.errors[:value] = self.errors[:value] + errors
   end
 end

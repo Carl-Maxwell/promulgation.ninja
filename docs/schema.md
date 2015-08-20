@@ -66,11 +66,11 @@ column name | data type | details
 id          | integer   | not null, primary key
 field_id    | integer   | not null, foreign key (references fields)
 value       | string    |
-state       | string    | default "live"
+state       | string    | default "alive"
 
 * the value here is a string, the key is the presentable
 name of the field ("First Name", "Subject", etc)
-* the state is either "live" or "dead", used to 'delete' submission fields in a
+* the state is either "alive" or "dead", used to 'delete' submission fields in a
 recoverable manner
 
 ### Likerts

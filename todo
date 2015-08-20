@@ -11,6 +11,24 @@
 - [ ] fix checkbox and radio formatting on the form edit page
 - [ ] .properties-open should show/hide when entering/leaving the tab
 
+- [ ] potential fields need to be grouped into like kinds
+
+- [ ] the field should have help bubbles that explain the meaning of fields (especially min and max &c)
+
+- [ ] form settings
+  - [ ] renaming forms
+  - [ ] no duplicate IPs
+  - [ ] send confirmation email to user (requires email field)
+  - [ ] define splash page / text displayed after submission
+  - [ ] captcha toggle
+  - [ ] notification options
+    - [ ] Email
+    - [ ] Text
+    - [ ] Google Docs Integration
+    - [ ] CSV FTP integration
+
+ - [ ] users should be able to specify min and max (word/character) lengths for text, textfields, &c
+
 - [ ] handle going to like #forms/:id for a form that doesn't exist
 
 - [ ] prevent the delete button from being clicked multiple times on the same field
@@ -53,6 +71,9 @@
 - [ ] confirm deletion of field (by typing in password)
 - [ ] rendering the form
 - [ ] outputting embed code for the form
+- [ ] validation
+  - [ ] allow user to specify arbitrary regex for validation
+        => (contains, does not contain, matches, does not match)
 - [ ] users filling out and submitting form
   - [ ] storing user form submissions
   - [ ] reviewing user form submissions
@@ -61,9 +82,11 @@
 - [ ] notificiations
   - [ ] email
   - [ ] text message
+  - [ ] create new spreadsheet in Google Drive
+  - [ ] send CSV to FTP endpoint
 - [ ] commenting on submissions
 
-- [ ] 
+- [ ] advanced fields (address, likert, code editor, markup editor, video)
 
 on publishing a new live version of a form
   you have to run through all the previous submissions and update their field_id
