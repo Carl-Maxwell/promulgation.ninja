@@ -3,9 +3,7 @@
     { field_type: "text"         , value: ""     },
     { field_type: "textarea"     , value: ""     },
 
-    { field_type: "dropdown"                     },
-    { field_type: "radio"                        },
-    { field_type: "checkbox"                     },
+    undefined,
 
     { field_type: "number"       , value: ""     },
 
@@ -14,6 +12,12 @@
     { field_type: "phone"        , value: ""     },
     { field_type: "email"        , value: ""     },
     { field_type: "price"        , value: ""     },
+
+    undefined,
+
+    { field_type: "dropdown"                     },
+    { field_type: "radio"                        },
+    { field_type: "checkbox"                     },
 
     // { field_type: "rating"       , value: "", options: {min: 1, max: 5}  },
 
@@ -47,7 +51,10 @@
 
   var possibilities = fieldHelper.possibilities = function() {
     return types.map(function(e) {
-      e.label = e.field_type[0].toUpperCase() + e.field_type.slice(1);
+      if (e) {
+        e.label = e.field_type[0].toUpperCase() + e.field_type.slice(1);
+      }
+      
       return e;
     });
   };

@@ -2,15 +2,15 @@ Promulgation.Views.PotentialFields = Backbone.CompositeView.extend({
   template: JST['form_edit/potential_fields'],
 
   initialize: function () {
-    var possibilities = [
-      { type: "Sentence" },
-      { type: "Paragraph(s)" },
-      { type: "Dropdown" },
-      { type: "Radio" },
-      { type: "Checkbox" }];
-
     fieldHelper.possibilities().forEach(function(possibility) {
-      var view = new Promulgation.Views.PotentialFieldItem({model: possibility});
+      var view;
+
+      if (possibility) {
+        view = new Promulgation.Views.PotentialFieldItem({model: possibility});
+      } else {
+        view = new Promulgation.Views.PotentialFieldSeperator({model: possibility});
+      }
+
       this.addSubview('.add-field-index', view);
     }.bind(this) );
   },
@@ -23,7 +23,7 @@ Promulgation.Views.PotentialFields = Backbone.CompositeView.extend({
     this.$el.find('*').disableSelection();
 
     this.eachSubview(function(subview) {
-      subview.onRender();
+      subview.onRender && subview.onRender();
     });
 
     return this;

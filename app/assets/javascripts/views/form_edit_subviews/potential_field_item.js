@@ -1,4 +1,4 @@
-Promulgation.Views.PotentialFieldItem = Backbone.CompositeView.extend({
+Promulgation.Views.PotentialFieldItem = Backbone.View.extend({
   template: JST['form_edit/potential_field_item'],
   tagName: 'li',
   className: 'potential-item-button',
