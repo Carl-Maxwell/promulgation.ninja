@@ -46,4 +46,14 @@ class ApplicationController < ActionController::Base
   def require_guest
     redirect_to root_url + "#" if logged_in?
   end
+
+  # TODO these should not redirect to an HTML page : /
+  
+  def api_require_user
+    redirect_to new_session_url + "#" unless logged_in?
+  end
+
+  def api_require_guest
+    redirect_to root_url + "#" if logged_in?
+  end
 end

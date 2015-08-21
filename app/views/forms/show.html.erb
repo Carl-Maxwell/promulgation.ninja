@@ -1,9 +1,9 @@
-<div class="root">Loading</div>
+<div class="root">Loading...</div>
 
 <script type="text/javascript">
   $(function(){
     Promulgation.initialize();
 
-    Backbone.history.start();
+    Promulgation.router.formShow(<%= @form.id %>);
   });
 </script>

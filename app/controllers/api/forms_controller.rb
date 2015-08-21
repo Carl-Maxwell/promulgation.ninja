@@ -1,11 +1,13 @@
 class Api::FormsController < ApplicationController
-  before_action :require_user
+  before_action :api_require_user, except: [:show]
 
   def index
     @forms = current_user.forms.includes(fields: :fields)
   end
 
   def show
+    # TODO add permission check
+
     @form = Form.includes(fields: :fields).find(params[:id]);
   end
 

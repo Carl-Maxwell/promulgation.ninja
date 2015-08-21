@@ -11,7 +11,10 @@ class SubmissionField < ActiveRecord::Base
 
     errors = field.validate_submission_value(value)
 
-    debugger
-    self.errors[:value] = self.errors[:value] + errors
+    # TODO why doesn't `self.errors[:value] += errors` work?
+
+    errors.each do |error|
+      self.errors[:value] << error
+    end
   end
 end

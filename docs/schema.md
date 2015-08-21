@@ -22,11 +22,14 @@ id          | integer   | not null, primary key
 user_id     | integer   | not null, foreign key (references users)
 title       | string    | not null
 version     | integer   |
+slug        | integer
 
 * there will be multiple copies of each form in the database, the `null`
 versioned one will be the 'draft' version that is used by the autosave feature.
 When the user publishes a new version of the form the form and all the fields
 associated with it will be copied and a non-null versioned copy will be made
+* the `slug` identifies a particular form, whereas the `id` is different for every
+`version` of a form, the `slug` remains constant (it is used in the url).
 
 ## fields
 column name | data type | details                                   | uses

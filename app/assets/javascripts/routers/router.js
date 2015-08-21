@@ -40,7 +40,7 @@ Promulgation.Routers.Router = Backbone.Router.extend({
     var form = Promulgation.formsCollection.getOrFetch(id);
     var view = new Promulgation.Views.FormShow({
       model: form,
-      collection: Promulgation.formsCollection
+      collection: form.fields()
     });
     this.swap(view);
   },

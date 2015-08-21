@@ -9,9 +9,8 @@
 - [ ] seed data
 - [ ] initialize dropdowns &c with three children
 - [ ] fix checkbox and radio formatting on the form edit page
+      => for example, two empty checkboxes move onto the same line
 - [ ] .properties-open should show/hide when entering/leaving the tab
-
-- [ ] potential fields need to be grouped into like kinds
 
 - [ ] the field should have help bubbles that explain the meaning of fields (especially min and max &c)
 

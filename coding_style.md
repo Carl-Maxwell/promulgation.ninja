@@ -16,6 +16,10 @@
 * user snake_case for methods and variables
   * acronyms should be lowercase (rng not RNG)
 
+### erb
+
+* do not define html ID attributes
+
 ### Javascript
 
 * use CamelCase for constructor functions & Backbone views/models/collections/&c
@@ -23,6 +27,8 @@
 * user camelCase for methods and variables
   * acronyms should match (somethingRng not somethingRNG)
 * use .slice, do not use .substr or .substring
+* you may generate and use id attributes, just be sure they are non-trivially unique
+  * (use something like a UUID, never anything like `#form_show`)
 
 ### CSS
 

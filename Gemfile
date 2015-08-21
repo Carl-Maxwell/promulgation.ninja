@@ -18,6 +18,8 @@ gem 'bcrypt'
 gem 'valid_url'
 gem 'phony_rails'
 
+gem 'hashids'
+
 gem 'newrelic_rpm'
 
 group :development, :test do

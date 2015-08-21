@@ -12,8 +12,6 @@ class Field < ActiveRecord::Base
   belongs_to :field
   has_many :fields, -> { order :ord }
 
-  after_save :update_parent
-
   def field_logic
     if ['radio-item', 'dropdown-item'].include? field_type
       if value != ""
@@ -23,10 +21,6 @@ class Field < ActiveRecord::Base
     elsif field_type == 'checkbox-item'
       # ...
     end
-  end
-
-  def update_parent
-    # do stuff
   end
 
   def v(validatorian, extra = {})
@@ -64,8 +58,12 @@ class Field < ActiveRecord::Base
     end
 
     if min_max?
-      value >= options["min"]
-      value <= options["max"]
+      if value < options["min"]
+        self.errors[:value] << "must be less than #{options["min"]}"
+      end
+      if value > options["max"]
+        self.errors[:value] << "must be unique #{options["max"]}"
+      end
     end
 
     case field_type

@@ -1,11 +1,13 @@
 class Api::FieldsController < ApplicationController
-  before_action :require_user
+  before_action :require_user, except: [:show]
 
   def index
     @fields = current_user.forms.first.fields
   end
 
   def show
+    # TODO add permission check
+
     @field = Field.find(params[:id])
   end
 

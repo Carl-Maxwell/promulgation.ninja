@@ -10,15 +10,5 @@ window.Promulgation = {
     Promulgation.router = new Promulgation.Routers.Router({
       $el: $('.root')
     });
-
-    Backbone.history.start();
   }
 };
-
-
-
-$(function(){
-  if ($('.root').length) {
-    Promulgation.initialize();
-  }
-});

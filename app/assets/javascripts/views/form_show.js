@@ -9,11 +9,15 @@ Promulgation.Views.FormShow = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
+  events: {
+    'submit form': 'submit'
+  },
+
   addField: function(field) {
      var view = new Promulgation.Views.FormShowItem({
        model: field
      });
-     this.addSubview('.fields', view);
+     this.addSubview('.main-form', view);
    },
 
   render: function() {
@@ -22,4 +26,12 @@ Promulgation.Views.FormShow = Backbone.CompositeView.extend({
 
     return this;
   },
+
+  submit: function(e) {
+    e.preventDefault();
+
+    
+
+
+  }
 });
