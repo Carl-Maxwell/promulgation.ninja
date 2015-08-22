@@ -34,6 +34,9 @@ Promulgation.Views.FormShow = Backbone.CompositeView.extend({
 
     var formData = this.$el.serializeJSON();
 
+    $('.invalid').removeClass('invalid');
+    $('.invalid-message').remove();
+
     $.ajax({
       url: 'api/submissions/' + this.model.get('slug'),
       method: 'post',
@@ -42,8 +45,6 @@ Promulgation.Views.FormShow = Backbone.CompositeView.extend({
         alert('Thanks for submitting the form, user!');
       },
       error: function(errors) {
-        $('.invalid').removeClass('invalid');
-
         for (var name in errors.responseJSON) {
           var $message = $('<span></span>')
             .addClass('invalid-message')
