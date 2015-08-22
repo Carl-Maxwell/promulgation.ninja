@@ -52,9 +52,7 @@ Promulgation.Views.FormShow = Backbone.CompositeView.extend({
 
           $('[name="' + name + '"]')
             .addClass('invalid')
-            .wrap('<div class="invalid-message-wrapper">')
-            .parent()
-            .append($message);
+            .after($message);
         }
       }
     });
