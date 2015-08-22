@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   namespace :api do
     resources :forms, except: [:new, :edit]
     resources :fields, except: [:new, :edit]
-    # resources :submissions, only: [:create]
+    post '/submissions/:slug', to: 'submissions#create'
   end
 
-  get '/f/:slug', to: 'forms#show'
+  get '/:slug', to: 'forms#show'
 
   root "static_pages#index"
 end

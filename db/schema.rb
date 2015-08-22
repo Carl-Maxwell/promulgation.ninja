@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821004012) do
+ActiveRecord::Schema.define(version: 20150821214804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,11 +58,23 @@ ActiveRecord::Schema.define(version: 20150821004012) do
     t.integer  "field_id"
     t.text     "value"
     t.string   "state"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "submission_id", null: false
+  end
+
+  add_index "submission_fields", ["field_id"], name: "index_submission_fields_on_field_id", using: :btree
+  add_index "submission_fields", ["submission_id"], name: "index_submission_fields_on_submission_id", using: :btree
+
+  create_table "submissions", force: :cascade do |t|
+    t.integer  "form_id"
+    t.string   "useragent"
+    t.string   "ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "submission_fields", ["field_id"], name: "index_submission_fields_on_field_id", using: :btree
+  add_index "submissions", ["form_id"], name: "index_submissions_on_form_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

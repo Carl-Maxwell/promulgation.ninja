@@ -54,7 +54,7 @@
       if (e) {
         e.label = e.field_type[0].toUpperCase() + e.field_type.slice(1);
       }
-      
+
       return e;
     });
   };
@@ -94,7 +94,7 @@
 
     this.n = n;
 
-    n.name = "field_" + model.id;
+    n.name = "fields[field_" + model.id + "]";
 
     switch(model.field_type) {
       case 'text':

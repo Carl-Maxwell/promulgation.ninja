@@ -64,12 +64,13 @@ useragent   | string    |
 ip          | string    |
 
 ## submission_fields
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-field_id    | integer   | not null, foreign key (references fields)
-value       | string    |
-state       | string    | default "alive"
+column name   | data type | details
+--------------|-----------|-----------------------
+id            | integer   | not null, primary key
+submission_id | integer   | not null, foreign_key (references submissions)
+field_id      | integer   | not null, foreign key (references fields)
+value         | string    |
+state         | string    | default "alive"
 
 * the value here is a string, the key is the presentable
 name of the field ("First Name", "Subject", etc)

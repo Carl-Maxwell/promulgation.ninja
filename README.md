@@ -92,6 +92,26 @@ Dropdowns, radios, wysiwyg, etc.
 
 ### Full list of fields
 
+#### Fields on Form Edit
+- [x] text
+- [x] textarea
+- [x] dropdown
+- [x] radio
+- [x] checkbox
+- [ ] date
+- [ ] What you see is what you get editor (WYSIWYG)
+- [ ] Section break
+- [ ] page break
+- [ ] rating
+- [ ] address
+- [x] website
+- [x] phone
+- [x] email
+- [ ] likert
+- [ ] code editor
+- [ ] Markup (commonmark) editor
+
+#### Fields on Form Show
 - [ ] text
 - [ ] textarea
 - [ ] dropdown

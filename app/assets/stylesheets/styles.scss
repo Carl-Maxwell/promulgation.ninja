@@ -650,6 +650,11 @@ input[type="submit"], button, .large-button{
 
 .form-show{
   @extend .wrapper;
+
+  .invalid{
+    // outline: 1px solid red;
+    box-shadow: 0 0 1px red;
+  }
 }
 
 //

@@ -67,6 +67,8 @@ class Field < ActiveRecord::Base
     end
 
     case field_type
+    when "text",
+          "textarea"     then "pass" # I miss python
     when "dropdown",
          "radio",
          "checkbox"      then v(:Inclusion, in: fields.pluck(:label))
@@ -87,7 +89,7 @@ class Field < ActiveRecord::Base
     else return ["invalid field_type"]
     end
 
-    self.errors.messages[:value]
+    self.errors.messages[:value] || []
   end
 
   def min_max?

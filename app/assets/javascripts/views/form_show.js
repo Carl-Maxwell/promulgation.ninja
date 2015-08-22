@@ -1,5 +1,7 @@
 Promulgation.Views.FormShow = Backbone.CompositeView.extend({
   template: JST['form_show'],
+  tagName: 'form',
+  className: 'form-show',
 
   initialize: function() {
     this.listenTo(this.collection, 'add', this.addField);
@@ -10,7 +12,7 @@ Promulgation.Views.FormShow = Backbone.CompositeView.extend({
   },
 
   events: {
-    'submit form': 'submit'
+    'submit': 'submit'
   },
 
   addField: function(field) {
@@ -30,8 +32,30 @@ Promulgation.Views.FormShow = Backbone.CompositeView.extend({
   submit: function(e) {
     e.preventDefault();
 
-    
+    var formData = this.$el.serializeJSON();
 
+    $.ajax({
+      url: 'api/submissions/' + this.model.get('slug'),
+      method: 'post',
+      data: formData,
+      success: function() {
+        alert('Thanks for submitting the form, user!');
+      },
+      error: function(errors) {
+        $('.invalid').removeClass('invalid');
 
+        for (var name in errors.responseJSON) {
+          var $message = $('<span></span>')
+            .addClass('invalid-message')
+            .html(errors.responseJSON[name]);
+
+          $('[name="' + name + '"]')
+            .addClass('invalid')
+            .wrap('<div class="invalid-message-wrapper">')
+            .parent()
+            .append($message);
+        }
+      }
+    });
   }
 });
