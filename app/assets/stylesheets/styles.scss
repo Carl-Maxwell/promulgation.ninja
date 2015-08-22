@@ -24,6 +24,11 @@ label{
   display: block;
 }
 
+html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+}
+
 //
 //
 //
@@ -117,6 +122,9 @@ fieldset{
 header{
   background: #2A2A2A;
   color: #1d95e5;
+  margin-left: calc((100% - 100vw) / 2);
+  width: 100%;
+  width: calc(100vw);
 
   .header-content{
     margin: 0 auto;
