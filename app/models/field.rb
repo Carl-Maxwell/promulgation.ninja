@@ -76,7 +76,7 @@ class Field < ActiveRecord::Base
     when "website"       then v(:Url)
     # when "date"          then timeliness gem
     when "phone"         then v(:Phony)
-    when "email"         then v(:Format, with: /@/)
+    when "email"         then v(:Format, with: /@/, message: "is not a valid email")
     when "price"         then v(:Numericality) # is within min max?
     when "rating"        then v(:Numericality) # is within min max?
 
