@@ -1,4 +1,7 @@
-<%= model.escape("label") %>
+<%=
+  model.escape("label") +
+  (model.get('options').required ? '<span class="required">*</span>' : '')
+%>
 <div class="displayfield">
   <%= this.model.html() %>
 </div>

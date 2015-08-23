@@ -5,19 +5,18 @@
 
     undefined,
 
-    { field_type: "number"       , value: ""     },
-
-    { field_type: "website"      , value: ""     },
     { field_type: "date"         , value: ""     },
-    { field_type: "phone"        , value: ""     },
     { field_type: "email"        , value: ""     },
+    { field_type: "number"       , value: ""     },
+    { field_type: "phone"        , value: ""     },
     { field_type: "price"        , value: ""     },
+    { field_type: "website"      , value: ""     },
 
     undefined,
 
+    { field_type: "checkbox"                     },
     { field_type: "dropdown"                     },
     { field_type: "radio"                        },
-    { field_type: "checkbox"                     },
 
     // { field_type: "rating"       , value: "", options: {min: 1, max: 5}  },
 
@@ -65,6 +64,7 @@
 
     this.field_type = model.field_type;
     this.value = model.value;
+    this.required = (model.options || {}).required;
 
     var n;
 

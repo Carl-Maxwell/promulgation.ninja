@@ -46,13 +46,23 @@ Promulgation.Views.FormShow = Backbone.CompositeView.extend({
       },
       error: function(errors) {
         for (var name in errors.responseJSON) {
-          var $message = $('<span></span>')
-            .addClass('invalid-message')
-            .html(errors.responseJSON[name]);
+          if (!errors.responseJSON[name].length) continue;
+
+          var $messages = $('<ul></ul>').addClass('invalid-messages');
+
+          errors.responseJSON[name].forEach(function(err) {
+            var $message = $('<li></li>')
+              .addClass('invalid-message')
+              .html(err);
+
+            $messages.append($message);
+          } );
 
           $('[name="' + name + '"]')
             .addClass('invalid')
-            .after($message);
+            .after($messages);
+
+          _.defer(function() { $('.invalid-messages').addClass('animate-in'); });
         }
       }
     });
