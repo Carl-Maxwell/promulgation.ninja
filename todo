@@ -1,24 +1,10 @@
 
-- [ ] setup figaro
+- [ ] submissions index
 
-- [ ] when you delete a property child, focus() on the next child
-      -> wait, why?
-
-- [ ] resorting field children
-- [ ] make the New choice button into a draggable (constrained to .table)
-- [ ] seed data
-- [ ] initialize dropdowns &c with three children
-- [ ] fix checkbox and radio formatting on the form edit page
-      => for example, two empty checkboxes move onto the same line
-- [ ] .properties-open should show/hide when entering/leaving the tab
-
-- [ ] the field should have help bubbles that explain the meaning of fields (especially min and max &c)
-
-- [ ] the rails log is logging session tokens = (
+- [ ] submissions show
 
 - [ ] form settings
   - [ ] renaming forms
-  - [ ] no duplicate IPs
   - [ ] send confirmation email to user (requires email field)
   - [ ] define splash page / text displayed after submission
   - [ ] captcha toggle
@@ -28,33 +14,64 @@
     - [ ] Google Docs Integration
     - [ ] CSV FTP integration
 
- - [ ] users should be able to specify min and max (word/character) lengths for text, textfields, &c
+- [ ] need an animation on form index delete
 
-- [ ] handle going to like #forms/:id for a form that doesn't exist
+- [ ] if a validation field (like website) is empty & not required, should not show up as invalid
+      => ("" is an invalid url, but a valid value in a not-required field)
+
+- [ ] live validation updating (while you type)
+
+- [ ] form edit - the field should have help bubbles that explain the meaning of fields (especially min and max &c)
 
 - [ ] prevent the delete button from being clicked multiple times on the same field
 
 - [ ] validate the confirm password control on users#new
 
-- [ ] advanced settings toggle needs an animation
-
 - [ ] the input for writing labels is a textarea that respects endlines
       ->  Should probably have it support commonmark
 
-- [ ] remove fields.name
-- [ ] use fields.label in the places where name is being used
+- [ ] the rails log is logging session tokens = (
 
-- [ ] allow 'other' inputs inside radios / checkboxes
-
-- [ ] make textareas larger (so you can tell them and inputs apart)
+- [ ] seed data
 
 - [ ] a 'splash page' (homepage, landing page, thing)
 
-- [ ] filling in a radio input quickly using the enter key to make children 
-      => creates empty subfields (can see them if you refresh)
-      => can also fail to save stuff
-
 - [ ] paginating forms#index, submissions#index
+
+- [ ] about, contact us, etc
+
+--------------------------------------------------------------------------------
+
+- [ ] showing the users sessions on the user edit page
+- [ ] allowing the user to edit their password on user edit
+- [ ] forgot password
+
+- [ ] form settings
+  - [ ] no duplicate IPs
+
+- [ ] setup figaro
+
+- [ ] when you delete a property child, focus() on the next child
+      -> wait, why?
+
+- [ ] resorting field children
+- [ ] make the New choice button into a draggable (constrained to .table)
+
+- [ ] initialize dropdowns &c with three children
+- [ ] fix checkbox and radio formatting on the form edit page
+      => for example, two empty checkboxes move onto the same line
+- [ ] .properties-open should show/hide when entering/leaving the tab
+
+- [ ] make the form show page clearner (cut out backbone &c)
+      => so that it can be embedded as an iframe fairly cleanly
+
+- [ ] investigate whether embedding it as an iframe is the way to go
+
+ - [ ] users should be able to specify min and max (word/character) lengths for text, textfields, &c
+
+- [ ] handle going to like #forms/:id for a form that doesn't exist
+
+- [ ] allow 'other' inputs inside radios / checkboxes
 
 - [ ] editing accounts
 - [ ] deleting user accounts
