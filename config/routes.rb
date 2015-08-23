@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :forms, except: [:new, :edit]
     resources :fields, except: [:new, :edit]
+    get '/forms/:form_id/submissions/', to: 'submissions#index'
     post '/submissions/:slug', to: 'submissions#create'
   end
 

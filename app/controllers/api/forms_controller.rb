@@ -8,7 +8,12 @@ class Api::FormsController < ApplicationController
   def show
     # TODO add permission check
 
-    @form = Form.includes(fields: :fields).find(params[:id]);
+    if params[:submissions]
+      @show_submissions = true
+      @form = Form.includes(:submissions).find(params[:id]);
+    else
+      @form = Form.includes(fields: :fields).find(params[:id]);
+    end
   end
 
   def create

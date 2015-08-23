@@ -1,4 +1,8 @@
 class Api::SubmissionsController < ApplicationController
+  def index
+    submissions = Submission.find_by(form_id: params[:form_id])    
+  end
+
   def create
     form = Form.find_by(slug: params[:slug], version: nil)
 

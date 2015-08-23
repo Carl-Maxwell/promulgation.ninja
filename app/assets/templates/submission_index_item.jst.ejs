@@ -1,0 +1,10 @@
+<% model.submissionFields().slice(0, 3).forEach(function(field) { %>
+  <td>
+    <a class="show-modal" href="#/submissions/<%= model.get('id') %>/">
+      <%= field.escape("value") %>
+    </a>
+  </td>
+<% }); %>
+<td class="actions">
+  <button class="delete small-button danger-button">Delete</button>
+</td>

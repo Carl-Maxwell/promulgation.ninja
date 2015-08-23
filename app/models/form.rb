@@ -1,6 +1,7 @@
 class Form < ActiveRecord::Base
   belongs_to :user
   has_many :fields, -> { order :ord }
+  has_many :submissions
 
   validates :user, :title, presence: true
 

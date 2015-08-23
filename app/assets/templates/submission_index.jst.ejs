@@ -1,0 +1,17 @@
+<div class="item-header clearfix">
+  <h2 class="heading">
+    Submissions for <%= model.get('title') %> Form
+  </h2>
+  <% /* <a class="large-button add-item" href="#/submissions/new">New Submissions</a> */ %>
+</div>
+<table class="submission-index">
+<thead>
+  <tr>
+    <% fields.slice(0, 3).forEach(function(field) { %>
+      <th><%= field.get('label') %></th>
+    <% }); %>
+    <th>Actions</th>
+  </tr>
+</thead>
+<tbody></tbody>
+</table>
