@@ -63,7 +63,9 @@ $darkgrey: #ccc;
 // common elements
 //
 
-.item-header{
+.header, .item-header{
+  @extend .clearfix;
+
   .add-item{
     border: 1px solid $darkgrey;
     float: right;
@@ -84,6 +86,7 @@ html [class].good-button{
   float: right;
   font-size: 16px;
   display: inline-block;
+  min-width: 160px;
   padding: 10px;
   text-align: center;
   text-transform: capitalize;
@@ -119,6 +122,12 @@ fieldset{
   padding-left: 10px;
   color: #FF4646;
   font-weight: bold;
+}
+
+.data-table{
+  tr:nth-child(2n){
+    background: #ECECEC;
+  }
 }
 
 //
@@ -423,7 +432,7 @@ body{
         margin-left: -10px;
         padding: 10px;
         position: absolute;
-        width: 444px;
+        width: 444px + 2;
 
         .right-button{
           float: right;
@@ -715,54 +724,85 @@ input[type="submit"], button, .large-button{
 .modal-wrapper{
   background: hsla(0, 0%, 0%, 0.3);
   height: 100%;
+  margin-left: calc((100% - 100vw));
   position: absolute;
   top: 0;
   width: 100%;
+}
 
-  .modal{
-    background: whitesmoke;
-    display: block;
-    height: 300px;
-    left: 50%;
-    position: absolute;
-    margin: -150px 0 0 -250px;
-    top: 50%;
-    width: $modal_width;
+.modal{
+  background: whitesmoke;
+  border-radius: 3px;
+  display: block;
+  left: 50%;
+  min-height: 300px;
+  position: absolute;
+  margin: 0 0 0 0-$modal_width/2;
+  padding-bottom: 81px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: $modal_width;
 
-    p{}
+  .modal-body{
+    height: 290px;
+    overflow-y: scroll;
 
-    h3{
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .bottomness{
-      bottom: 10px;
-      margin-left: 10px;
-      position: absolute;
-      width: $modal_width - 20;
-    }
-
-    table td{
+    &.padded{
       padding: 10px;
     }
+  }
 
-    input, button{
-      margin-bottom: 10px;
-      width: $modal_width - 20;
-    }
+  .header{
+    border-bottom: 1px solid $darkgrey;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
 
-    input[type="submit"], button{
-      float: right;
-      width: 160px;
+  p{}
 
-      &.left{
-        background: lightgrey;
-        float: left;
-      }
+  h3{
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .data-table{
+    width: 100%;
+
+    td:first-child{
+      padding-left: 20px;
     }
   }
+
+  .bottomness{
+    bottom: 20px;
+    border-top: 1px solid #ccc;
+    margin-left: 0;
+    position: absolute;
+    padding-right: 20px;
+    padding-top: 20px;
+    width: $modal_width - 20;
+  }
+
+  table td{
+    padding: 10px;
+  }
+
+  // input, button{
+  //   margin-bottom: 10px;
+  //   width: $modal_width - 20;
+  // }
+
+  // input[type="submit"], button{
+  //   float: right;
+  //   width: 160px;
+  //
+  //   &.left{
+  //     background: lightgrey;
+  //     float: left;
+  //   }
+  // }
 }
+
 
 .loading-icon-wrapper{
   opacity: 0.8;

@@ -11,7 +11,10 @@ Promulgation.Views.SubmissionIndex = Backbone.CompositeView.extend({
   },
 
   addItemView: function(model) {
-    var subview = new Promulgation.Views.SubmissionIndexItem({model: model});
+    var subview = new Promulgation.Views.SubmissionIndexItem({
+      model: model,
+      fields: this.model.fields()
+    });
     this.addSubview('.submission-index tbody', subview);
   },
 

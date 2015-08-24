@@ -58,10 +58,10 @@ class Field < ActiveRecord::Base
     end
 
     if min_max?
-      if value < options["min"]
+      if options["min"] && value < options["min"]
         self.errors[:value] << "must be less than #{options["min"]}"
       end
-      if value > options["max"]
+      if options["max"] && value > options["max"]
         self.errors[:value] << "must be unique #{options["max"]}"
       end
     end
