@@ -13,9 +13,20 @@ Promulgation.Views.SubmissionModal = Backbone.View.extend({
   },
 
   render: function() {
+    var subFields = [];
+
+    this.model.submissionFields().sort();
+
+    this.model.submissionFields().forEach(function(field, i) {
+      subFields.push( {
+        value: field.get('value'),
+        key: field.field().get('label')
+      });
+    });
+
     this.$el.html(this.template({
       model: this.model,
-      fields: this.fields
+      subFields: subFields
     }));
 
     return this;

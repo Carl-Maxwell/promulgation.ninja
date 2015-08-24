@@ -7,7 +7,7 @@ Promulgation.Collections.SubmissionFields = Backbone.Collection.extend({
     var bField = b.field();
 
     if (aField && bField) {
-      return Math.sign(a.field().get('ord') - b.field().get('ord'));
+      return Math.sign(aField.get('ord') - bField.get('ord'));
     } else {
       return 0;
     }

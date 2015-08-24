@@ -13,7 +13,10 @@ Promulgation.Views.SubmissionIndexItem = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template({model: this.model}));
+    this.$el.html(this.template({
+      model: this.model,
+      submissionFields: this.model.submissionFields().sort().slice(0, 3)
+    }));
 
     return this;
   },

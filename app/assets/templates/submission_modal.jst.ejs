@@ -5,10 +5,10 @@
   </div>
   <div class="modal-body">
     <table class="data-table">
-      <% model.submissionFields().forEach(function(field, i) { %>
+      <% subFields.forEach(function(el, i) { %>
         <tr>
-          <td><%= fields.at(i).escape('label') %></td>
-          <td><%= field.escape("value") %></td>
+          <td><%= _.escape(el.key) %></td>
+          <td><%= _.escape(el.value) %></td>
         </tr>
       <% }); %>
     </table>

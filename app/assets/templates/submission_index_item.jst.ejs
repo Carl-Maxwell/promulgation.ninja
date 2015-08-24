@@ -1,4 +1,4 @@
-<% model.submissionFields().slice(0, 3).forEach(function(field) { %>
+<% submissionFields.forEach(function(field) { %>
   <td>
     <a class="show-modal" href="#/submissions/<%= model.get('id') %>/">
       <%= field.escape("value") %>
