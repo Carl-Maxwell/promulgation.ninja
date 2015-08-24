@@ -5,6 +5,7 @@ Promulgation.Views.SubmissionModal = Backbone.View.extend({
 
   initialize: function(options) {
     this.fields = options.fields;
+    $(document).on('keyup', this.checkForEscape.bind(this));
   },
 
   events: {
@@ -26,7 +27,8 @@ Promulgation.Views.SubmissionModal = Backbone.View.extend({
 
     this.$el.html(this.template({
       model: this.model,
-      subFields: subFields
+      subFields: subFields,
+      form: this.model.form()
     }));
 
     return this;
@@ -40,6 +42,14 @@ Promulgation.Views.SubmissionModal = Backbone.View.extend({
     e.stopPropagation();
 
     this.remove();
+  },
+
+  checkForEscape: function(e) {
+    if (e.which == 27) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.remove();
+    }
   }
 
 });

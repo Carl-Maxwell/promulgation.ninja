@@ -1,14 +1,14 @@
 <div class="modal-wrapper close-modal"></div>
 <div class="modal">
   <div class="header">
-    <h2 class="heading">Submission for ???</h2>
+    <h2 class="heading">Submission for <%= model.form().get('title') %></h2>
   </div>
   <div class="modal-body">
     <table class="data-table">
       <% subFields.forEach(function(el, i) { %>
         <tr>
           <td><%= _.escape(el.key) %></td>
-          <td><%= _.escape(el.value) %></td>
+          <td><pre><%= _.escape(el.value) %></pre></td>
         </tr>
       <% }); %>
     </table>

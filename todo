@@ -1,8 +1,4 @@
 
-- [ ] submissions index
-
-- [ ] submissions show
-
 - [ ] form settings
   - [ ] renaming forms
   - [ ] send confirmation email to user (requires email field)
@@ -30,8 +26,6 @@
 - [ ] the input for writing labels is a textarea that respects endlines
       ->  Should probably have it support commonmark
 
-- [ ] the rails log is logging session tokens = (
-
 - [ ] seed data
 
 - [ ] a 'splash page' (homepage, landing page, thing)
@@ -39,6 +33,8 @@
 - [ ] paginating forms#index, submissions#index
 
 - [ ] about, contact us, etc
+
+- [ ] the rails log is logging session tokens = (
 
 --------------------------------------------------------------------------------
 
