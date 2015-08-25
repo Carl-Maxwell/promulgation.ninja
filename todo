@@ -10,13 +10,6 @@
 
 - [ ] paginating forms#index, submissions#index
 
-- [ ] about, contact us, etc
-
-- [ ] the rails log is logging session tokens = (
-
-- [ ] checkboxes don't show up in submissions
-      => at this point, just prevent people from using checkboxes at all : /
-
 - [ ] better confirm magic?
 
 - [ ] push to heroku
@@ -43,6 +36,9 @@
 
 - [ ] the input for writing labels should be a textarea that respects endlines
       ->  Should probably have it support commonmark
+
+- [ ] forms are actually deleting, they should really just be marked as dead
+      => or, maybe if they don't have any promulgated versions, they could be brung down holy destruction upon
 
 --------------------------------------------------------------------------------
 

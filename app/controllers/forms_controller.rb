@@ -5,6 +5,11 @@ class FormsController < ApplicationController
 
     # TODO should do version IS NOT NULL, order version: :desc, .first
 
-    @form = Form.includes(fields: :fields).find_by(slug: params[:slug]);
+    @form = Form
+      .includes(fields: :fields)
+      .where(slug: params[:slug])
+      .order(version: :desc)
+      .limit(1)
+      .first
   end
 end

@@ -14,7 +14,8 @@ Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
   },
 
   events: {
-    'click .tabs .tab': 'clickTab'
+    'click .tabs .tab': 'clickTab',
+    'click .promulgate': 'promulgate'
   },
 
   openTab: function(newTabIndex) {
@@ -50,5 +51,25 @@ Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     return this;
+  },
+
+  promulgate: function(e) {
+    // var target = $(e.currentTarget);
+    //
+    // if (target.is('.nope-nope')) return;
+    //
+    // target.addClass('nope-nope');
+
+    $.ajax({
+      method: 'PUT',
+      url: '/api/forms/' + this.model.get('id') + '/promulgate',
+      success: function(model) {
+        Promulgation.confirm(
+          'The form has been promulgated, the url is live at http://www.promulgation.ninja/' + model.slug
+        );
+        this.model.set(model);
+        this.model.fetch();
+      }.bind(this)
+    });
   }
 });
