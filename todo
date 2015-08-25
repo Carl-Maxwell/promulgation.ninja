@@ -2,15 +2,9 @@
 - [ ] functioning promulgate button
       => arg, that's gonna take so long. Good prioritizing would have been wiser.
 
-- [ ] style the error messages on static forms
-
-- [ ] prevent the delete button from being clicked multiple times on the same field
-
-- [ ] confirm deletion of field
-
-- [ ] validate the confirm password control on users#new
-
 - [ ] seed data
+
+- [ ] guest login
 
 - [ ] a 'splash page' (homepage, landing page, thing)
 
@@ -22,6 +16,8 @@
 
 - [ ] checkboxes don't show up in submissions
       => at this point, just prevent people from using checkboxes at all : /
+
+- [ ] better confirm magic?
 
 - [ ] push to heroku
 

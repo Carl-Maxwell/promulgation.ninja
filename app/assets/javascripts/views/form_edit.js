@@ -45,25 +45,31 @@ Promulgation.Views.FormEdit = Backbone.CompositeView.extend({
   deleteField: function(e) {
     var target = $(e.currentTarget);
 
-    var model = this.sidebar.tabs[1].model;
-    var itemView = this.actualFields.getViewForModel(model);
+    if (target.is('.nope-nope')) return;
 
-    if (itemView) {
-      var $el = itemView.$el;
+    Promulgation.confirm('Are you sure you want to delete this field?', function() {
+      target.addClass('nope-nope');
 
-      if ($el.next().length){
-        $el.next().click();
-      } else {
-        $el.prev().click();
+      var model = this.sidebar.tabs[1].model;
+      var itemView = this.actualFields.getViewForModel(model);
+
+      if (itemView) {
+        var $el = itemView.$el;
+
+        if ($el.next().length){
+          $el.next().click();
+        } else {
+          $el.prev().click();
+        }
+
+        model.destroy();
       }
 
-      model.destroy();
-    }
-
-    if (!this.model.fields().length) {
-      this.sidebar.openTab(1);
-      this.sidebar.openTab(0);
-    }
+      if (!this.model.fields().length) {
+        this.sidebar.openTab(1);
+        this.sidebar.openTab(0);
+      }
+    }.bind(this));
   },
 
   appendField: function(e) {
