@@ -1,30 +1,10 @@
 
 - [ ] form settings
   - [ ] renaming forms
-  - [ ] send confirmation email to user (requires email field)
-  - [ ] define splash page / text displayed after submission
-  - [ ] captcha toggle
-  - [ ] notification options
-    - [ ] Email
-    - [ ] Text
-    - [ ] Google Docs Integration
-    - [ ] CSV FTP integration
-
-- [ ] need an animation on form index delete
-
-- [ ] if a validation field (like website) is empty & not required, should not show up as invalid
-      => ("" is an invalid url, but a valid value in a not-required field)
-
-- [ ] live validation updating (while you type)
-
-- [ ] form edit - the field should have help bubbles that explain the meaning of fields (especially min and max &c)
 
 - [ ] prevent the delete button from being clicked multiple times on the same field
 
 - [ ] validate the confirm password control on users#new
-
-- [ ] the input for writing labels is a textarea that respects endlines
-      ->  Should probably have it support commonmark
 
 - [ ] seed data
 
@@ -35,6 +15,30 @@
 - [ ] about, contact us, etc
 
 - [ ] the rails log is logging session tokens = (
+
+- [ ] checkboxes don't show up in submissions
+      => at this point, just prevent people from using checkboxes at all : /
+
+---
+
+- [ ] form settings
+  - [ ] send confirmation email to user (requires email field)
+  - [ ] define splash page / text displayed after submission
+  - [ ] captcha toggle
+  - [ ] notification options
+    - [ ] Email
+    - [ ] Text
+    - [ ] Google Docs Integration
+    - [ ] CSV FTP integration
+
+- [ ] form edit - the field should have help bubbles that explain the meaning of fields (especially min and max &c)
+
+- [ ] need an animation on form index delete
+
+- [ ] live validation updating (while you type)
+
+- [ ] the input for writing labels should be a textarea that respects endlines
+      ->  Should probably have it support commonmark
 
 --------------------------------------------------------------------------------
 

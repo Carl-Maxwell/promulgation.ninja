@@ -10,36 +10,37 @@ users to create forms which can either be embedded in a user's site or hosting
 can be provided by Promulgation.ninia. Two example use cases are embedded
 Contact Us forms on websites, and email questionnaires.
 
-- [ ] creating, editing accounts
+- [x] creating accounts
+- [ ] editing accounts
 - [ ] deleting user accounts
 - [x] creating, and deleting sessions (log in, log out)
   - [x] multiple sessions
-- [ ] display validation errors when the user fills in a static form wrongly
+- [x] display validation errors when the user fills in a static form wrongly
 - [ ] change password
   - [ ] delete sessions on password change
 - [ ] forgot password feature
 - [ ] forms
   - [x] creating
-  - [ ] viewing
-  - [ ] editing
+  - [x] viewing
+  - [x] editing
     - [x] sorting fields
     - [x] adding fields
-    - [ ] removing fields
-    - [ ] setting field properties
+    - [x] removing fields
+    - [x] setting field properties
     - [ ] setting form properties
-  - [ ] deleting forms
-- [ ] creating, viewing, editing, and deleting fields within forms
-  - [ ] fields belong to a form
-  - [ ] fields have a type (text, textarea, dropdown, radio, checkbox, date, &c)
-- [ ] resorting fields within forms
-  - [ ] drag & drop
-- [ ] auto-saving forms as they're being edited
+  - [x] deleting forms
+- [x] creating, viewing, editing, and deleting fields within forms
+  - [x] fields belong to a form
+  - [x] fields have a type (text, textarea, dropdown, radio, checkbox, date, &c)
+- [x] resorting fields within forms
+  - [x] drag & drop
+- [x] auto-saving forms as they're being edited
 - [ ] confirm deletion of field (by typing in password)
-- [ ] rendering the form
+- [x] rendering the form
 - [ ] outputting embed code for the form
-- [ ] users filling out and submitting form
-  - [ ] storing user form submissions
-  - [ ] reviewing user form submissions
+- [x] users filling out and submitting form
+  - [x] storing user form submissions
+  - [x] reviewing user form submissions
   - [ ] searching through user form submissions
   - [ ] submissions must be paginated
 - [ ] notificiations
@@ -97,7 +98,7 @@ Dropdowns, radios, wysiwyg, etc.
 - [x] textarea
 - [x] dropdown
 - [x] radio
-- [x] checkbox
+- [ ] checkbox
 - [ ] date
 - [ ] What you see is what you get editor (WYSIWYG)
 - [ ] Section break
@@ -112,10 +113,10 @@ Dropdowns, radios, wysiwyg, etc.
 - [ ] Markup (commonmark) editor
 
 #### Fields on Form Show
-- [ ] text
-- [ ] textarea
-- [ ] dropdown
-- [ ] radio
+- [x] text
+- [x] textarea
+- [x] dropdown
+- [x] radio
 - [ ] checkbox
 - [ ] date
 - [ ] What you see is what you get editor (WYSIWYG)
@@ -123,9 +124,9 @@ Dropdowns, radios, wysiwyg, etc.
 - [ ] page break
 - [ ] rating
 - [ ] address
-- [ ] website
-- [ ] phone
-- [ ] email
+- [x] website
+- [x] phone
+- [x] email
 - [ ] likert
 - [ ] code editor
 - [ ] Markup (commonmark) editor
