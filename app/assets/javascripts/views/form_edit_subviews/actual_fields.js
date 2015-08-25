@@ -22,7 +22,7 @@ Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model.fields(), 'sync', this.render);
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync change', this.render);
     this.listenTo(this.model.fields(), 'remove', this.removeItemView);
 
     this.listenTo(this.model.fields(), 'add', this.addItemView);

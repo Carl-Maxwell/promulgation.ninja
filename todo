@@ -1,8 +1,15 @@
 
+- [ ] functioning promulgate button
+      => arg, that's gonna take so long. Good prioritizing would have been wiser.
+
 - [ ] form settings
   - [ ] renaming forms
 
+- [ ] style the error messages on static forms
+
 - [ ] prevent the delete button from being clicked multiple times on the same field
+
+- [ ] confirm deletion of field
 
 - [ ] validate the confirm password control on users#new
 
@@ -92,10 +99,8 @@
 - [ ] validation
   - [ ] allow user to specify arbitrary regex for validation
         => (contains, does not contain, matches, does not match)
-- [ ] users filling out and submitting form
-  - [ ] storing user form submissions
-  - [ ] reviewing user form submissions
-  - [ ] searching through user form submissions
+- [x] users filling out and submitting form 
+ - [ ] searching through user form submissions
   - [ ] submissions must be paginated
 - [ ] notificiations
   - [ ] email

@@ -66,27 +66,29 @@ class Field < ActiveRecord::Base
       end
     end
 
-    case field_type
-    when "text",
-          "textarea"     then "pass" # I miss python
-    when "dropdown",
-         "radio",
-         "checkbox"      then v(:Inclusion, in: fields.pluck(:label))
-    when "number"        then v(:Numericality)
-    when "website"       then v(:Url)
-    # when "date"          then timeliness gem
-    when "phone"         then v(:Phony)
-    when "email"         then v(:Format, with: /@/, message: "is not a valid email")
-    when "price"         then v(:Numericality) # is within min max?
-    when "rating"        then v(:Numericality) # is within min max?
+    if !value.empty? || options['required']
+      case field_type
+      when "text",
+            "textarea"     then "pass" # I miss python
+      when "dropdown",
+           "radio",
+           "checkbox"      then v(:Inclusion, in: fields.pluck(:label))
+      when "number"        then v(:Numericality)
+      when "website"       then v(:Url)
+      # when "date"          then timeliness gem
+      when "phone"         then v(:Phony)
+      when "email"         then v(:Format, with: /@/, message: "is not a valid email")
+      when "price"         then v(:Numericality) # is within min max?
+      when "rating"        then v(:Numericality) # is within min max?
 
-    # when "address"       then nothing?
-    # when "likert"        then subfield stuff
-    # when "code editor"   then nothing
-    # when "markup editor" then nothing (javascript should validate markup to be helpful)
-    # when "video"         then url is recognizable video url
+      # when "address"       then nothing?
+      # when "likert"        then subfield stuff
+      # when "code editor"   then nothing
+      # when "markup editor" then nothing (javascript should validate markup to be helpful)
+      # when "video"         then url is recognizable video url
 
-    else return ["invalid field_type"]
+      else return ["invalid field_type"]
+      end
     end
 
     self.errors.messages[:value] || []

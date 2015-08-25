@@ -56,7 +56,9 @@ class Api::FieldsController < ApplicationController
         :max,
         :required,
         :duplicates,
-        :title
+        :title,
+        :sublabel,
+        :placeholder
       ]
     )
   end

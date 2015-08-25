@@ -6,4 +6,10 @@
     :
       ''
 ) %>
+<% if (model.get("options").sublabel) { %>
+  <br />
+  <span class="sublabel"><%=
+    model.get("options").sublabel
+  %></span>
+<% } %>
 <%= model.html() %>

@@ -5,7 +5,7 @@
 
     undefined,
 
-    { field_type: "date"         , value: ""     },
+    // { field_type: "date"         , value: ""     },
     { field_type: "email"        , value: ""     },
     { field_type: "number"       , value: ""     },
     { field_type: "phone"        , value: ""     },
@@ -14,7 +14,7 @@
 
     undefined,
 
-    { field_type: "checkbox"                     },
+    // { field_type: "checkbox"                     },
     { field_type: "dropdown"                     },
     { field_type: "radio"                        },
 
@@ -64,7 +64,14 @@
 
     this.field_type = model.field_type;
     this.value = model.value;
-    this.required = (model.options || {}).required;
+
+    model.options = model.options || {};
+
+    this.required = model.options.required;
+    this.sublabel = model.options.sublabel;
+    this.title = model.options.title;
+    this.placeholder = model.options.placeholder;
+    this.classes = model.options.classes;
 
     var n;
 
@@ -94,7 +101,16 @@
 
     this.n = n;
 
-    n.name = "fields[field_" + model.id + "]";
+    var field_id = model.id;
+
+    if (model.field_id) field_id = model.field_id;
+
+    n.name = "fields[field_" + field_id + "]";
+
+    // n.sublabel    = this.sublabel;
+    if (this.title)       n.title       = this.title;
+    if (this.placeholder) n.placeholder = this.placeholder;
+    if (this.classes)     n.class       = this.classes;
 
     switch(model.field_type) {
       case 'text':

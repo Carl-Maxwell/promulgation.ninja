@@ -4,24 +4,14 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
   subviewSelector: '.children-table',
 
   events: {
-    'change input': 'changeProperty',
-    'keyup input': 'changeProperty',
+    'change input, textarea': 'changeProperty',
+    'keyup input, textarea': 'changeProperty',
     'click .field-children .add-child': 'addChild',
     'keydown .field-children .child-name': 'checkForEnterKey',
     'click .toggle-advanced-settings': 'toggleAdvancedSettings'
   },
 
   initialize: function() {
-    // this.listenTo(this.model.fields(), "add", function(newField) {
-    //   this.model = newField;
-    // }.bind(this));
-
-    // here this.model is the _form_
-
-    // this.model = this.model.fields().first();
-
-    // and now it's a field
-
     this._delayedSave = {};
   },
 
