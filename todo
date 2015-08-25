@@ -1,7 +1,4 @@
 
-- [ ] functioning promulgate button
-      => arg, that's gonna take so long. Good prioritizing would have been wiser.
-
 - [ ] seed data
 
 - [ ] guest login
@@ -13,8 +10,6 @@
 - [ ] better confirm magic?
 
 - [ ] push to heroku
-
-- [ ] submit to app academy with the stuff
 
 ---
 
@@ -38,7 +33,7 @@
       ->  Should probably have it support commonmark
 
 - [ ] forms are actually deleting, they should really just be marked as dead
-      => or, maybe if they don't have any promulgated versions, they could be brung down holy destruction upon
+      => or, maybe if they don't have any promulgated versions, they could be brung down proper destruction upon their heads
 
 --------------------------------------------------------------------------------
 
