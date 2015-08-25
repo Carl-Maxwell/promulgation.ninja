@@ -135,6 +135,16 @@ fieldset{
   font-size: 14px;
 }
 
+.static-form-errors{
+  margin: 0 auto;
+  width: 502px;
+
+  li{
+    color: red;
+    padding: 10px;
+  }
+}
+
 //
 // Header
 //
@@ -427,23 +437,25 @@ body{
     // field properties
     //
 
+    position: relative;
+
+    .bottom-section{
+      background-color: whitesmoke;
+      bottom: 0px;
+      border-top: 1px solid #DFDFDF;
+      margin-left: -10px;
+      padding: 10px;
+      position: absolute;
+      width: 444px + 2;
+
+      .right-button{
+        float: right;
+        border: 1px solid $darkgrey;
+      }
+    }
+
     .field-properties{
       padding-bottom: 50px; // cause .bottom-section is position: absolute
-
-      .bottom-section{
-        background-color: whitesmoke;
-        bottom: 11px;
-        border-top: 1px solid #DFDFDF;
-        margin-left: -10px;
-        padding: 10px;
-        position: absolute;
-        width: 444px + 2;
-
-        .right-button{
-          float: right;
-          border: 1px solid $darkgrey;
-        }
-      }
     }
 
     .field_type{
