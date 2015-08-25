@@ -91,6 +91,10 @@ html [class].good-button{
   text-align: center;
   text-transform: capitalize;
 
+  &.guest-button{
+    float: left;
+  }
+
   &:hover{
     box-shadow: 1px 1px 1px #d9d9d9;
   }
@@ -143,6 +147,16 @@ fieldset{
     color: red;
     padding: 10px;
   }
+}
+
+.inline-logo{
+  background: #2A2A2A;
+  padding: 0 0 10px 0;
+  text-align: center;
+  margin-left: -10px;
+  width: calc(100% + 20px);
+  margin-top: -10px;
+  margin-bottom: 5px;
 }
 
 //
@@ -343,6 +357,10 @@ body{
     textarea{
       height: 110px;
     }
+
+    &.about p{
+      padding: 5px 0;
+    }
   }
   input[type="text"], input[type="password"]{
     width: $content_width/2 - 20px;
@@ -367,7 +385,9 @@ body{
     border-top-right-radius: 8px;
     cursor: pointer;
     padding: 10px 5px 5px 5px;
+    position: relative;
     margin-right: 10px;
+    z-index: 1;
 
     &.grey{
       color: grey;

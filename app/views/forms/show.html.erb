@@ -4,6 +4,8 @@
   $(function(){
     Promulgation.initialize();
 
+    <% if @form %>
     Promulgation.router.formShow(<%= @form.id %>);
+    <% end %>
   });
 </script>

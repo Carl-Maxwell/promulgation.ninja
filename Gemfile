@@ -20,7 +20,7 @@ gem 'phony_rails'
 
 gem 'hashids'
 
-gem 'newrelic_rpm'
+gem 'seed_dump'
 
 group :development, :test do
   gem 'byebug'
