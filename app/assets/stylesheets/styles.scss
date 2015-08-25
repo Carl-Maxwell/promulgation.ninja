@@ -299,8 +299,13 @@ body{
       }
     }
 
+    .link-action{
+      font-size: 16px;
+      padding: 10px 0 10px 10px;
+    }
+
     &.form-index tr td:last-child{
-      width: 174px;
+      width: 222px;
     }
     &.submission-index tr td:last-child{
       width: 69px;

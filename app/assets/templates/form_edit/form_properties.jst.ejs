@@ -3,6 +3,10 @@
   <input type="text" name="title" value="<%= model.escape('title') %>" autofocus />
 </label>
 
+<% if (model.get('slug')) {%>
+  <a href="/<%= model.get('slug') %>">View Form</a>
+<% } %>
+
 <div class="bottom-section">
   <button class="right-button" title="Make this version of this form publically accessible">Promulgate!</button>
 </div>

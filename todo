@@ -2,8 +2,6 @@
 - [ ] functioning promulgate button
       => arg, that's gonna take so long. Good prioritizing would have been wiser.
 
-- [ ] link to form show via slug magic
-
 - [ ] style the error messages on static forms
 
 - [ ] prevent the delete button from being clicked multiple times on the same field
@@ -24,6 +22,10 @@
 
 - [ ] checkboxes don't show up in submissions
       => at this point, just prevent people from using checkboxes at all : /
+
+- [ ] push to heroku
+
+- [ ] submit to app academy with the stuff
 
 ---
 
