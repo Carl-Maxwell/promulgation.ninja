@@ -4,8 +4,8 @@
 <td>
 <td class="actions">
   <button class="delete small-button danger-button">Delete</button>
-  <a class="link-action" href="#/forms/<%= form.escape('id') %>/submissions">Submissions</a>
   <% if (form.get('slug')) { %>
+    <a class="link-action" href="#/forms/<%= form.escape('id') %>/submissions">Submissions</a>
     <a class="link-action" href="/<%= form.get('slug') %>">View</a>
   <% } %>
 </td>
