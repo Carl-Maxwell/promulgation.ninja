@@ -10,9 +10,9 @@ class Api::FormsController < ApplicationController
 
     if params[:submissions]
       @show_submissions = true
-      @form = Form.includes(:submissions).find(params[:id]);
+      @form = Form.includes(:submissions).find(params[:id])
     else
-      @form = Form.includes(fields: :fields).find(params[:id]);
+      @form = Form.includes(fields: :fields).find(params[:id])
     end
   end
 
@@ -53,7 +53,7 @@ class Api::FormsController < ApplicationController
 
     # TODO loop over submissions
       # mark deleted fields as dead
-      # link SubmissionFields to their new field 
+      # link SubmissionFields to their new field
 
     if form.save
       original_form.update(slug: form.slug) if original_form.slug.nil?

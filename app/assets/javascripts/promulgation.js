@@ -11,5 +11,17 @@ window.Promulgation = {
     Promulgation.router = new Promulgation.Routers.Router({
       $el: $('.root')
     });
+
+    var tour;
+
+    tour = new Shepherd.Tour({
+      defaults: {
+        classes: 'shepherd-theme-arrows',
+        scrollTo: true
+      }
+    });
+
+    
+
   }
 };

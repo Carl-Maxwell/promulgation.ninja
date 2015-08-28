@@ -4,7 +4,10 @@
 </label>
 
 <% if (model.get('slug')) {%>
-  <a href="/<%= model.get('slug') %>">View Form</a>
+  <ul class="slug-links">
+    <li><a href="/<%= model.get('slug') %>">View Form</a></li>
+    <li><a href="#/<%= model.get('slug') %>/submissions">Submissions</a></li>
+  </ul>
 <% } %>
 
 <div class="bottom-section">

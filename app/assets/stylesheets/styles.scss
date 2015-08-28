@@ -243,12 +243,13 @@ header{
   @extend .clearfix;
   margin: 0 auto;
   padding: 50px 0 50px 0;
+  text-align: center;
   width: $content_width;
 
   li{
-    float: left;
+    // float: left;
     font-size: 12px;
-    padding-right: 167px;
+    // padding-right: 167px;
 
     &:last-child{
       padding-right: 0;
@@ -358,8 +359,29 @@ body{
       height: 110px;
     }
 
-    &.about p{
-      padding: 5px 0;
+    &.about {
+
+      em{
+        font-style: italic;
+      }
+
+      strong{
+        font-weight: bold;
+      }
+
+      del{
+        color: grey;
+        text-decoration: line-through;
+      }
+
+      ins{
+        text-decoration: underline;
+        font-weight: bold;
+      }
+
+      p{
+        padding: 5px 0;
+      }
     }
   }
   input[type="text"], input[type="password"]{
@@ -573,6 +595,11 @@ body{
           width: 193px;
         }
       }
+    }
+
+    .slug-links a{
+      display: block;
+      padding: 5px 0;
     }
   }
 }
@@ -865,4 +892,9 @@ input[type="submit"], button, .large-button{
 @keyframes full-spin{
  0% {-webkit-transform: rotateZ(0deg);}
  100% {-webkit-transform: rotateZ(360deg);}
+}
+
+.shepherd-step header{
+  margin-left: auto;
+  width: auto;
 }

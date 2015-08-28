@@ -6,6 +6,7 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon.ico' %>
+  <script src="//fast.eager.io/VxMz1AQ3D8.js"></script>
 </head>
 <body>
 
@@ -29,12 +30,10 @@
     </div>
   </header>
 
-
-
 <div class="content clearfix">
   <% if logged_in? %>
     <ul class="navbar-center-links">
-      <li><a href="/#">Index</a></li>
+      <li><a href="/#">Forms</a></li>
     </ul>
   <% end %>
   <ul class="static-form-errors">
@@ -48,11 +47,11 @@
 </div>
 
   <ul class="footer">
-    <li><a href="#">Contact Us</a></li>
-    <li><a href="#">Privacy Policy</a></li>
+    <!-- <li><a href="/contact">Contact Us</a></li> -->
+    <!-- <li><a href="/privacy">Privacy Policy</a></li> -->
     <li><a href="/about">About</a></li>
-    <li><a href="#">Terms of Service</a></li>
-    <li><a href="#">Developers</a></li>
+    <!-- <li><a href="/terms">Terms of/ Service</a></li> -->
+    <!-- <li><a href="/developers">Developers</a></li> -->
   </ul>
 
 </body>

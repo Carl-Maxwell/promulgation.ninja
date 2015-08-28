@@ -5,7 +5,7 @@
 [heroku]: http://.herokuapp.com
 
 ## Minimum Viable Product
-Promulgation.ninja is a clone of Wufoo built on Rails and Backbone. It allows
+Promulgation.ninja is a inspired by [Wufoo](wufoo.com) built on Rails and Backbone. It allows
 users to create forms which can either be embedded in a user's site or hosting
 can be provided by Promulgation.ninia. Two example use cases are embedded
 Contact Us forms on websites, and email questionnaires.
