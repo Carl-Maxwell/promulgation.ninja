@@ -894,7 +894,15 @@ input[type="submit"], button, .large-button{
  100% {-webkit-transform: rotateZ(360deg);}
 }
 
-.shepherd-step header{
-  margin-left: auto;
-  width: auto;
+.shepherd-step{
+  // top: 103px !important;
+
+  .shepherd-content{
+    width: 370px;
+  }
+
+  header{
+    margin-left: auto;
+    width: auto;
+  }
 }

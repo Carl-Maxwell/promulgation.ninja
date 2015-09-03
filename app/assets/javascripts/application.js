@@ -16,6 +16,8 @@
 //= require jquery-ui
 //= require underscore
 //= require backbone
+//= require tether
+//= require shepherd
 //= require composite_view
 //= require promulgation
 //= require_tree ../templates
