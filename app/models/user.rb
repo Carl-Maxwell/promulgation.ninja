@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   # validates :password, length: {minimum: 6, allow_nil: true}
   # validates :password, confirmation: true, if: :password
 
-  validates :name, format: {with: /\A[^@]+\z/, message: ""}
+  validates :name, format: {with: /\A[^@]+\z/, message: "name cannot contain the @ symbol"}
   validates :email, format: {with: /@/, message: "must be a valid email address"}
 
   has_many :sessions

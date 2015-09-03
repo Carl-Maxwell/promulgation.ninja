@@ -1,5 +1,8 @@
 
-- [ ] remove links in footer that don't work
+- [ ] shepherd
+- [ ] metric tons of seed data
+
+---
 
 - [ ] seed data
 
@@ -15,17 +18,27 @@
 
 - [ ] promulgating removes all the inputs from the form for some reason?
 
+- [ ] abstractify backbone error message magic to forms#new (it validates presence: true on form name)
+
 ---
 
 It would be great to know if you are building this site to target a certain group of audience / users. If I am a recruiter, I want to know and understand the functionality of your site within seconds they check out your site. Here are my suggestions:
 
-On your splash page, I'd suggest you to add a short phrase above the login box (near your Promulgation login) to describe what is this site about (e.g.e The Form Builder for ...) 
+On your splash page, I'd suggest you to add a short phrase above the login box (near your Promulgation login) to describe what is this site about (e.g. The Form Builder for ...) 
 
 After signing in, I'd suggest you to provide a short description (may be in bullet points) that covers cool any features and highlight users that you are trying to target
 
-One of the best way to demonstrate the functionalities of your site is to use examples t and talk about what is it used for (i.e. include more seeding data).
+One of the best way to demonstrate the functionalities of your site is to use examples to talk about what it is used for (i.e. include more seeding data).
 
 You can even want to include a mini demo video to illustrate the functions and advantages
+
+---
+
+some user stories (to help brainstorm seed data):
+
+* Garshe Shnark the reknown self published author has been noticing a decline in sales in his bestselling serial "Adventures of Dark Darkdoom", for his latest episode, "Dark Darkdoom versus Shadowdark Dragon!" has been a record low in sales for the series. He's trying to figure out why his audience is losing interest in his series, so he sends out a questionnaire to his mailing list to ask his biggest fans what they thought about the episode, and where they think Dark Darkdoom should go next.
+* Ato Ringleside is the owner the startup BabyElephantHugs that brings baby elephants to people's houses on command. He's been trying to figure out how he could improve his customer's experience with the elephants. He's decided to include a feedback form in their receipts, but is unsure how to go about it.
+* 
 
 ---
 
@@ -38,6 +51,8 @@ You can even want to include a mini demo video to illustrate the functions and a
     - [ ] Text
     - [ ] Google Docs Integration
     - [ ] CSV FTP integration
+
+- [ ] being able to download a CSV of submissions would make sense
 
 - [ ] form edit - the field should have help bubbles that explain the meaning of fields (especially min and max &c)
 

@@ -1,14 +1,13 @@
 # Promulgation.ninja
 
-[Heroku link][heroku]
-
-[heroku]: http://.herokuapp.com
+[Live link](http://promulgation.ninja)
 
 ## Minimum Viable Product
-Promulgation.ninja is a inspired by [Wufoo](wufoo.com) built on Rails and Backbone. It allows
-users to create forms which can either be embedded in a user's site or hosting
-can be provided by Promulgation.ninia. Two example use cases are embedded
-Contact Us forms on websites, and email questionnaires.
+Promulgation.ninja is a form building app inspired by [Wufoo](wufoo.com) built
+on Rails and Backbone. It allows users to create forms which can either be
+embedded in a user's site or hosting can be provided by Promulgation.ninia.
+Two example use cases are embedded Contact Us forms on websites, and email
+questionnaires.
 
 - [x] creating accounts
 - [ ] editing accounts
@@ -19,7 +18,7 @@ Contact Us forms on websites, and email questionnaires.
 - [ ] change password
   - [ ] delete sessions on password change
 - [ ] forgot password feature
-- [ ] forms
+- [x] forms
   - [x] creating
   - [x] viewing
   - [x] editing
@@ -27,7 +26,7 @@ Contact Us forms on websites, and email questionnaires.
     - [x] adding fields
     - [x] removing fields
     - [x] setting field properties
-    - [ ] setting form properties
+    - [x] setting form properties
   - [x] deleting forms
 - [x] creating, viewing, editing, and deleting fields within forms
   - [x] fields belong to a form
@@ -35,7 +34,8 @@ Contact Us forms on websites, and email questionnaires.
 - [x] resorting fields within forms
   - [x] drag & drop
 - [x] auto-saving forms as they're being edited
-- [ ] confirm deletion of field (by typing in password)
+- [x] confirm deletion of field
+  - [ ] (by typing in password)
 - [x] rendering the form
 - [ ] outputting embed code for the form
 - [x] users filling out and submitting form
@@ -43,11 +43,10 @@ Contact Us forms on websites, and email questionnaires.
   - [x] reviewing user form submissions
   - [ ] searching through user form submissions
   - [ ] submissions must be paginated
-- [ ] notificiations
+- [ ] notifications
   - [ ] email
   - [ ] text message
 - [ ] commenting on submissions
-
 
 ## Design Docs
 * [View Wireframes][views]

@@ -57,7 +57,7 @@ class Api::FormsController < ApplicationController
 
     if form.save
       original_form.update(slug: form.slug) if original_form.slug.nil?
-      render json: form
+      render json: original_form
     else
       render json: {}, status: :unprocessable_entity
     end
