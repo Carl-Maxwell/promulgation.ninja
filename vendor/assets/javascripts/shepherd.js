@@ -624,7 +624,7 @@ var Tour = (function (_Evented2) {
     value: function start() {
       this.trigger('start');
 
-      this.currentStep = null;
+      this.currentStep = undefined;
       this.next();
     }
   }]);
