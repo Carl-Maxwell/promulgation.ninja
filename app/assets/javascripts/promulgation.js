@@ -12,16 +12,13 @@ window.Promulgation = {
       $el: $('.root')
     });
 
-    var tour;
-
-    tour = new Shepherd.Tour({
-      defaults: {
-        classes: 'shepherd-theme-arrows',
-        scrollTo: true
-      }
+    Promulgation.router.onViewRender(function() {
+      Promulgation.shepherd.closeSteps();
+      Promulgation.shepherd.addSteps();
     });
 
-    
-
+    Promulgation.router.on('route', function() {
+      tour.cancel();
+    });
   }
 };

@@ -896,6 +896,7 @@ input[type="submit"], button, .large-button{
 
 .shepherd-step{
   // top: 103px !important;
+  z-index: 2;
 
   .shepherd-content{
     width: 370px;

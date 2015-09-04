@@ -187,7 +187,8 @@ var Step = (function (_Evented) {
         opts.element = document.querySelector(selector);
 
         if (!opts.element) {
-          throw new Error('The element for this Shepherd step was not found ' + selector);
+          // throw new Error('The element for this Shepherd step was not found ' + selector);
+          return false;
         }
       }
 
@@ -227,6 +228,15 @@ var Step = (function (_Evented) {
       this.tether = new Tether(extend(tetherOpts, this.options.tetherOptions));
     }
   }, {
+    key: 'checkTether',
+    value: function checkTether() {
+      if (typeof Tether === 'undefined') {
+        throw new Error('Using the attachment feature of Shepherd requires the Tether library');
+      }
+
+      return !!this.getAttachTo();
+    }
+  }, {
     key: 'show',
     value: function show() {
       var _this3 = this;
@@ -247,6 +257,11 @@ var Step = (function (_Evented) {
       var _this4 = this;
 
       this.trigger('before-show');
+
+      if (!this.checkTether()) {
+        console.log('step is silently not openning');
+        return;
+      }
 
       if (!this.el) {
         this.render();
@@ -271,7 +286,7 @@ var Step = (function (_Evented) {
     value: function hide() {
       this.trigger('before-hide');
 
-      removeClass(this.el, 'shepherd-open');
+      if (this.el) removeClass(this.el, 'shepherd-open');
 
       document.body.removeAttribute('data-shepherd-step');
 

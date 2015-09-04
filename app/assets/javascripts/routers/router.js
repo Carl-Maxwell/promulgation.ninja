@@ -63,6 +63,29 @@ Promulgation.Routers.Router = Backbone.Router.extend({
     view.render();
     view.onRender && view.onRender();
 
+    this._callOnViewRender();
+    this._bindOnViewRender();
+
     $('[autofocus]').first().focus();
+  },
+
+  _onViewRenderCallbacks: [],
+
+  onViewRender: function(callback) {
+    this._onViewRenderCallbacks.push(callback);
+  },
+
+  _callOnViewRender: function() {
+    this._onViewRenderCallbacks.forEach(function(callback) {
+      callback();
+    });
+  },
+
+  _bindOnViewRender: function() {
+    this._onViewRenderCallbacks.forEach(function(callback) {
+      if (this._view._onViewRenderCallbacking) return;
+      this._view.on('render subview:render', callback);
+      this._view._onViewRenderCallbacking = true;
+    }.bind(this));
   }
 });

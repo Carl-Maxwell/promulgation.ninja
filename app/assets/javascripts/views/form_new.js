@@ -26,7 +26,7 @@ Promulgation.Views.FormNew = Backbone.View.extend({
     model.save({}, {
       success: function() {
         Promulgation.formsCollection.add(model);
-        Backbone.history.navigate("", {trigger: true});
+        Backbone.history.navigate("#/forms/" + model.get('id') + "/edit", {trigger: true});
       }
     });
   }

@@ -19,6 +19,8 @@ Promulgation.Views.FieldProperties = Backbone.CompositeView.extend({
     this.$el.html(this.template({model: this.model}));
     this.attachSubviews();
 
+    this.trigger('render');
+
     return this;
   },
 

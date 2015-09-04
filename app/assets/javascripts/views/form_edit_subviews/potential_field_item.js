@@ -1,7 +1,9 @@
 Promulgation.Views.PotentialFieldItem = Backbone.View.extend({
   template: JST['form_edit/potential_field_item'],
   tagName: 'li',
-  className: 'potential-item-button',
+  className: function() {
+    return 'potential-item-button ' + this.model.field_type + '-button';
+  },
 
   render: function() {
     this.$el.html(this.template({model: this.model}));

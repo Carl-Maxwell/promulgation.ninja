@@ -26,6 +26,8 @@ Promulgation.Views.PotentialFields = Backbone.CompositeView.extend({
       subview.onRender && subview.onRender();
     });
 
+    this.trigger('render');
+
     return this;
   }
 });
