@@ -23,7 +23,7 @@
     [
       {
         id: 'guest-login',
-        words: 'Click here and allow me to walk you through some features!',
+        words: 'Click here and I\'ll walk you through some features!',
         attachTo: '.guest-button left'
       },
       {
@@ -45,26 +45,60 @@
         id: 'textarea-properties',
         words: 'Click on your textarea to give it a name!',
         attachTo: '.form-edit-actuals textarea left'
-      }
+      },
+      {
+        id: 'promulgate',
+        words: 'Now promulgate to publish your form to the web!',
+        attachTo: '.promulgate top',
+        conditional: function(callback) {
+          if (Promgulate.formHasTextarea()) {
+            callback();
+          }
+        }
+      },
+      {
+        id: 'open-form-properties',
+        words: 'Click here to view the form properties',
+        attachTo: '.tabs:last-child bottom',
+        conditional: function(callback) {
+          Promulgation.onPromulgate(callback);
+        }
+      },
+      {
+        id: 'view-form',
+        words: 'Click here to see your form live',
+        attachTo: '.view-form top',
+        conditional: function(callback) {
+          Promulgation.onPromulgate(callback);
+        }
+      },
     ].forEach(function(step) {
-      if (shepherd.markedSteps.indexOf(step.id) != -1) return;
+      var fn = function() {
+        if (shepherd.markedSteps.indexOf(step.id) != -1) return;
 
-      var selector = step.attachTo.split(' ').slice(0, -1).join(' ');
+        var selector = step.attachTo.split(' ').slice(0, -1).join(' ');
 
-      if ($(selector).length) {
-        tour.addStep(step.id, {
-          text: step.words,
-          attachTo: step.attachTo,
-          buttons: [
-            {
-              text: 'Next',
-              action: function() {
-                shepherd.markStep(step.id);
-                shepherd.addSteps();
+        if ($(selector).length) {
+          tour.addStep(step.id, {
+            text: step.words,
+            attachTo: step.attachTo,
+            buttons: [
+              {
+                text: 'Next',
+                action: function() {
+                  shepherd.markStep(step.id);
+                  shepherd.addSteps();
+                }
               }
-            }
-          ]
-        });
+            ]
+          });
+        }
+      };
+
+      if (step.conditional) {
+        step.conditional(fn.bind(this));
+      } else {
+        fn.apply(this);
       }
     });
 
@@ -74,11 +108,7 @@
   };
 
   var closeSteps = Promulgation.shepherd.closeSteps = function() {
-    var step = tour.getCurrentStep();
-
-    debugger
-
-    if (step) step.cancel();
+    tour.cancel();
   };
 
   $(addSteps);

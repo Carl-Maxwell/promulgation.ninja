@@ -69,6 +69,8 @@ Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
         );
         this.model.set(model);
         this.model.fetch();
+
+        Promulgation.triggerPromulgate();
       }.bind(this)
     });
   }

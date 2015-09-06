@@ -4,6 +4,7 @@ window.Promulgation = {
   Views: {},
   Routers: {},
   displacedViews: {},
+  _onPromulgate: [],
   initialize: function() {
     Promulgation.formsCollection = new Promulgation.Collections.Forms();
     Promulgation.submissionsCollection = new Promulgation.Collections.Submissions();
@@ -18,7 +19,27 @@ window.Promulgation = {
     });
 
     Promulgation.router.on('route', function() {
-      tour.cancel();
+      Promulgation.shepherd.closeSteps();
     });
+  },
+
+  view: undefined,
+  swapView: function() {
+    
+  },
+
+  onPromulgate: function(callback) {
+    this._onPromulgate.push(callback);
+  },
+  triggerPromulgate: function() {
+    this._onPromulgate.forEach(function(callback) {
+      callback();
+    });
+  },
+  formHasTextarea: function() {
+
+    Promulgation.router.
+
+    return Promulgation.router.formHasTextarea();
   }
 };

@@ -2,7 +2,7 @@ Promulgation.Views.FormProperties = Backbone.View.extend({
   template: JST['form_edit/form_properties'],
 
   initialize: function () {
-    
+
   },
 
   events: {
@@ -12,6 +12,8 @@ Promulgation.Views.FormProperties = Backbone.View.extend({
 
   render: function() {
     this.$el.html(this.template({model: this.model}));
+
+    this.trigger('render');
 
     return this;
   },

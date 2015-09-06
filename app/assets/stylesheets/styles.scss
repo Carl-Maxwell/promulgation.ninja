@@ -471,6 +471,7 @@ body{
           box-shadow: 1px 1px 1px #d9d9d9;
         }
         &:active{
+          color: hotpink;
           box-shadow: 0 0 20px #FFB5B5;
         }
       }
@@ -741,6 +742,7 @@ input[type="submit"], button, .large-button{
     box-shadow: 1px 1px 1px #d9d9d9;
   }
   &:active{
+    color: hotpink;
     box-shadow: 0 0 20px #FFB5B5;
   }
 }
