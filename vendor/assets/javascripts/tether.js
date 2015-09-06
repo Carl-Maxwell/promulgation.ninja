@@ -461,7 +461,7 @@ function now() {
   };
 
   ['resize', 'scroll', 'touchmove'].forEach(function (event) {
-    window.addEventListener(event, tick);
+    // window.addEventListener(event, tick);
   });
 })();
 
