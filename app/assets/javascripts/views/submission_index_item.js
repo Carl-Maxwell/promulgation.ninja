@@ -1,6 +1,6 @@
 Promulgation.Views.SubmissionIndexItem = Backbone.View.extend({
   tagName: "tr",
-  // className: 'clearfix',
+  className: 'submission-index-item',
   template: JST['submission_index_item'],
 
   initialize: function(options) {

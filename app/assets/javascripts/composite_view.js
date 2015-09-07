@@ -62,6 +62,22 @@ Backbone.CompositeView = Backbone.View.extend({
     });
   },
 
+  findSubview: function(callback) {
+    var foundView = undefined;
+
+    this.subviews().find(function (selectorSubviews, selector) {
+      return selectorSubviews.find(function (subview) {
+        var x = callback(subview, selector);
+
+        if (!!x) foundView = x;
+
+        return !!x;
+      });
+    });
+
+    return foundView;
+  },
+
   onRender: function() {
     this.eachSubview(function (subview) {
       subview.onRender && subview.onRender();

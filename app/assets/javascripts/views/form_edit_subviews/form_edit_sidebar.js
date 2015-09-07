@@ -1,5 +1,6 @@
 Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
   template: JST['form_edit/form_edit_sidebar'],
+  className: 'form-edit-sidebar',
 
   initialize: function () {
     var stdOpts = {model: this.model};

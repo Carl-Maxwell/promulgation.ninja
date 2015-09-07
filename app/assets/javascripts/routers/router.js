@@ -1,8 +1,4 @@
 Promulgation.Routers.Router = Backbone.Router.extend({
-  initialize: function(options) {
-    this.$el = options.$el;
-  },
-
   routes:{
     "": "formIndex",
     "forms/new": "formNew",
@@ -15,7 +11,7 @@ Promulgation.Routers.Router = Backbone.Router.extend({
     var view = new Promulgation.Views.FormIndex({
       collection: Promulgation.formsCollection
     });
-    this.swap(view);
+    Promulgation.swapView(view);
 
     Promulgation.formsCollection.fetch();
   },
@@ -25,7 +21,7 @@ Promulgation.Routers.Router = Backbone.Router.extend({
     var view = new Promulgation.Views.FormNew({
       model: form
     });
-    this.swap(view);
+    Promulgation.swapView(view);
   },
 
   formEdit: function(id) {
@@ -33,7 +29,7 @@ Promulgation.Routers.Router = Backbone.Router.extend({
     var view = new Promulgation.Views.FormEdit({
       model: form
     });
-    this.swap(view);
+    Promulgation.swapView(view);
   },
 
   formShow: function(id) {
@@ -42,7 +38,7 @@ Promulgation.Routers.Router = Backbone.Router.extend({
       model: form,
       collection: form.fields()
     });
-    this.swap(view);
+    Promulgation.swapView(view);
   },
 
   submissionIndex: function(form_id) {
@@ -53,39 +49,6 @@ Promulgation.Routers.Router = Backbone.Router.extend({
       collection: form.submissions()
     });
 
-    this.swap(view);
-  },
-
-  swap: function(view) {
-    if (this._view) this._view.remove();
-    this._view = view;
-    this.$el.html(view.$el);
-    view.render();
-    view.onRender && view.onRender();
-
-    this._callOnViewRender();
-    this._bindOnViewRender();
-
-    $('[autofocus]').first().focus();
-  },
-
-  _onViewRenderCallbacks: [],
-
-  onViewRender: function(callback) {
-    this._onViewRenderCallbacks.push(callback);
-  },
-
-  _callOnViewRender: function() {
-    this._onViewRenderCallbacks.forEach(function(callback) {
-      callback();
-    });
-  },
-
-  _bindOnViewRender: function() {
-    this._onViewRenderCallbacks.forEach(function(callback) {
-      if (this._view._onViewRenderCallbacking) return;
-      this._view.on('render subview:render', callback);
-      this._view._onViewRenderCallbacking = true;
-    }.bind(this));
+    Promulgation.swapView(view);
   }
 });

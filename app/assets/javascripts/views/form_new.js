@@ -1,7 +1,7 @@
 Promulgation.Views.FormNew = Backbone.View.extend({
   template: JST['form_new'],
   tagName: "form",
-  className: "wrapper",
+  className: "form-new wrapper",
 
   events: {
     "submit": "submit"

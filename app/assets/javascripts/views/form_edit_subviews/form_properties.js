@@ -1,5 +1,6 @@
 Promulgation.Views.FormProperties = Backbone.View.extend({
   template: JST['form_edit/form_properties'],
+  className: 'form-properties',
 
   initialize: function () {
 

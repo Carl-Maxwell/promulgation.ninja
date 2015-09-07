@@ -1,6 +1,30 @@
 
 - [ ] shepherd
 - [ ] metric tons of seed data
+- [ ] normalize/standardize fonts
+
+---
+
+> is there no way to remove an item once I dragged it onto the list?
+> pink dropshadow seems out of place, IMO. I would suggest grey.
+> difficult to see login/logout.
+> I think your form requires a title. Perhaps you should tell user that with a warning.
+
+---
+
+Login/register/Logout are hard to read on black background
+Make text font consistent (standard text & buttons)
+Add more seed data
+
+New/Edit form: 
+Bring up “form settings” tab on submission
+“Add a field” doesn’t work after submission, either reload page or redirect user completely.
+  -- believe this is describing how stuff vanishes after you promulgate
+Link to view submissions doesn’t work.
+
+Using forms:
+When a form is submitted with errors, use window.top or window.scrollTo to pull user to errors
+Submitting a form should redirect somewhere.
 
 ---
 

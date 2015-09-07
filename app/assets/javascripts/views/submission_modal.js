@@ -1,6 +1,6 @@
 Promulgation.Views.SubmissionModal = Backbone.View.extend({
   // tagName: "tr",
-  // className: 'modal-wrapper close-modal',
+  className: 'submission-modal',//'modal-wrapper close-modal',
   template: JST['submission_modal'],
 
   initialize: function(options) {

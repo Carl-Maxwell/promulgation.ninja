@@ -1,5 +1,6 @@
 Promulgation.Views.PotentialFields = Backbone.CompositeView.extend({
   template: JST['form_edit/potential_fields'],
+  className: 'potential-fields',
 
   initialize: function () {
     fieldHelper.possibilities().forEach(function(possibility) {

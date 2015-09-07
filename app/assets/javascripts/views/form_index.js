@@ -1,5 +1,6 @@
 Promulgation.Views.FormIndex = Backbone.CompositeView.extend({
   template: JST['form_index'],
+  className: 'form-index',
 
   initialize: function() {
     this.listenTo(this.collection, 'sync', this.render);

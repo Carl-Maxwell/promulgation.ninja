@@ -1,6 +1,7 @@
 Promulgation.Views.FieldPropertiesItem = Backbone.View.extend({
   tagName: 'li',
   template: JST['form_edit/field_properties_item'],
+  className: 'field-properties-item',
 
   events: {
     'keyup .child-name': 'setModel',

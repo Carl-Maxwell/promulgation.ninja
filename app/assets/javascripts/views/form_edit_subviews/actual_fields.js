@@ -1,6 +1,7 @@
 Promulgation.Views.ActualFields = Backbone.CompositeView.extend({
   template: JST['form_edit/actual_fields'],
   subviewSelector: '.fields',
+  className: 'actual-fields',
 
   events: {
     'sortstop': 'saveOrds'
