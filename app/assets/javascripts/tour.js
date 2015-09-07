@@ -39,7 +39,17 @@
       {
         id: 'name-textarea',
         words: 'Give your textarea a name',
-        attachTo: '[name="label"] right'
+        attachTo: '[name="label"] right',
+        conditional: function(callback) {
+          var view = Promulgation.viewQuery(function(classNames) {
+            return classNames.indexOf('field-properties') != -1 &&
+              this.model.get('field_type') == 'textarea';
+          });
+
+          if (view) {
+            callback();
+          }
+        }
       },
       {
         id: 'textarea-properties',
@@ -51,7 +61,12 @@
         words: 'Now promulgate to publish your form to the web!',
         attachTo: '.promulgate top',
         conditional: function(callback) {
-          if (Promgulate.formHasTextarea()) {
+          var view = Promulgation.viewQuery(function(classNames) {
+            return classNames.indexOf('form-edit-actual-item') != -1 &&
+              this.model.get('field_type') == 'textarea';
+          });
+
+          if (view) {
             callback();
           }
         }

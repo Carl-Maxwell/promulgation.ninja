@@ -36,7 +36,11 @@ window.Promulgation = {
   //
   //
 
-  _view: undefined,
+  viewQuery: function(selector) {
+    return this.view && this.view.viewQuery(selector);
+  },
+
+  view: undefined,
   swapView: function(view) {
     if (this.view) this.view.remove();
     this.view = view;

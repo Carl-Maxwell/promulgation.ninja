@@ -11,9 +11,13 @@ window.ViewDOM = {
     });
   },
   is: function(selector) {
-    if (!this.className) this.$el.css('background', 'pink');
+    classNames = _.result(this, 'className').split(' ');
 
-    return _.result(this, 'className').split(' ').indexOf(selector) != -1;
+    if (typeof selector != 'function') {
+      return classNames.indexOf(selector) != -1;
+    } else {
+      return selector.call(this, classNames);
+    }
   }
 };
 
