@@ -1,5 +1,7 @@
 # Promulgation.ninja
 
+![App Logo](app/assets/images/logo2.png)
+
 [Live link](http://promulgation.ninja)
 
 ## Minimum Viable Product
