@@ -1,6 +1,6 @@
 # Promulgation.ninja
 
-![App Logo](app/assets/images/logo2.png)
+![App Logo](app/assets/images/logo2_withbackground.png)
 
 [Live link](http://promulgation.ninja)
 
