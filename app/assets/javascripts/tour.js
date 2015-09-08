@@ -34,7 +34,17 @@
       {
         id: 'textarea-button',
         words: 'Add a textarea to your form!',
-        attachTo: '.textarea-button right'
+        attachTo: '.textarea-button right',
+        conditional: function(callback) {
+          var view = Promulgation.viewQuery(function(classNames) {
+            return classNames.indexOf('form-edit-actual-item') != -1 &&
+              this.model.get('field_type') == 'textarea';
+          });
+
+          if (!view) {
+            callback();
+          }
+        }
       },
       {
         id: 'name-textarea',
@@ -43,7 +53,8 @@
         conditional: function(callback) {
           var view = Promulgation.viewQuery(function(classNames) {
             return classNames.indexOf('field-properties') != -1 &&
-              this.model.get('field_type') == 'textarea';
+              this.model.get('field_type') == 'textarea' &&
+              this.model.get('label') == 'Textarea';
           });
 
           if (view) {
@@ -54,7 +65,18 @@
       {
         id: 'textarea-properties',
         words: 'Click on your textarea to give it a name!',
-        attachTo: '.form-edit-actuals textarea left'
+        attachTo: '.form-edit-actuals textarea left',
+        conditional: function(callback) {
+          var view = Promulgation.viewQuery(function(classNames) {
+            return classNames.indexOf('form-edit-actual-item') != -1 &&
+              this.model.get('field_type') == 'textarea' &&
+              this.model.get('label') == 'Textarea';
+          });
+
+          if (view) {
+            callback();
+          }
+        }
       },
       {
         id: 'promulgate',
@@ -66,32 +88,48 @@
               this.model.get('field_type') == 'textarea';
           });
 
-          if (view) {
+          var hasPromulgated = Promulgation.viewQuery(function(classNames) {
+            return classNames.indexOf('form-properties') != -1 &&
+              this.model.get('slug');
+          });
+
+          if (view && hasPromulgated) {
             callback();
           }
         }
       },
       {
         id: 'open-form-properties',
-        words: 'Click here to view the form properties',
+        words: 'Click here to view your form',
         attachTo: '.tabs:last-child bottom',
         conditional: function(callback) {
-          Promulgation.onPromulgate(callback);
+          var view = Promulgation.viewQuery(function(classNames) {
+            return classNames.indexOf('form-properties') != -1 &&
+              this.model.get('slug');
+          });
+
+          if (view) {
+            callback();
+          }
         }
       },
       {
         id: 'view-form',
         words: 'Click here to see your form live',
-        attachTo: '.view-form top',
-        conditional: function(callback) {
-          Promulgation.onPromulgate(callback);
-        }
+        attachTo: {element: '.view-form', on: 'top left'}
       },
     ].forEach(function(step) {
       var fn = function() {
         if (shepherd.markedSteps.indexOf(step.id) != -1) return;
 
-        var selector = step.attachTo.split(' ').slice(0, -1).join(' ');
+        var selector;
+
+        if (step.attachTo.element) {
+          selector = step.attachTo.element;
+        } else {
+          selector = step.attachTo.split(' ').slice(0, -1).join(' ');
+        }
+
 
         if ($(selector).length) {
           tour.addStep(step.id, {
