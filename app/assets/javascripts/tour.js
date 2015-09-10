@@ -1,4 +1,6 @@
 (function() {
+  return; // turning off shepherd tour while I present it to people
+
   var shepherd = Promulgation.shepherd = {};
 
   var tour = shepherd.tour = new Shepherd.Tour({
@@ -18,6 +20,40 @@
       if (step.tether) step.destroy();
     });
 
+    //
+    // helper functions for the step conditionals
+    //
+
+    var hasTextarea = function() {
+      return Promulgation.viewQuery(function(classNames) {
+        return classNames.indexOf('form-edit-actual-item') != -1 &&
+          this.model.get('field_type') == 'textarea';
+      });
+    };
+
+    var textareaHasDefaultName = function() {
+      return Promulgation.viewQuery(function(classNames) {
+        return classNames.indexOf('field-properties') != -1 &&
+          this.model.get('field_type') == 'textarea' &&
+          this.model.get('label') == 'Textarea';
+      });
+    };
+
+    var isPromulgated = function() {
+      return Promulgation.viewQuery(function(classNames) {
+        return classNames.indexOf('form-properties') != -1 &&
+          this.model.get('slug');
+      });
+    };
+
+    var isGuest = function() {
+      return $('meta[name="is-guest"]').length;
+    };
+
+    //
+    //
+    //
+
     tour.steps = [];
 
     [
@@ -29,19 +65,19 @@
       {
         id: 'add-form',
         words: 'Let\'s add a new form!',
-        attachTo: '.add-form left'
+        attachTo: '.add-form left',
+        conditional: function(callback) {
+          if (isGuest()) {
+            callback();
+          }
+        }
       },
       {
         id: 'textarea-button',
         words: 'Add a textarea to your form!',
         attachTo: '.textarea-button right',
         conditional: function(callback) {
-          var view = Promulgation.viewQuery(function(classNames) {
-            return classNames.indexOf('form-edit-actual-item') != -1 &&
-              this.model.get('field_type') == 'textarea';
-          });
-
-          if (!view) {
+          if (isGuest() && !hasTextarea()) {
             callback();
           }
         }
@@ -51,13 +87,7 @@
         words: 'Give your textarea a name',
         attachTo: '[name="label"] right',
         conditional: function(callback) {
-          var view = Promulgation.viewQuery(function(classNames) {
-            return classNames.indexOf('field-properties') != -1 &&
-              this.model.get('field_type') == 'textarea' &&
-              this.model.get('label') == 'Textarea';
-          });
-
-          if (view) {
+          if (isGuest() && textareaHasDefaultName()) {
             callback();
           }
         }
@@ -67,12 +97,7 @@
         words: 'Click on your textarea to give it a name!',
         attachTo: '.form-edit-actuals textarea left',
         conditional: function(callback) {
-          var view = Promulgation.viewQuery(function(classNames) {
-            return classNames.indexOf('form-edit-actual-item') != -1 &&
-              this.model.get('field_type') == 'textarea';
-          });
-
-          if (view && view.model.get('label') == 'Textarea') {
+          if (isGuest() && textareaHasDefaultName()) {
             callback();
           }
         }
@@ -82,17 +107,7 @@
         words: 'Now promulgate to publish your form to the web!',
         attachTo: '.promulgate top',
         conditional: function(callback) {
-          var view = Promulgation.viewQuery(function(classNames) {
-            return classNames.indexOf('form-edit-actual-item') != -1 &&
-              this.model.get('field_type') == 'textarea';
-          });
-
-          var hasPromulgated = Promulgation.viewQuery(function(classNames) {
-            return classNames.indexOf('form-properties') != -1 &&
-              this.model.get('slug');
-          });
-
-          if (view && !hasPromulgated) {
+          if (isGuest() && hasTextarea() && !isPromulgated()) {
             callback();
           }
         }
@@ -102,12 +117,7 @@
         words: 'Click here to view your form',
         attachTo: '.tabs:last-child bottom',
         conditional: function(callback) {
-          var view = Promulgation.viewQuery(function(classNames) {
-            return classNames.indexOf('form-properties') != -1 &&
-              this.model.get('slug');
-          });
-
-          if (view) {
+          if (isGuest() && isPromulgated()) {
             callback();
           }
         }
@@ -115,7 +125,12 @@
       {
         id: 'view-form',
         words: 'Click here to see your form live',
-        attachTo: {element: '.view-form', on: 'top left'}
+        attachTo: {element: '.view-form', on: 'top left'},
+        conditional: function(callback) {
+          if (isGuest()) {
+            callback();
+          }
+        }
       },
     ].forEach(function(step) {
       var fn = function() {
