@@ -45,7 +45,7 @@ Promulgation.Views.FieldPropertiesItem = Backbone.View.extend({
   },
 
   deleteButton: function() {
-    var parentView = Promulgation.router._view.sidebar.tabs[1];
+    var parentView = Promulgation.view.sidebar.tabs[1];
 
     this.$el.effect("drop", {
         duration: 300,

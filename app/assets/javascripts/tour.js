@@ -1,6 +1,4 @@
 (function() {
-  return; // turning off shepherd tour while I present it to people
-
   var shepherd = Promulgation.shepherd = {};
 
   var tour = shepherd.tour = new Shepherd.Tour({
@@ -161,6 +159,8 @@
           });
         }
       };
+
+      return; // turning off shepherd tour while I present it to people
 
       if (step.conditional) {
         step.conditional(fn.bind(this));
