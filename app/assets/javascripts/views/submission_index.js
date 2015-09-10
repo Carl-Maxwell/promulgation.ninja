@@ -1,6 +1,6 @@
 Promulgation.Views.SubmissionIndex = Backbone.CompositeView.extend({
   template: JST['submission_index'],
-  className: 'submission-index',
+  className: 'submission-index-view',
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);

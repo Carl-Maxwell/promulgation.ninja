@@ -16,7 +16,9 @@ Promulgation.Views.FormIndex = Backbone.CompositeView.extend({
   },
 
   removeItemView: function(model) {
-    this.removeModelSubview('.form-index', model);
+    Promulgation.confirm('', function() {
+      this.removeModelSubview('.form-index', model);
+    }.bind(this));
   },
 
   render: function() {

@@ -14,6 +14,9 @@ Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
     this.addSubview('.tabular-content', this.tabs[0]);
   },
 
+  // TODO override .eachSubview &c to include tabs?
+  //      => or extend .viewQuery like { super && this.tabs.find(selector) }
+
   events: {
     'click .tabs .tab': 'clickTab',
     'click .promulgate': 'promulgate'

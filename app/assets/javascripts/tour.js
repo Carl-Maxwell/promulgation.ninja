@@ -69,11 +69,10 @@
         conditional: function(callback) {
           var view = Promulgation.viewQuery(function(classNames) {
             return classNames.indexOf('form-edit-actual-item') != -1 &&
-              this.model.get('field_type') == 'textarea' &&
-              this.model.get('label') == 'Textarea';
+              this.model.get('field_type') == 'textarea';
           });
 
-          if (view) {
+          if (view && view.model.get('label') == 'Textarea') {
             callback();
           }
         }
@@ -93,7 +92,7 @@
               this.model.get('slug');
           });
 
-          if (view && hasPromulgated) {
+          if (view && !hasPromulgated) {
             callback();
           }
         }
