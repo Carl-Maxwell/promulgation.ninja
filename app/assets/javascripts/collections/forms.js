@@ -13,10 +13,13 @@ Promulgation.Collections.Forms = Backbone.Collection.extend({
         data: dataOptions
       });
     } else {
+      model = new collection.model();
+
       var opts = {};
-      opts[_.result(collection.model.idAttribute)] = id;
-      model = new collection.model(opts);
+      opts[_.result(model, 'idAttribute')] = id;
+      model.set(opts);
       collection.add(model);
+
       model.fetch({
         data: dataOptions,
         error: function () { collection.remove(model); }

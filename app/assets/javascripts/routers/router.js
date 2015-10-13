@@ -25,6 +25,7 @@ Promulgation.Routers.Router = Backbone.Router.extend({
   },
 
   formEdit: function(id) {
+    console.log('this line is being called');
     var form = Promulgation.formsCollection.getOrFetch(id);
     var view = new Promulgation.Views.FormEdit({
       model: form

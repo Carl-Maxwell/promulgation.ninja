@@ -5,7 +5,7 @@ window.Promulgation = {
   Routers: {},
   displacedViews: {},
   initialize: function() {
-    Promulgation.formsCollection = new Promulgation.Collections.Forms();
+    Promulgation.formsCollection       = new Promulgation.Collections.Forms();
     Promulgation.formsBySlugCollection = new Promulgation.Collections.FormsBySlug();
     Promulgation.submissionsCollection = new Promulgation.Collections.Submissions();
 
