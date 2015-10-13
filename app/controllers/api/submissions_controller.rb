@@ -1,22 +1,25 @@
 class Api::SubmissionsController < ApplicationController
   def index
-    submissions = Submission.find_by(form_id: params[:form_id])    
+    submissions = Submission.find_by(slug: params[:slug])
+    # submissions = Submission.find_by(form_id: params[:form_id])
   end
 
   def create
-    form = Form.find_by(slug: params[:slug], version: nil)
+    draft_form = Form.draft(params[:slug])
+    live_form  = Form.live(params[:slug])
 
-    if form
+    if live_form
       submission = Submission.new(
-        form: form,
+        slug: live_form.slug,
+        form: live_form,
         useragent: request.user_agent,
         ip: request.ip
       )
 
-      build_submission_fields(submission, form.fields)
+      build_submission_fields(submission, live_form.fields)
 
       if submission.save
-        render json: {success: true}
+        render json: { success: true }
       else
         errors = format_errors(submission.submission_fields)
 

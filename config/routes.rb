@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     put 'forms/:id/promulgate', to: 'forms#promulgate'
     resources :forms, except: [:new, :edit]
     resources :fields, except: [:new, :edit]
-    get '/forms/:form_id/submissions/', to: 'submissions#index'
+    get '/forms/:slug/submissions/', to: 'submissions#index'
     post '/submissions/:slug', to: 'submissions#create'
   end
 

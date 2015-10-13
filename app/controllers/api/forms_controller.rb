@@ -10,9 +10,19 @@ class Api::FormsController < ApplicationController
 
     if params[:submissions]
       @show_submissions = true
-      @form = Form.includes(:submissions).find(params[:id])
+      @form = Form.includes(:submissions)
     else
-      @form = Form.includes(fields: :fields).find(params[:id])
+      @form = Form.includes(fields: :fields)
+    end
+
+    if params[:slug]
+      if params[:live]
+        @form = @form.live(params[:slug])
+      else
+        @form = @form.draft(params[:slug])
+      end
+    else
+      @form = @form.find(params[:id])
     end
   end
 
@@ -41,13 +51,13 @@ class Api::FormsController < ApplicationController
 
     form = original_form.dup
 
-    form.fields.map do |field|
+    original_form.fields.each do |field|
       field = field.dup
       field.fields.map(&:dup)
-      field
+      form.fields << field
     end
 
-    form.slug ||= 1 + Form.where("forms.slug IS NOT NULL").select("DISTINCT forms.slug").length
+    form.slug ||= original_form.id
 
     form.version = Form.where(slug: form.slug).length || 1
 
@@ -56,6 +66,7 @@ class Api::FormsController < ApplicationController
       # link SubmissionFields to their new field
 
     if form.save
+      form.fields.each(&:save)
       original_form.update(slug: form.slug) if original_form.slug.nil?
       render json: original_form
     else

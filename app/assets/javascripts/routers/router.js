@@ -4,7 +4,7 @@ Promulgation.Routers.Router = Backbone.Router.extend({
     "forms/new": "formNew",
     "forms/:id": "formShow",
     "forms/:id/edit": "formEdit",
-    "forms/:form_id/submissions": "submissionIndex"
+    "forms/:slug/submissions": "submissionIndex"
   },
 
   formIndex: function() {
@@ -41,8 +41,13 @@ Promulgation.Routers.Router = Backbone.Router.extend({
     Promulgation.swapView(view);
   },
 
-  submissionIndex: function(form_id) {
-    var form = Promulgation.formsCollection.getOrFetch(form_id, {submissions: true});
+  submissionIndex: function(slug) {
+    var form = Promulgation.formsBySlugCollection.getOrFetch(
+      slug, {
+        slug: slug,
+        submissions: true,
+        live: true
+      });
 
     var view = new Promulgation.Views.SubmissionIndex({
       model: form,

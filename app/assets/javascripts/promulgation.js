@@ -6,6 +6,7 @@ window.Promulgation = {
   displacedViews: {},
   initialize: function() {
     Promulgation.formsCollection = new Promulgation.Collections.Forms();
+    Promulgation.formsBySlugCollection = new Promulgation.Collections.FormsBySlug();
     Promulgation.submissionsCollection = new Promulgation.Collections.Submissions();
 
     this.$el = $('.root');

@@ -13,7 +13,9 @@ Promulgation.Collections.Forms = Backbone.Collection.extend({
         data: dataOptions
       });
     } else {
-      model = new collection.model({ id: id });
+      var opts = {};
+      opts[_.result(collection.model.idAttribute)] = id;
+      model = new collection.model(opts);
       collection.add(model);
       model.fetch({
         data: dataOptions,
