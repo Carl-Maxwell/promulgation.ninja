@@ -1,9 +1,13 @@
 class Form < ActiveRecord::Base
   belongs_to :user
   has_many :fields, -> { order :ord }
-  # has_many :submissions
 
-  scope :submissions, -> { Submission.where(slug: slug) }
+  has_many(
+    :submissions,
+    primary_key: :slug,
+    foreign_key: :slug,
+    class_name: Submission
+  )
 
   validates :user, :title, presence: true
 
