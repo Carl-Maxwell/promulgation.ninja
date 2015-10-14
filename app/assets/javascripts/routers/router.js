@@ -43,11 +43,13 @@ Promulgation.Routers.Router = Backbone.Router.extend({
 
   submissionIndex: function(slug) {
     var form = Promulgation.formsBySlugCollection.getOrFetch(
-      slug, {
+      slug,
+      {
         slug: slug,
         submissions: true,
         live: true
-      });
+      }
+    );
 
     var view = new Promulgation.Views.SubmissionIndex({
       model: form,

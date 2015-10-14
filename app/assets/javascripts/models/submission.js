@@ -4,7 +4,7 @@ Promulgation.Models.Submission = Backbone.Model.extend({
   // belongs_to :form
 
   form: function() {
-    return Promulgation.formsCollection.get(this.get('form_id'));
+    return Promulgation.formsBySlugCollection.get(this.get('slug'));
   },
 
   // has_many :fields, through: form, source: fields
