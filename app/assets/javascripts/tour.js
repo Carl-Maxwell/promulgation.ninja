@@ -44,8 +44,8 @@
       });
     };
 
-    var isGuest = function() {
-      return $('meta[name="is-guest"]').length;
+    var isLoggedInGuest = function() {
+      return $('meta[name="is-logged-in-guest"]').length;
     };
 
     //
@@ -65,7 +65,7 @@
         words: 'Let\'s add a new form!',
         attachTo: '.add-form left',
         conditional: function(callback) {
-          if (isGuest()) {
+          if (isLoggedInGuest()) {
             callback();
           }
         }
@@ -75,7 +75,7 @@
         words: 'Add a textarea to your form!',
         attachTo: '.textarea-button right',
         conditional: function(callback) {
-          if (isGuest() && !hasTextarea()) {
+          if (isLoggedInGuest() && !hasTextarea()) {
             callback();
           }
         }
@@ -85,7 +85,7 @@
         words: 'Give your textarea a name',
         attachTo: '[name="label"] right',
         conditional: function(callback) {
-          if (isGuest() && textareaHasDefaultName()) {
+          if (isLoggedInGuest() && textareaHasDefaultName()) {
             callback();
           }
         }
@@ -95,7 +95,7 @@
         words: 'Click on your textarea to give it a name!',
         attachTo: '.form-edit-actuals textarea left',
         conditional: function(callback) {
-          if (isGuest() && textareaHasDefaultName()) {
+          if (isLoggedInGuest() && textareaHasDefaultName()) {
             callback();
           }
         }
@@ -105,7 +105,7 @@
         words: 'Now promulgate to publish your form to the web!',
         attachTo: '.promulgate top',
         conditional: function(callback) {
-          if (isGuest() && hasTextarea() && !isPromulgated()) {
+          if (isLoggedInGuest() && hasTextarea() && !isPromulgated()) {
             callback();
           }
         }
@@ -115,7 +115,7 @@
         words: 'Click here to view your form',
         attachTo: '.tabs:last-child bottom',
         conditional: function(callback) {
-          if (isGuest() && isPromulgated()) {
+          if (isLoggedInGuest() && isPromulgated()) {
             callback();
           }
         }
@@ -125,7 +125,7 @@
         words: 'Click here to see your form live',
         attachTo: {element: '.view-form', on: 'top left'},
         conditional: function(callback) {
-          if (isGuest()) {
+          if (isLoggedInGuest()) {
             callback();
           }
         }
