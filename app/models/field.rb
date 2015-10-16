@@ -59,10 +59,10 @@ class Field < ActiveRecord::Base
     end
 
     if min_max?
-      if options["min"] && value < options["min"]
+      if !options["min"].nil? && options["min"] != "" && value < options["min"]
         self.errors[:value] << "must be more than #{options["min"]}"
       end
-      if options["max"] && value > options["max"]
+      if !options["max"].nil? && options["max"] != "" && value > options["max"]
         self.errors[:value] << "must be less than #{options["max"]}"
       end
     end
