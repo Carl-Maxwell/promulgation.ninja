@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   # get '/terms', to: 'static_pages#terms'
   # get '/developers', to: 'static_pages#developers'
 
+  get '/thanks', to: 'static_pages#thanks'
+
   get '/:slug', to: 'forms#show'
 
   root "static_pages#index"

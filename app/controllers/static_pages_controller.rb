@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :require_user
+  before_action :require_user, only: :index
 
   def index
     # debugger
@@ -24,5 +24,8 @@ class StaticPagesController < ApplicationController
   end
 
   def developers
+  end
+
+  def thanks
   end
 end

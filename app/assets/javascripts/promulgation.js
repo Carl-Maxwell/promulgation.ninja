@@ -4,6 +4,7 @@ window.Promulgation = {
   Views: {},
   Routers: {},
   displacedViews: {},
+
   initialize: function() {
     Promulgation.formsCollection       = new Promulgation.Collections.Forms();
     Promulgation.formsBySlugCollection = new Promulgation.Collections.FormsBySlug();
@@ -24,9 +25,11 @@ window.Promulgation = {
   },
 
   _onPromulgate: [],
+
   onPromulgate: function(callback) {
     this._onPromulgate.push(callback);
   },
+
   triggerPromulgate: function() {
     this._onPromulgate.forEach(function(callback) {
       callback();
@@ -42,6 +45,7 @@ window.Promulgation = {
   },
 
   view: undefined,
+
   swapView: function(view) {
     if (this.view) this.view.remove();
     this.view = view;
@@ -55,15 +59,22 @@ window.Promulgation = {
     $('[autofocus]').first().focus();
   },
 
+  //
+  //
+  //
+
   _onViewRenderCallbacks: [],
+
   onViewRender: function(callback) {
     this._onViewRenderCallbacks.push(callback);
   },
+
   _callOnViewRender: function() {
     this._onViewRenderCallbacks.forEach(function(callback) {
       callback();
     });
   },
+
   _bindOnViewRender: function() {
     this._onViewRenderCallbacks.forEach(function(callback) {
       if (this.view._onViewRenderCallbacking) return;

@@ -7,6 +7,9 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon.ico' %>
   <% if logged_in? && current_user.email == 'guest@promulgation.ninja' %>
+    <meta name="is-logged-in-guest" content="true" />
+  <% end %>
+  <% unless logged_in? %>
     <meta name="is-guest" content="true" />
   <% end %>
 </head>
