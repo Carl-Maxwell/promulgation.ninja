@@ -52,6 +52,11 @@ class Api::FormsController < ApplicationController
     form = original_form.dup
 
     original_form.fields.each do |field|
+      if field.field_slug.nil?
+        field.field_slug = field.id
+        field.save
+      end
+
       field = field.dup
       field.fields.map(&:dup)
       form.fields << field
@@ -61,13 +66,20 @@ class Api::FormsController < ApplicationController
 
     form.version = Form.where(slug: form.slug).length || 1
 
-    # TODO loop over submissions
-      # mark deleted fields as dead
-      # link SubmissionFields to their new field
-
     if form.save
       form.fields.each(&:save)
       original_form.update(slug: form.slug) if original_form.slug.nil?
+
+      form.submissions.each do |submission|
+        submission.submission_fields.each do |submission_field|
+          field = form.fields.find_by(field_slug: submission_field.field.field_slug)
+          if field
+            submission_field.field = field
+            submission_field.save
+          end
+        end
+      end
+
       render json: original_form
     else
       render json: {}, status: :unprocessable_entity

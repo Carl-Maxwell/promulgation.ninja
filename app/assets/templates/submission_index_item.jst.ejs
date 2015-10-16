@@ -1,8 +1,10 @@
 <% submissionFields.forEach(function(field) { %>
   <td>
+    <% if (field) { %>
     <a class="show-modal" href="#/submissions/<%= model.get('id') %>/">
       <%= field.escape("value") %>
     </a>
+    <% } %>
   </td>
 <% }); %>
 <td class="actions">

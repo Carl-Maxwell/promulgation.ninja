@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914050734) do
+ActiveRecord::Schema.define(version: 20151015194001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,11 @@ ActiveRecord::Schema.define(version: 20150914050734) do
     t.string   "field_type"
     t.text     "options",    default: "{}"
     t.integer  "field_id"
+    t.integer  "field_slug"
   end
 
   add_index "fields", ["field_id"], name: "index_fields_on_field_id", using: :btree
+  add_index "fields", ["field_slug"], name: "index_fields_on_field_slug", using: :btree
   add_index "fields", ["form_id"], name: "index_fields_on_form_id", using: :btree
 
   create_table "forms", force: :cascade do |t|

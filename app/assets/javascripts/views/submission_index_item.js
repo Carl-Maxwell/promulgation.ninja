@@ -13,9 +13,26 @@ Promulgation.Views.SubmissionIndexItem = Backbone.View.extend({
   },
 
   render: function() {
+    var submissionFields = this.model.submissionFields().sort();
+
+    var validFields = this.model.fields()
+      .sort()
+      .slice(0, 3)
+      .map(function(thing) { return thing.get('id'); });
+
+    submissionFieldsByFieldId = {};
+
+    submissionFields.each(function(submissionField) {
+      submissionFieldsByFieldId[submissionField.get('field_id')] = submissionField;
+    }.bind(this));
+
+    submissionFields = validFields.map(function(id) {
+      return submissionFieldsByFieldId[id];
+    });
+
     this.$el.html(this.template({
       model: this.model,
-      submissionFields: this.model.submissionFields().sort().slice(0, 3)
+      submissionFields: submissionFields
     }));
 
     return this;
