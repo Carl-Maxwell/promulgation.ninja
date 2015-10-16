@@ -42,12 +42,10 @@ Promulgation.Views.FormShow = Backbone.CompositeView.extend({
       method: 'post',
       data: formData,
       success: function() {
-        // TODO redirect to submissions page if user is logged in, else thank you page
         if (isGuest()) {
           window.location.assign('/thanks');
         } else {
           window.location.assign('/#/forms/' + this.model.get('slug') + '/submissions');
-          // Backbone.history.navigate('#/forms/' + this.model.get('slug') + '/submissions', {trigger: true});
         }
       }.bind(this),
       error: function(errors) {
