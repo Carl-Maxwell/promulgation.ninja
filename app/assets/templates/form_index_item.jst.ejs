@@ -5,7 +5,9 @@
 <td class="actions">
   <button class="delete small-button danger-button">Delete</button>
   <% if (form.get('slug')) { %>
-    <a class="link-action" href="#/forms/<%= form.escape('slug') %>/submissions">Submissions</a>
     <a class="link-action" href="/<%= form.get('slug') %>">View</a>
+    <a class="link-action" href="#/forms/<%= form.escape('slug') %>/submissions">
+      Submissions (<%= submissionCount < 99 ? submissionCount : '99+' %>)
+    </a>
   <% } %>
 </td>

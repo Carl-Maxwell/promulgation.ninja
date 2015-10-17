@@ -21,6 +21,10 @@ class Form < ActiveRecord::Base
 
   scope :draft, ->(slug) { find_by(slug: slug, version: nil) }
 
+  def submission_count
+    submissions.length
+  end
+
   # def to_param
   #   # TODO use env or the like to get a salt
   #

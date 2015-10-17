@@ -8,7 +8,10 @@ Promulgation.Views.FormIndexItem = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html(this.template({form: this.model}));
+    this.$el.html(this.template({
+      form: this.model,
+      submissionCount: this.model.get('submission_count')
+    }));
 
     return this;
   },

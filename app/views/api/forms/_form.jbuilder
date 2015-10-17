@@ -1,4 +1,4 @@
-json.extract! form, :id, :title, :slug
+json.extract! form, :id, :title, :slug, :submission_count
 
 json.fields(form.fields) do |field|
   json.partial! "api/fields/field", field: field
