@@ -131,6 +131,9 @@
         }
       },
     ].forEach(function(step) {
+
+      if (shepherd.canceled) return;
+
       var fn = function() {
         if (shepherd.markedSteps.indexOf(step.id) != -1) return;
 
@@ -148,6 +151,15 @@
             text: step.words,
             attachTo: step.attachTo,
             buttons: [
+              {
+                text: 'Close tour',
+                classes: 'shepherd-button-secondary',
+                action: function() {
+                  Promulgation.shepherd.closeSteps();
+
+                  shepherd.canceled = true;
+                }
+              },
               {
                 text: 'Next',
                 action: function() {

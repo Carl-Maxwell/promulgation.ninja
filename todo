@@ -17,12 +17,15 @@ I've played with it for a little while, and I'm still confused what it does or h
 * Make a background image once in the site.
 * Add more pictures/fonts/color in general. For example, the Add A Field buttons could all have icons.  
 
-* I wasn't familiar with the word "promulgate." When finishing a survey, make the button say "publish."  Instead of having a popup window with a link, make the button open the survey in a new tab.  
-
 * There needs to be more example surveys and results when the guest logs in.  Add more seed data.  
 
-* The tour currently guides the user to fill out a form. No one likes filling out forms. Instead, make the tour guide someone through the site.  For example, say the site allows users to make forms and collect feedback.  Show one of the forms and the feedback so far.  The last step should ask the user to make a form.  
 * The tour needs a way to end the tour in case someone doesn't want to follow the tour.  
+
+* The tour currently guides the user to fill out a form. No one likes filling out forms.
+  * Instead, make the tour guide someone through the site.
+  * For example, say the site allows users to make forms and collect feedback.
+  * Show one of the forms and the feedback so far.  The last step should ask the user to make a form.
+
 * After a user submits a form, take them automatically to the Submissions page for that form.  
 * On the list of forms, include a number next to Submissions that says how many submissions there are.  So it will say Submissions (7) kinda like gmail does to let you know how many emails you have.  
 * Also on the list of forms, include the date the form was originally created.  
