@@ -2,6 +2,8 @@
   <a class="small-button" href="#/forms/<%= form.escape("id") %>/edit"><%= form.escape("title") %></a>
 </td>
 <td>
+  <span class="link-action" title="<%= form.escape("exact_time") %>"><%= form.escape("time_ago") %></span>
+</td>
 <td class="actions">
   <button class="delete small-button danger-button">Delete</button>
   <% if (form.get('slug')) { %>
