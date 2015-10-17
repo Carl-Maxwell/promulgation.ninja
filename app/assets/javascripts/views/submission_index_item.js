@@ -13,6 +13,11 @@ Promulgation.Views.SubmissionIndexItem = Backbone.View.extend({
   },
 
   render: function() {
+
+    //
+    // Grab the 3 fields to show
+    //
+
     var submissionFields = this.model.submissionFields().sort();
 
     var validFields = this.model.fields()
@@ -29,6 +34,10 @@ Promulgation.Views.SubmissionIndexItem = Backbone.View.extend({
     submissionFields = validFields.map(function(id) {
       return submissionFieldsByFieldId[id];
     });
+
+    //
+    //
+    //
 
     this.$el.html(this.template({
       model: this.model,
