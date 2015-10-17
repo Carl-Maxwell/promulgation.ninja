@@ -64,18 +64,30 @@ Promulgation.Views.FormEditSidebar = Backbone.CompositeView.extend({
     //
     // target.addClass('nope-nope');
 
+    // var hasReturned = false;
+
     $.ajax({
       method: 'PUT',
       url: '/api/forms/' + this.model.get('id') + '/promulgate',
       success: function(model) {
-        Promulgation.confirm(
-          'The form has been promulgated, the url is live at http://www.promulgation.ninja/' + model.slug
-        );
+        // Promulgation.confirm(
+        //   'The form has been published, the url is live at http://www.promulgation.ninja/' + model.slug
+        // );
+
         this.model.set(model);
         this.model.fetch();
 
         Promulgation.triggerPromulgate();
+
+        // hasReturned = true;
       }.bind(this)
     });
+
+    // TODO don't open form until ajax call returns
+    // TODO don't let this run for more than 1 second
+
+    // while (!hasReturned) {}
+
+    window.open('/' + this.model.get('id'), '_blank');
   }
 });

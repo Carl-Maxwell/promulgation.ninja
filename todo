@@ -2,12 +2,6 @@ promulgation.ninja todo
 
 ---
 
-* look for performance issues in the promulgation code
-  * (I think I'm just experiencing issues because of bugs in the ruby debugging 
-      aparatus, but check to be sure)
-
-* hook up field associations correctly across version and submissions
-
 * if the first item is a dropdown,
   and you ctrl+r then click on the properties tab, it won't have children.
   if you click on the dropdown on the right it will acquire children.
@@ -18,12 +12,6 @@ promulgation.ninja todo
 This project seems like it might have a lot of really cool functions, however it also seems hard for a resume reviewer to see those functions quickly and easily.
 
 I've played with it for a little while, and I'm still confused what it does or how powerful it is.
-
-I got as far as filling out one of the forms, and it bugged (Strawberry Cupcakes form, price of cupcake field -- whatever I enter, it says "must be unique").
-
-I was unable to submit the form.
-
-This is going to be a deal-breaker for most resume reviewers.
 
 * Add an image to the background of the landing page.
 * Make a background image once in the site.
