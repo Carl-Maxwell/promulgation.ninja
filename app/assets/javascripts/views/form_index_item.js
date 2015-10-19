@@ -22,10 +22,16 @@ Promulgation.Views.FormIndexItem = Backbone.View.extend({
     if (target.is('.nope-nope')) return;
     target.addClass('nope-nope');
 
-    Promulgation.confirm('Are you sure you want to delete this form?', function() {
-      this.model.destroy();
-    }.bind(this) );
+    Promulgation.confirm(
+      'Are you sure you want to delete this form?',
+      function() {
+        this.model.destroy();
+      }.bind(this),
+      function() {
+        target.removeClass('nope-nope');
+      }
+    );
 
-    
+
   }
 });
