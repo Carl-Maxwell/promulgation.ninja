@@ -57,9 +57,11 @@ class Api::FormsController < ApplicationController
         field.save
       end
 
-      field = field.dup
-      field.fields.map(&:dup)
-      form.fields << field
+      new_field = field.dup
+      field.fields.each do |sub_field|
+        new_field.fields << sub_field.dup
+      end
+      form.fields << new_field
     end
 
     form.slug ||= original_form.id
