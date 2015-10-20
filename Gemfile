@@ -20,7 +20,7 @@ gem 'phony_rails'
 
 gem 'hashids'
 
-gem 'seed_dump'
+gem 'yaml_db'
 
 group :development, :test do
   gem 'byebug'
