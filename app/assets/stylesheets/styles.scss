@@ -335,6 +335,9 @@ body{
     tr:last-child td{
       padding-bottom: 10px;
     }
+    .created_at_column{
+      width: 150px;
+    }
   }
   tfoot, thead{
     background: #E1E1E1;
