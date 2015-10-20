@@ -4,6 +4,7 @@ Promulgation.Views.FormShow = Backbone.CompositeView.extend({
   className: 'form-show',
 
   initialize: function() {
+    this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addField);
 
     this.collection.each(function(field) {
@@ -23,7 +24,7 @@ Promulgation.Views.FormShow = Backbone.CompositeView.extend({
    },
 
   render: function() {
-    this.$el.html(this.template());
+    this.$el.html(this.template({model: this.model}));
     this.attachSubviews();
 
     return this;
