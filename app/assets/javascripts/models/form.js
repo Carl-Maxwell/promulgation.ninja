@@ -29,5 +29,9 @@ Promulgation.Models.Form = Backbone.Model.extend({
     }
 
     return payload;
+  },
+
+  isPublished: function() {
+    return this.get('slug') != null;
   }
 });

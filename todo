@@ -5,6 +5,7 @@ promulgation.ninja todo
 * Do add the photos/colors when you get a chance
 
 * only show the navbar if the user is the owner (d'oh!)
+* only show submissions & view form if the form has been promulgated
 
 * add a few more submissions for each form.  
 * On the pages for each form, across the top, add a "Delete" button 

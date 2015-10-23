@@ -4,20 +4,32 @@ Promulgation.Views.Navbar = Backbone.View.extend({
   className: "navbar-center-links",
 
   initialize: function() {
-    Promulgation.router.on('route', this.routerRouted.bind(this));
+    Promulgation.router.on('route', this.route.bind(this));
   },
 
-  routerRouted: function(route, params) {
+  route: function(route, params) {
     var activePage = ['formEdit', 'formShow', 'submissionIndex'].indexOf(route);
+
+    var form = Promulgation.view.model;
+
     if (!isGuest() && activePage != -1) {
-      this.render(params[0], activePage);
+      if (form.isPublished()) {
+        this.render(params[0], activePage, form.get('submission_count'));
+      } else {
+        this.unrender();
+        form.once('sync', this.route.bind(this, route, params));
+      }
     } else {
       this.unrender();
     }
   },
 
-  render: function(id, activePage) {
-    this.$el.html(this.template({id: id, activePage: activePage}));
+  render: function(id, activePage, submissionCount) {
+    this.$el.html(this.template({
+      id: id,
+      activePage: activePage,
+      submissionCount: submissionCount
+    }));
 
     this.$el.removeClass('borderless');
 
