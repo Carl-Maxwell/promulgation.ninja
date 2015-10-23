@@ -219,6 +219,10 @@ header{
   margin-bottom: 20px;
   padding: 0 10px;
 
+  &.borderless{
+    border: 0;
+  }
+
   li{
     float: left;
 
