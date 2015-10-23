@@ -1,0 +1,29 @@
+<% if (typeof id != 'undefined') {%>
+  <li>
+    <% if (activePage == 0) { %>
+      <span>Edit Form</span>
+    <% } else { %>
+      <a href="/#forms/<%= id %>/edit">
+        Edit Form
+      </a>
+    <% } %>
+  </li>
+  <li>
+    <% if (activePage == 1) { %>
+      <span>View Form</span>
+    <% } else { %>
+      <a href="/<%= id %>">
+        View Form
+      </a>
+    <% } %>
+  </li>
+  <li>
+    <% if (activePage == 2) { %>
+     <span>Submissions</span>
+    <% } else { %>
+      <a href="/#forms/<%= id %>/submissions">
+        Submissions
+      </a>
+    <% } %>
+  </li>
+<% } %>

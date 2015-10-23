@@ -5,7 +5,8 @@
     Promulgation.initialize();
 
     <% if @form %>
-    Promulgation.router.formShow(<%= @form.id %>);
+      Promulgation.router.formShow(<%= @form.id %>);
+      Promulgation.router.trigger('route', 'formShow', [<%= @form.slug %>, null]);
     <% end %>
   });
 </script>

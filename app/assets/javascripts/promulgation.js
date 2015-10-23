@@ -22,6 +22,8 @@ window.Promulgation = {
     Promulgation.router.on('route', function() {
       Promulgation.shepherd.closeSteps();
     });
+
+    var navbar = new Promulgation.Views.Navbar({ el: $('.navbar-center-links') });
   },
 
   _onPromulgate: [],

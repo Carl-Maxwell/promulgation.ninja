@@ -2,10 +2,38 @@ promulgation.ninja todo
 
 ---
 
+* Do add the photos/colors when you get a chance
+
+* add a few more submissions for each.  
+* On the page for each form, instead of a Forms button across the top, use the same space to make "See Form," "See Submissions" and "Delete" buttons for each form 
+* Add a All Forms button in the top nav, to the left of Logout
+* Finally, make sure the seed data resets itself regularly so that new data added by users doesn't get saved long-term.  
+
+---
+
 * if the first item is a dropdown,
   and you ctrl+r then click on the properties tab, it won't have children.
   if you click on the dropdown on the right it will acquire children.
   * there's also the old problem where it doesn't animate the arrow into place
+
+---
+
+Seeding todos
+
+* brainstorm ideas for forms to make.
+* write some questionnaires (strawberry cupcakes, etc)
+* generate some questionnaires somehow...
+
+* add pagination to forms index
+* add pagination to submissions index
+
+should aim for like 30-ish forms I guess? with like three questions each?
+
+probably just lorem ipsum for the submissions
+
+---
+
+rake db:drop db:create db:migrate db:data:load
 
 ---
 
@@ -20,8 +48,6 @@ it is difficult to see what it does or how powerful it is.
 * Add an image to the background of the landing page.
 * Make a background image once in the site.
 * Add more pictures/fonts/color in general. For example, the Add A Field buttons could all have icons.  
-
-* There needs to be more example surveys and results when the guest logs in.  Add more seed data.  
 
 * The tour currently guides the user to fill out a form. No one likes filling out forms.
   * Instead, make the tour guide someone through the site.
@@ -38,6 +64,8 @@ it is difficult to see what it does or how powerful it is.
 * reloading the form edit page doesn't load the fields...
 
 I'm no longer getting any of these issues : /
+
+That is frustrating.
 
 ---
 
