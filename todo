@@ -4,9 +4,8 @@ promulgation.ninja todo
 
 * Do add the photos/colors when you get a chance
 
-* add a few more submissions for each.  
-* On the page for each form, instead of a Forms button across the top, use the same space to make "See Form," "See Submissions" and "Delete" buttons for each form 
-* Add a All Forms button in the top nav, to the left of Logout
+* add a few more submissions for each form.  
+* On the page for each form, across the top, add a "Delete" button 
 * Finally, make sure the seed data resets itself regularly so that new data added by users doesn't get saved long-term.  
 
 ---

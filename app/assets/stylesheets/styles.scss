@@ -223,7 +223,7 @@ header{
     float: left;
 
     &:not(:first-child):before{
-      content: "/";
+      content: "|";
     }
     a, span{
       display: inline-block;
