@@ -4,9 +4,14 @@ promulgation.ninja todo
 
 * Do add the photos/colors when you get a chance
 
+* only show the navbar if the user is the owner (d'oh!)
+
 * add a few more submissions for each form.  
-* On the page for each form, across the top, add a "Delete" button 
+* On the pages for each form, across the top, add a "Delete" button 
 * Finally, make sure the seed data resets itself regularly so that new data added by users doesn't get saved long-term.  
+
+* pagination (forms index, submissions index)
+* google drive integration
 
 ---
 
