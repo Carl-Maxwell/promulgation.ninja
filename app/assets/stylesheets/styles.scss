@@ -940,6 +940,16 @@ input[type="submit"], button, .large-button{
   }
 }
 
+.add-form{
+  background: image-url('icons/0037-file-empty_505050rgb.png') no-repeat 8px 8px;
+
+  display: inline-block;
+  padding-left: 28px !important;
+
+  &:hover{
+    // background-image: image-url('icons/0174-bin2_white.png');
+  }
+}
 
 // .submissions-link{
 //   background: image-url('icons/0093-drawer.png') no-repeat 0% 7px;
