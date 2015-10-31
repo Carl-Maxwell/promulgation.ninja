@@ -735,7 +735,7 @@ input[type="submit"], button, .large-button{
     border: 1px solid hsla(0, 0%, 0%, 0.2);
 
     &:hover{
-      background: #E50000;
+      background-color: #E50000;
       border-color: red;
       box-shadow: 0 0 10px pink;
       color: white;
@@ -925,3 +925,24 @@ input[type="submit"], button, .large-button{
 .form-show .header{
   margin-bottom: 10px;
 }
+
+//
+//
+//
+
+.delete{
+  background: image-url('icons/0174-bin2_red.png') no-repeat 8px 8px;
+  display: inline-block;
+  padding-left: 28px !important;
+
+  &:hover{
+    background-image: image-url('icons/0174-bin2_white.png');
+  }
+}
+
+
+// .submissions-link{
+//   background: image-url('icons/0093-drawer.png') no-repeat 0% 7px;
+//   display: inline-block;
+//   padding-left: 24px !important;
+// }
