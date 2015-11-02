@@ -2,14 +2,84 @@ promulgation.ninja todo
 
 ---
 
-* Do add the photos/colors when you get a chance
+* maybe replace the new form icon?
+
+* I set the created_at dates to (id**2).hours.ago, but after a month they'll all
+say '1 month ago' &c. So, new rake task?
+
+* can't read paragraphs in submission modals, 
+  add {width: 300px; whitespace: pre-wrap; } or the like
+  see http://localhost:3000/#/forms/5/submissions for an example
+* also the shadow on that modal needs to be {position: fixed}
+
+---
+
+* 10 surveys, with 3 submissions.
+
+* restructure the tour
+
+* snip column values that are too long to show on one line
+
+---
+
+* only show the navbar if the user is the owner (d'oh!)
+* only show submissions & view form if the form has been promulgated
+
+* pagination (forms index, submissions index)
+* google drive integration
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+* Try an image search of words like 'forms' or 'feedback' or 'survey' and see if any pics could be incorporated as a background image.
+
+* As for seed data, if it's a lot of work, a smaller number of surveys (around 10?) with great seed data would be better than a lot of surveys with mediocre seed data.  If making great surveys and submissions is taking a long time, it would be ok to pare down a bit.
 
 * only show the navbar if the user is the owner (d'oh!)
 * only show submissions & view form if the form has been promulgated
 
 * add a few more submissions for each form.  
 * On the pages for each form, across the top, add a "Delete" button 
-* Finally, make sure the seed data resets itself regularly so that new data added by users doesn't get saved long-term.  
 
 * pagination (forms index, submissions index)
 * google drive integration
@@ -38,7 +108,11 @@ probably just lorem ipsum for the submissions
 
 ---
 
+rake db:data:dump
+
 rake db:drop db:create db:migrate db:data:load
+
+rake db:data:load
 
 ---
 
