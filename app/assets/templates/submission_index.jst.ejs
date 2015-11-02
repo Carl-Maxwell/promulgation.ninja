@@ -8,7 +8,7 @@
 <thead>
   <tr>
     <% fields.slice(0, 3).forEach(function(field) { %>
-      <th><%= field.get('label') %></th>
+      <th><%= snip(field.get('label')) %></th>
     <% }); %>
     <th>Actions</th>
   </tr>

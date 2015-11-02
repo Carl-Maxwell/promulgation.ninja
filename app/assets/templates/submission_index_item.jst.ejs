@@ -2,7 +2,7 @@
   <td>
     <% if (field) { %>
     <a class="show-modal" href="#/submissions/<%= model.get('id') %>/">
-      <%= field.escape("value") %>
+      <%= snip(field.escape("value")) %>
     </a>
     <% } %>
   </td>
