@@ -3,7 +3,7 @@
   <input type="text" name="title" value="<%= model.escape('title') %>" autofocus />
 </label>
 
-<% if (model.get('slug')) {%>
+<% if (false && model.get('slug')) {%>
   <ul class="slug-links">
     <li><a href="/<%= model.get('slug') %>" class="view-form" target="_blank">View Form</a></li>
     <li><a href="#/forms/<%= model.get('slug') %>/submissions">Submissions</a></li>
