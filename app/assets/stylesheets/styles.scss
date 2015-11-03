@@ -831,6 +831,8 @@ input[type="submit"], button, .large-button{
     &.padded{
       padding: 10px;
     }
+
+
   }
 
   .header{
@@ -851,6 +853,14 @@ input[type="submit"], button, .large-button{
 
     td:first-child{
       padding-left: 20px;
+    }
+
+    td{
+      max-width: 300px;
+
+      pre{
+        white-space: pre-wrap;
+      }
     }
   }
 
