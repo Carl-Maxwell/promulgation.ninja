@@ -49,7 +49,7 @@
     };
 
     //
-    //
+    // the steps
     //
 
     tour.steps = [];
@@ -59,6 +59,26 @@
         id: 'guest-login',
         words: 'Click here and I\'ll walk you through some features!',
         attachTo: '.guest-button left'
+      },
+      {
+        id: 'goto-submissions-index',
+        words: 'Click here to see what people are saying about the Council of Elrond\'s last meeting',
+        attachTo: '[href="#/forms/10/submissions"] left',
+        conditional: function(callback) {
+          if (isLoggedInGuest()) {
+            callback();
+          }
+        }
+      },
+      {
+        id: 'mirkwood-submission',
+        words: 'Lets see what the representative from Mirkwood has to say about the meeting!',
+        attachTo: '[data-column-number="1"][href="#/submissions/6/"] top',
+        conditional: function(callback) {
+          if (isLoggedInGuest()) {
+            callback();
+          }
+        }
       },
       {
         id: 'add-form',

@@ -1,7 +1,11 @@
-<% submissionFields.forEach(function(field) { %>
+<% submissionFields.forEach(function(field, index) { %>
   <td>
     <% if (field) { %>
-    <a class="show-modal" href="#/submissions/<%= model.get('id') %>/">
+    <a
+      class="show-modal"
+      href="#/submissions/<%= model.get('id') %>/"
+      data-column-number="<%= index %>"
+    >
       <%= snip(field.escape("value")) %>
     </a>
     <% } %>
