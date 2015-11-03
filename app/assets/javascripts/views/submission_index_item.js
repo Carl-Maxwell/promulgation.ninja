@@ -44,6 +44,8 @@ Promulgation.Views.SubmissionIndexItem = Backbone.View.extend({
       submissionFields: submissionFields
     }));
 
+    this.trigger('render');
+
     return this;
   },
 
