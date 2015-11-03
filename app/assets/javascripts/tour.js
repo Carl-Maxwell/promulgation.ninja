@@ -60,6 +60,10 @@
       return location.hash == "";
     };
 
+    var isOnElrondSubmissions = function() {
+      return location.hash == "#/forms/10/submissions";
+    };
+
     //
     // the steps
     //
@@ -87,7 +91,7 @@
         words: 'Lets see what the representative from Mirkwood has to say about the meeting!',
         attachTo: '[data-column-number="1"][href="#/submissions/6/"] top',
         conditional: function(callback) {
-          if (!isModalOpen() && isLoggedInGuest()) {
+          if (isOnElrondSubmissions() && !isModalOpen() && isLoggedInGuest()) {
             callback();
           }
         }
@@ -97,7 +101,7 @@
         words: 'Doesn\'t seem very happy. Well, it\'s something to take note of for the next meeting I guess... Let\'s move on!',
         attachTo: '.good-button.close-modal top',
         conditional: function(callback) {
-          if (isModalOpen() && isLoggedInGuest()) {
+          if (isOnElrondSubmissions() && isModalOpen() && isLoggedInGuest()) {
             callback();
           }
         },
