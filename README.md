@@ -4,7 +4,7 @@
 
 [Live link](http://promulgation.ninja)
 
-A webapp built in Rails, Backbone & Postgres, using BrowserStack for cross browser testing.
+A webapp built in Rails, Backbone & Postgres, using [BrowserStack](https://www.browserstack.com/) for cross browser testing.
 
 ## Minimum Viable Product
 Promulgation.ninja is a form building app inspired by [Wufoo](wufoo.com) built
