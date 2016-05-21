@@ -13,7 +13,6 @@ Promulgation.Views.SubmissionIndexItem = Backbone.View.extend({
   },
 
   render: function() {
-
     //
     // Grab the 3 fields to show
     //
@@ -44,6 +43,8 @@ Promulgation.Views.SubmissionIndexItem = Backbone.View.extend({
       submissionFields: submissionFields
     }));
 
+    this.trigger('render');
+
     return this;
   },
 
@@ -63,5 +64,10 @@ Promulgation.Views.SubmissionIndexItem = Backbone.View.extend({
     $('body').append(view.$el);
 
     view.render();
+
+    // TODO doesn't this view become a zombie?
+      // The 'view' variable is not being stored
+
+    this.trigger('render');
   },
 });

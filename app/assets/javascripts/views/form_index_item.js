@@ -13,6 +13,8 @@ Promulgation.Views.FormIndexItem = Backbone.View.extend({
       submissionCount: this.model.get('submission_count')
     }));
 
+    this.trigger('render');
+
     return this;
   },
 
@@ -31,7 +33,5 @@ Promulgation.Views.FormIndexItem = Backbone.View.extend({
         target.removeClass('nope-nope');
       }
     );
-
-
   }
 });

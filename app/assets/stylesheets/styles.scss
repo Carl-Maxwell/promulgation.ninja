@@ -348,6 +348,9 @@ body{
       float: right;
     }
   }
+  .submissions-index-form-name{
+    color: #fab;
+  }
   .wrapper{
     @extend .clearfix;
     background-color: white;
@@ -538,7 +541,7 @@ body{
         width: auto;
       }
       .child-name{
-        width: 301px - 10;
+        width: 283px - 10;
       }
       .add-child{
         margin: 10px 20px 10px 10px;
@@ -828,6 +831,8 @@ input[type="submit"], button, .large-button{
     &.padded{
       padding: 10px;
     }
+
+
   }
 
   .header{
@@ -848,6 +853,14 @@ input[type="submit"], button, .large-button{
 
     td:first-child{
       padding-left: 20px;
+    }
+
+    td{
+      max-width: 300px;
+
+      pre{
+        white-space: pre-wrap;
+      }
     }
   }
 
@@ -927,10 +940,10 @@ input[type="submit"], button, .large-button{
 }
 
 //
-//
+// icons?
 //
 
-.delete{
+.delete, .delete-field{
   background: image-url('icons/0174-bin2_red.png') no-repeat 8px 8px;
   display: inline-block;
   padding-left: 28px !important;
@@ -951,12 +964,19 @@ input[type="submit"], button, .large-button{
   }
 }
 
+.promulgate{
+  background: image-url('ninja-icon.png') no-repeat 8px 8px;
+
+  display: inline-block;
+  padding-left: 28px !important;
+
+  &:active{
+    background-image: image-url('ninja-icon_pink.png');
+  }
+}
+
+// and this thing
+
 td{
   vertical-align: middle;
 }
-
-// .submissions-link{
-//   background: image-url('icons/0093-drawer.png') no-repeat 0% 7px;
-//   display: inline-block;
-//   padding-left: 24px !important;
-// }

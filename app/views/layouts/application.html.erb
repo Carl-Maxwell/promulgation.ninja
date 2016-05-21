@@ -20,7 +20,7 @@
         <a class="logo" href="/"></a>
         <ul class="navbar-right-links">
           <% if logged_in? %>
-            <li><%= link_to("All Forms", '#') %></li>
+            <li><%= link_to("All Forms", '#', class: 'forms-index-link') %></li>
           <% end %>
           <li><%=
             unless logged_in?

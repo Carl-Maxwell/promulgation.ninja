@@ -48,8 +48,24 @@
       return $('meta[name="is-logged-in-guest"]').length;
     };
 
+    var isModalOpen = function() {
+      return $('.modal:visible').length;
+    };
+
+    var isMirkwoodMarked = function() {
+      return shepherd.markedSteps.indexOf('close-mirkwood-submission') != -1;
+    };
+
+    var isOnFormsIndex = function() {
+      return location.hash == "";
+    };
+
+    var isOnElrondSubmissions = function() {
+      return location.hash == "#/forms/10/submissions";
+    };
+
     //
-    //
+    // the steps
     //
 
     tour.steps = [];
@@ -61,11 +77,57 @@
         attachTo: '.guest-button left'
       },
       {
+        id: 'goto-submissions-index',
+        words: 'Click here to see what people are saying about the Council of Elrond\'s last meeting',
+        attachTo: '[href="#/forms/10/submissions"] left',
+        conditional: function(callback) {
+          if (!isMirkwoodMarked() && isLoggedInGuest()) {
+            callback();
+          }
+        }
+      },
+      {
+        id: 'open-mirkwood-submission',
+        words: 'Lets see what the representative from Mirkwood has to say about the meeting!',
+        attachTo: '[data-column-number="1"][href="#/submissions/6/"] top',
+        conditional: function(callback) {
+          if (isOnElrondSubmissions() && !isModalOpen() && isLoggedInGuest()) {
+            callback();
+          }
+        }
+      },
+      {
+        id: 'close-mirkwood-submission',
+        words: 'Doesn\'t seem very happy. Well, it\'s something to take note of for the next meeting I guess... Let\'s move on!',
+        attachTo: '.good-button.close-modal top',
+        conditional: function(callback) {
+          if (isOnElrondSubmissions() && isModalOpen() && isLoggedInGuest()) {
+            callback();
+          }
+        },
+        initialize: function() {
+          $('.good-button.close-modal').one('click', function() {
+            shepherd.markStep(this.id);
+            shepherd.addSteps();
+          }.bind(this));
+        }
+      },
+      {
+        id: 'goto-forms-index-to-add-form',
+        words: 'Now let\'s go add a new form of our own!',
+        attachTo: '.forms-index-link bottom',
+        conditional: function(callback) {
+          if (!isOnFormsIndex() && isMirkwoodMarked() && isLoggedInGuest()) {
+            callback();
+          }
+        }
+      },
+      {
         id: 'add-form',
         words: 'Let\'s add a new form!',
         attachTo: '.add-form left',
         conditional: function(callback) {
-          if (isLoggedInGuest()) {
+          if (isMirkwoodMarked() && isLoggedInGuest()) {
             callback();
           }
         }
@@ -145,8 +207,9 @@
           selector = step.attachTo.split(' ').slice(0, -1).join(' ');
         }
 
-
         if ($(selector).length) {
+          if (!tour.steps.length && step.initialize) step.initialize();
+
           tour.addStep(step.id, {
             text: step.words,
             attachTo: step.attachTo,
