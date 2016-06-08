@@ -2,6 +2,11 @@ promulgation.ninja todo
 
 ---
 
+* the tabs in the edit view should have a border-radius of 3px, and padding of 10px 10px 5px 10px
+  * this brings them in line with the buttons used throughout the interface.
+
+---
+
 * maybe replace the new form icon?
 
 * I set the created_at dates to (id**2).hours.ago, but after a month they'll all
