@@ -2,17 +2,12 @@ promulgation.ninja todo
 
 ---
 
-* the tabs in the edit view should have a border-radius of 3px, and padding of 10px 10px 5px 10px
-  * this brings them in line with the buttons used throughout the interface.
-
----
-
 * maybe replace the new form icon?
 
 * I set the created_at dates to (id**2).hours.ago, but after a month they'll all
 say '1 month ago' &c. So, new rake task?
 
-* can't read paragraphs in submission modals, 
+* can't read paragraphs in submission modals,
   add {width: 300px; whitespace: pre-wrap; } or the like
   see http://localhost:3000/#/forms/5/submissions for an example
 * also the shadow on that modal needs to be {position: fixed}
@@ -83,8 +78,8 @@ say '1 month ago' &c. So, new rake task?
 * only show the navbar if the user is the owner (d'oh!)
 * only show submissions & view form if the form has been promulgated
 
-* add a few more submissions for each form.  
-* On the pages for each form, across the top, add a "Delete" button 
+* add a few more submissions for each form.
+* On the pages for each form, across the top, add a "Delete" button
 
 * pagination (forms index, submissions index)
 * google drive integration
@@ -131,7 +126,7 @@ it is difficult to see what it does or how powerful it is.
 
 * Add an image to the background of the landing page.
 * Make a background image once in the site.
-* Add more pictures/fonts/color in general. For example, the Add A Field buttons could all have icons.  
+* Add more pictures/fonts/color in general. For example, the Add A Field buttons could all have icons.
 
 * The tour currently guides the user to fill out a form. No one likes filling out forms.
   * Instead, make the tour guide someone through the site.
@@ -184,7 +179,7 @@ some user stories (to help brainstorm seed data):
 
 * Garshe Shnark the reknown self published author has been noticing a decline in sales in his bestselling serial "Adventures of Dark Darkdoom". His latest episode, "Dark Darkdoom versus Shadowdark Dragon!" has been a record low in sales for the series. He's trying to figure out why his audience is losing interest in his series, so he sends out a questionnaire to his mailing list to ask his biggest fans what they thought about the episode, and where they think Dark Darkdoom should go next.
 * Ato Ringleside is the owner the startup BabyElephantHugs that brings baby elephants to people's houses on command. He's been trying to figure out how he could improve his customer's experience with the elephants. He's decided to include a feedback form in their receipts, but doesn't have the time to develop the form or analytics.
-* 
+*
 
 ---
 
@@ -264,7 +259,7 @@ some user stories (to help brainstorm seed data):
 - [ ] validation
   - [ ] allow user to specify arbitrary regex for validation
         => (contains, does not contain, matches, does not match)
-- [x] users filling out and submitting form 
+- [x] users filling out and submitting form
  - [ ] searching through user form submissions
   - [ ] submissions must be paginated
 - [ ] notificiations
@@ -293,16 +288,16 @@ on publishing a new live version of a form
 
 - [ ] rating
 
-- [ ] visual text  
+- [ ] visual text
 
 - [ ] section break
-- [ ] page break   
+- [ ] page break
 
-- [ ] address      
+- [ ] address
 
-- [ ] likert       
+- [ ] likert
 
-- [ ] code editor  
+- [ ] code editor
 - [ ] markup editor
 
 ## show
